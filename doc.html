@@ -6,7 +6,7 @@
 <body>
 
 <h1>Git Documentation</h1>
-
+<img src="Git-Logo.png" alt="Smiley face" height="88" width="88">
 <div>
 <h2>Installing on Linux</h2>
 <p>If you want to install Git on Linux via a binary installer, you can generally do so through the basic package-management tool that comes with your distribution. If you are on Fedora for example, you can use yum:</p>
@@ -58,6 +58,22 @@ git add *
 git commit -m "My initial commit message"
 git remote add origin git@example.com:my_project.git
 git push -u origin master
+</pre>
+</div>
+
+<div>
+<pre>
+git reset --hard HEAD~1
+</pre>
+The HEAD~1 means the commit before head.
+
+Or, you could look at the output of git log, find the commit id of the commit you want to back up to, and then do this:
+<pre>
+git reset --hard <sha1-commit-id>
+</pre>
+If you already pushed it, you will need to do a force push to get rid of it...
+<pre>
+git push origin HEAD --force
 </pre>
 </div>
 
