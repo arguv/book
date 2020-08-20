@@ -8,24 +8,87 @@
 	    <title>Book</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="../css/index.css">
 	</head>
 	<body>
 
 	    <div class="container">
 	        <div class="row">
 
-				<pre>
+				<pre></pre>
+				<code></code>
 
-				</pre>
+				<div class="center">
+					<h1>The SOLID Principles</h1>
+					<p>SOLID is a acronym for five object-oriented design (OOD) principles that are intended to make software designs more understandable</p>
+				</div>
 
-				<blockquote>
+				<div>
+					<h2>S — (known as SRP) Single Responsibility Principle</h2>
+				</div>
 
+				<blockquote class="blockquote">
+					A class should have a single responsibility. This principle dictates that a class should have ONLY one reason to change.
+					This means that all the methods and properties should all work towards the same goal.
 				</blockquote>
 
-				<code>
+				<div>
+					<h2>O — (known as OCP) Open-Close Principle</h2>
+				</div>
 
-  				</code>
+				<blockquote class="blockquote">
+					This techniques dictates that a class should be open to extension and closed for modification.
+					This means that your code should be written so that others (or a future you) can modify how it works without having to edit the existing code.
+					When talking about making a class open for extension, the obvious thing to mention is class inheritance and interfaces.
+					The interfaces shouldn't change (closed for modification) - however of course the implementation of these publicly facing methods should be open for extension in subclasses.
+					If you want the Class to perform more functions, the ideal approach is to add to the functions that already exist NOT change them.
+					This principle aims to extend a Class’s behaviour without changing the existing behaviour of that Class.
+				</blockquote>
+
+				<div>
+					<h2>L — (known as LSP) Liskov Substitution Principle</h2>
+				</div>
+
+				<blockquote class="blockquote">
+					By Barbara Liskov – "If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program."<br>
+					This principle basically specifies that child classes should be suitable for their parent classes.
+					This means it will adhere to the principles and functionality of the class it extends.
+					When a child Class cannot perform the same actions as its parent Class, this can cause bugs.
+					If you have a Class and create another Class from it, it becomes a parent and the new Class becomes a child.
+					The child Class should be able to do everything the parent Class can do. This process is called Inheritance.
+					The child Class should be able to process the same requests and deliver the same result as the parent Class or it could deliver a result that is of the same type.
+				</blockquote>
+
+				<div>
+					<h2>I — (known as ISP) Interface Segregation Principle</h2>
+				</div>
+
+				<blockquote class="blockquote">
+					By Robert C Martin - The Interface Segregation Principle states that a class should never be forced to implement an interface that it doesn’t use.
+					So.. please stop making fat interfaces (remember, in PHP you can implement more than one interface in a class than one huge 'fat' interface).
+					A Class should perform only actions that are needed to fulfil its role.
+					Any other action should be removed completely or moved somewhere else if it might be used by another Class in the future.
+					This principle aims at splitting a set of actions into smaller sets so that a Class executes ONLY the set of actions it requires.
+				</blockquote>
+
+				<div>
+					<h2>D — (known as DIP) Dependency Inversion Principle</h2>
+				</div>
+
+				<blockquote class="blockquote">
+					High-level modules should not depend on low-level modules. Both should depend on the abstraction.
+					Abstractions should not depend on details. Details should depend on abstractions.<br>
+					<strong>High-level Module(or Class)</strong>: Class that executes an action with a tool.<br>
+					<strong>Low-level Module (or Class)</strong>: The tool that is needed to execute the action.<br>
+					<strong>Abstraction</strong>: Represents an interface that connects the two Classes.<br>
+					<strong>Details</strong>: How the tool works<br>
+
+					This principle says a Class should not be fused with the tool it uses to execute an action.
+					Rather, it should be fused to the interface that will allow the tool to connect to the Class.
+					It also says that both the Class and the interface should not know how the tool works.
+					However, the tool needs to meet the specification of the interface.
+					This principle aims at reducing the dependency of a high-level Class on the low-level Class by introducing an interface.
+				</blockquote>
 
 	        </div>
 	    </div>
@@ -33,6 +96,6 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="./js/index.js"></script>
+	    <script src="../js/index.js"></script>
 </body>
 </html>
