@@ -8,24 +8,109 @@
 	    <title>Book</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="../css/index.css">
 	</head>
 	<body>
 
 	    <div class="container">
 	        <div class="row">
 
-				<pre>
+				<pre></pre>
+				<code></code>
 
-				</pre>
+				<div class="center">
+					<h1>Programming Principles</h1>
+					<p>DRY , KISS , YAGNI</p>
+				</div>
 
-				<blockquote>
+				<div>
+					<h2><strong>DRY – Don’t Repeat Yourself</strong></h2>
+				</div>
 
+				<blockquote class="blockquote">
+					“Don’t Repeat Yourself” – How many times do you see that there are similar codes in different parts of a system?
+					The DRY principle, formulated by Andrew Hunt and David Thomas in their book The Pragmatic Programmer,
+					states that “every piece of knowledge must have a single, unambiguous, authoritative representation within a system."
+					In other words, you must try to maintain the behavior of a functionality of the system in a single piece of code.<br>
+
+					On the other hand, when the DRY principle is not followed, this is known as WET solutions, which stands for either
+					Write Everything Twice or We Enjoy Typing.
+					DRY refers to code writing methodology. DRY usually refers to code duplication.
+					If we write the same logic more than once, we should “DRY up our code.”
+					This concept is advising us to divide code that does the same thing to small parts.
+					Sometimes we have multiple lines of code basically doing the same: like filter by array with specified criteria,
+					adding some things to object etc. Usually good practice is to get rid of it.
 				</blockquote>
 
-				<code>
+				<div>
+					<h2><strong>KISS – Keep It Simple Stupid</strong></h2>
+				</div>
 
-  				</code>
+				<blockquote class="blockquote">
+					The KISS principle was coined by Kelly Johnson, and it states that most systems work best
+					if they are kept simple rather than making them complex; therefore, simplicity should be a key goal in design
+					and unnecessary complexity should be avoided.<br>
+					That means each method, class, interface should be names as clear as possible and also logic inside functions,
+					method etc. should be clear and simple as it can be.<br>
+					Each method should only solve one small problem, not many use cases. If you have a lot of conditions in the method, break these out into smaller methods.
+					It will not only be easier to read and maintain but also can find bugs a lot faster.
+					Keep your methods small, each method should never be more than 40-50 lines.
+				</blockquote>
+
+				<div>
+					<h2><strong>YAGNI – You Aren’t Gonna Need It</strong></h2>
+				</div>
+
+				<blockquote class="blockquote">
+					A step brother of KISS. Part of keeping it simple is not adding modules, frameworks and dependencies we don’t actually need.
+					That principle is not telling us how to do something in code directly, but rather how to code effectively.
+					In general it says that we should code only things that are required from us in this particular moment.
+					For example: when we will have to do validation of email and password field, we shouldn’t do validation of name, because we may never need it.
+					`YAGNI` is trying to save us time and focus on most important things in our sprint.<br>
+					You can’t waste time coding those features that you may end up needing to correct, change, or remove because they do not fit the needs of the product.
+				</blockquote>
+
+				<div>
+					<h2>TDA - Tell don’t ask</h2>
+				</div>
+
+				<blockquote class="blockquote">
+					This principle suggest that we should write code in a way that object behave rather then in what state they are in.
+					This can avoid unnecessary dependencies between classes and thanks to that have more maintainable code.
+					It is strongly related to code encapsulation.
+				</blockquote>
+
+				<div>
+					<h2>TDD – Test Driven Development</h2>
+				</div>
+
+				<blockquote class="blockquote">
+					Test Drive Development is the equivalent of eating all your veggies and exercising 3 times a week. Its good for you and everyone should be doing it.<br>
+					TDD can be summed in 4 steps:<br>
+
+					1. Decide on the desired functionality<br>
+					2. Create the test for that functionality first. The test fails since no code exists yet.<br>
+					3. Write the code that implements the desired functionality. The test now passes.<br>
+					4. Repeat.<br>
+					There are many studies that show this way of writing code is much more effiecient than the other way.
+					Writing tests first ensures near 100% test code coverage. You’ll spend more time coding and less time debugging future errors.
+
+					But like excercising regularly and eating veggies, few of us actually do it.
+					And those of us who do make sure EVERYONE knows about it.
+					We get it Bob, TDD changed your life and everything now please stop talking.
+				</blockquote>
+
+				<div>
+					<h2>SOC – Separation of Concerns</h2>
+				</div>
+
+				<blockquote class="blockquote">
+					This principle is telling us to separate responsibility of a single class to this class and this class only.
+					Objects should not share what they do.
+					Each class should be unique and separated from the rest.<br>
+					There’s a reason there are so many different ways of reminding you to do just one thing.
+					A lot of times you believe you’re doing just the one thing, but you then realize you can divide that one thing into several other smaller things.
+				</blockquote>
 
 	        </div>
 	    </div>
@@ -33,6 +118,6 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="./js/index.js"></script>
+	    <script src="../js/index.js"></script>
 </body>
 </html>
