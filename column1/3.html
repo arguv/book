@@ -8,24 +8,112 @@
 	    <title>Book</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="../css/index.css">
 	</head>
 	<body>
 
 	    <div class="container">
 	        <div class="row">
 
-				<pre>
+				<pre></pre>
+				<code></code>
 
-				</pre>
+				<div class="center">
+					<h1>SOAP vs REST</h1>
+					<p>
+						SOAP and REST both allow you to create your own API. API stands for Application Programming Interface.
+						It makes it possible to transfer data from an application to other applications.
+						An API receives requests and sends back responses through internet protocols such as HTTP, SMTP, and others.
+						SOAP and REST are both web service communication protocols.
+					</p>
+				</div>
 
-				<blockquote>
+				<div class="col-6">
+					<div>
+						<h2><strong>SOAP</strong></h2>
+					</div>
 
-				</blockquote>
+					<blockquote class="blockquote">
+						SOAP stands for Simple Object Access Protocol
+					</blockquote>
 
-				<code>
+					<blockquote class="blockquote">
+						SOAP is a protocol. SOAP was designed with a specification.
+						It includes a WSDL file which has the required information on what the web service does in addition to the location of the web service.
+					</blockquote>
 
-  				</code>
+				</div>
+				<div class="col-6">
+					<div>
+						<h2><strong>REST</strong></h2>
+					</div>
+
+					<blockquote class="blockquote">
+						REST stands for Representational State Transfer
+					</blockquote>
+
+					<blockquote class="blockquote">
+						REST is an Architectural style in which a web service can only be treated as a RESTful service if it follows the constraints of being<br>
+						1. Client Server<br>
+						2. Stateless<br>
+						3. Cacheable<br>
+						4. Layered System<br>
+						5. Uniform Interface<br>
+					</blockquote>
+					
+					<blockquote>
+						REST can use four different HTTP 1.1 verbs (GET, POST, PUT, and DELETE) to perform tasks.
+					</blockquote>
+
+				</div>
+
+				<table class="table table-striped">
+					<thead>
+					<tr>
+						<th scope="col">Difference</th>
+						<th scope="col">SOAP</th>
+						<th scope="col">REST</th>
+					</tr>
+					</thead>
+
+					<tbody>
+					<tr>
+						<th>Style</th>
+						<td>Protocol</td>
+						<td>Architectural style</td>
+					</tr>
+					<tr>
+						<th>Function</th>
+						<td>Function-driven: transfer structured information</td>
+						<td>Data-driven: access a resource for data</td>
+					</tr>
+					<tr>
+						<th>Data format</th>
+						<td>Only uses XML</td>
+						<td>Permits many data formats, including plain text, HTML, XML and JSON</td>
+					</tr>
+					<tr>
+						<th>Security</th>
+						<td>Supports WS-Security and SSL</td>
+						<td>Supports SSL and HTTPS</td>
+					</tr>
+					<tr>
+						<th>Data cache</th>
+						<td>Can not be cached</td>
+						<td>Can be cached</td>
+					</tr>
+					<tr>
+						<th>Payload handling</th>
+						<td>Has a strict communication contract and needs knowledge of everything before any interaction</td>
+						<td>Needs no knowledge of the API</td>
+					</tr>
+					<tr>
+						<th>Bandwidth</th>
+						<td>Requires more resources and bandwidth</td>
+						<td>Requires fewer resources and is lightweight</td>
+					</tr>
+					</tbody>
+				</table>
 
 	        </div>
 	    </div>
@@ -33,6 +121,6 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="./js/index.js"></script>
+	    <script src="../js/index.js"></script>
 </body>
 </html>
