@@ -1,38 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-	    <title>Book</title>
+	<title>Book</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/index.css">
-	</head>
-	<body>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
 
-	    <div class="container">
-	        <div class="row">
+<div class="container">
+	<div class="row">
 
-				<pre>
+		<pre></pre>
+		<code></code>
 
-				</pre>
+		<div class="center">
+			<h1>Javascript Engine</h1>
+			<p>
+				<strong><a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)" target="_blank">V8</a></strong> is the name of the JavaScript engine that powers <strong>Google Chrome</strong>.<br>
+				<strong><a href="https://en.wikipedia.org/wiki/SpiderMonkey" target="_blank">Spider Monkey</a></strong> is the name of the JavaScript engine that powers <strong>Mozilla Firefox</strong>.<br>
+				<strong><a href="https://en.wikipedia.org/wiki/WebKit#JavaScriptCore" target="_blank">Javascript Core Webkit</a></strong> is the name of the JavaScript engine that powers <strong>Safari</strong>.<br>
+				<strong><a href="https://en.wikipedia.org/wiki/Chakra_(JavaScript_engine)" target="_blank">Chakra</a></strong> is the name of the JavaScript engine that powers <strong>Edge (Internet Explorer)</strong>.
+			</p>
+		</div>
 
-				<blockquote>
+		<div>
+			<h2><strong>Introduction</strong></h2>
+		</div>
 
-				</blockquote>
+		<blockquote class="blockquote">
+			JavaScript engines are just programs that convert JavaScript code into lower level code,
+			so the computer can understand. These engines are embedded in browsers and web servers (Node.js)
+			to allow run-time compilation and execution of code.
+			JavaScript is usually categorized as interpreted although it is technically compiled.
+			Modern JavaScript compilers actually perform <strong>Just-in-time Compilation</strong> which occurs during run-time.<br>
+		</blockquote>
 
-				<code>
+		<div class="center">
+			<img src="../images/javascript_engine1.png" class="img-fluid" alt="Javascript Engine">
+			<img src="../images/javascript_engine2.png" class="img-fluid" alt="Javascript Engine">
+			<img src="../images/javascript_engine3.png" class="img-fluid" alt="Javascript Engine">
+		</div>
 
-  				</code>
+		<div>
+			<h2><strong>JIT (Just in Time) Compiler</strong></h2>
+		</div>
 
-	        </div>
-	    </div>
+		<blockquote class="blockquote full-with">
+			<strong>V8 Engine = Interpreter + Compiler = JIT (Just in Time) Compiler</strong><br>
+			Interpreters:<br>
+			(Convert to binary code)<br>
+			Reads the js code line by line and converts to binary code and provides the result.<br>
+			Cons:  Execution time for repeated code will be longer.<br>
+			Compilers:<br>
+			(Converts the code to another language)<br>
+			Reads the entire code in the js file and converts to another language and provides the result.<br>
+			Pros:  Less execution time is taken for the repeated code execution.
+		</blockquote>
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="./js/index.js"></script>
+		<div>
+			<h2><strong>Parse</strong></h2>
+		</div>
+
+		<blockquote class="blockquote full-with">
+			We give a JavaScript file to the engine and it first does a lexical analysis.
+			This breaks the code into something called tokens to identify their meaning.
+			After that, we know what the code is trying to do.
+		</blockquote>
+
+		<div>
+			<h2><strong>Abstract Syntax Tree (AST)</strong></h2>
+		</div>
+
+		<blockquote class="blockquote full-with">
+			We give a JavaScript file to the engine and it first does a lexical analysis.
+			This breaks the code into something called tokens to identify their meaning.
+			After that, we know what the code is trying to do
+		</blockquote>
+
+
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="../js/index.js"></script>
 </body>
 </html>
