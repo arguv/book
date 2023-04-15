@@ -15,3 +15,7 @@ blockquote {
 .full-with {
     width: 100%;
 }
+
+.myclass {
+    background-color: #006980 !important;
+}
