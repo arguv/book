@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	    <title>Book</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/index.css">
+	</head>
+	<body>
+	<div class="container">
+		<div class="row">
+
+			<h1>JavaScript Function Types</h1>
+			<br/>
+
+			<div class="col-12">
+				<h2>1. Function Declaration</h2>
+
+				<blockquote class="blockquote">
+				<pre>
+				function greet() {
+					console.log("Hello!");
+				}
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>2. Function Expression</h2>
+				<p><b>Anonymous Function:</b></p>
+
+				<blockquote class="blockquote">
+				<pre>
+				const greet = function() {
+					console.log("Hello!");
+				};
+				</pre>
+				</blockquote>
+
+				<p><b>Named Function:</b></p>
+				<blockquote class="blockquote">
+				<pre>
+				const greet = function sayHello() {
+					console.log("Hello!");
+				};
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>3. Arrow Function</h2>
+				<p><b>Standard:</b></p>
+				<blockquote class="blockquote">
+				<pre>
+				const greet = () => {
+					console.log("Hello!");
+				};
+				</pre>
+				</blockquote>
+
+				<p><b>Single-line shorthand:</b></p>
+				<blockquote class="blockquote">
+				<pre>
+				const greet = () => console.log("Hello!");
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>4. Method in an Object</h2>
+				<blockquote class="blockquote">
+				<pre>
+				const obj = {
+					greet() {
+						console.log("Hello!");
+					}
+				};
+
+				obj.greet();
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>5. Constructor Function</h2>
+				<blockquote class="blockquote">
+				<pre>
+				function Person(name) {
+					this.name = name;
+				}
+
+				const person = new Person("John");
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>6. Class Method</h2>
+				<blockquote class="blockquote">
+				<pre>
+				class Greeter {
+					greet() {
+						console.log("Hello!");
+					}
+				}
+
+				const greeter = new Greeter();
+				greeter.greet();
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>7. Immediately Invoked Function Expression (IIFE)</h2>
+				<blockquote class="blockquote">
+				<pre>
+				(function() {
+					console.log("Hello!");
+				})();
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>8. Generator Function</h2>
+				<blockquote class="blockquote">
+				<pre>
+				function* generatorFunction() {
+					yield "Hello!";
+					yield "World!";
+				}
+
+				const gen = generatorFunction();
+				console.log(gen.next().value);
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>9. Async Function</h2>
+				<blockquote class="blockquote">
+				<pre>
+				async function greet() {
+					return "Hello!";
+				}
+
+				greet().then(console.log);
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>10. Default Parameters</h2>
+				<blockquote class="blockquote">
+				<pre>
+				function greet(name = "Guest") {
+					console.log(`Hello, ${name}!`);
+				}
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>11. Rest Parameters</h2>
+				<blockquote class="blockquote">
+				<pre>
+				function greet(...names) {
+					console.log(`Hello, ${names.join(", ")}!`);
+				}
+
+				greet("Alice", "Bob", "Charlie");
+				</pre>
+				</blockquote>
+			</div>
+
+			<div class="col-12">
+				<h2>12. Callback Function</h2>
+				<blockquote class="blockquote">
+				<pre>
+				function process(callback) {
+					callback();
+				}
+
+				process(() => console.log("Callback executed!"));
+				</pre>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<script src="../js/index.js"></script>
+</body>
+</html>

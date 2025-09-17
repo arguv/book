@@ -19,3 +19,29 @@ blockquote {
 .myclass {
     background-color: #006980 !important;
 }
+
+.div-blockquote {
+    background: #F4F2FF;
+    border-radius: 3px;
+    border-left: 5px solid #8e78fd;
+    margin: 30px 0;
+    padding: 30px;
+    width: 100%;
+}
+
+.space {
+    display: block;
+    width: 100%;
+}
+
+.course {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #e9ecef;
+    border-radius: 5px;
+}
+
+section {
+    width: 100%;
+}

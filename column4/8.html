@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	    <title>Book</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background: #f9f9f9;
+				color: #333;
+			}
+	
+			header {
+				background: #2c3e50;
+				color: white;
+				padding: 1rem;
+				text-align: center;
+			}
+	
+			main {
+				padding: 1rem;
+				max-width: 900px;
+				margin: auto;
+			}
+	
+			h1, h2 {
+				margin: 0.5rem 0;
+			}
+	
+			.timeline {
+				border-left: 3px solid #3498db;
+				margin: 2rem 0;
+				padding-left: 1rem;
+			}
+	
+			.event {
+				margin: 1.5rem 0;
+				position: relative;
+			}
+	
+			.event::before {
+				content: "";
+				width: 15px;
+				height: 15px;
+				background: #3498db;
+				border-radius: 50%;
+				position: absolute;
+				left: -30px;
+				top: 5px;
+			}
+	
+			.time {
+				font-weight: bold;
+				color: #2c3e50;
+			}
+	
+			.place {
+				font-size: 1.1rem;
+				margin: 0.2rem 0;
+			}
+	
+			.details {
+				font-size: 0.9rem;
+				color: #555;
+			}
+
+			.red {
+				color: red;
+			}
+
+			.grn {
+				color: green;
+			}
+	
+			/* Responsive design */
+			@media (max-width: 600px) {
+				body {
+					font-size: 14px;
+				}
+	
+				.timeline {
+					padding-left: 0.5rem;
+				}
+	
+				.event::before {
+					left: -20px;
+					width: 12px;
+					height: 12px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+	<main>
+		<section class="timeline">
+			<h1>Day 2</h1>
+			
+			<div class="event">
+				<div class="time">10:00 – 11:00</div>
+				<div class="place grn">Madame Tussauds Berlin ( Wax museum )</div>
+				<div class="details">💶 ~22 € <a href="https://www.madametussauds.com/berlin/en/tickets/" target="_blank"> TIKETS</a></div>
+				<div class="distance">Старт → Madame Tussauds: ~4 км</div>
+			</div>
+
+			<div class="event">
+				<div class="time">11:00 – 11:40</div>
+				<div class="place grn">1. Bode-Museum ( Museum )</div>
+				<div class="details">+18 °C	☁ Пасмурно.</div>
+				<div class="distance">Madame Tussauds → Bode-Museum: ~ 1.4 км</div>
+			</div>
+			
+			<div class="event">
+				<div class="place red">Public Toilet (Finizios öffentliche Trockentoilette )</div>
+			</div>
+
+			<div class="event">
+				<div class="time">11:40 – 12:40</div>
+				<div class="place grn">2. Alte Nationalgalerie ( Art museum )</div>
+				<div class="details">+18 °C	☁ Пасмурно</div>
+				<div class="distance">Bode-Museum → Alte Nationalgalerie: ~ 0.8 км</div>
+			</div>
+			
+			<div class="event">
+				<div class="time">Same Place</div>
+				<div class="place grn">3. Pergamonmuseum ( History museum )</div>
+				<div class="details">Посещение исторических экспозиций.</div>
+				<div class="distance">Alte Nationalgalerie → Pergamonmuseum</div>
+			</div>
+
+			<div class="event">
+				<div class="place red">Public Toilet ( Berliner Toilette Museumsinsel, Am Lustgarten )</div>
+			</div>
+
+			<div class="event">
+				<div class="time">12:40 – 14:00</div>
+				<div class="place grn">4. Berlin Cathedral ( Berliner Dom )</div>
+				<div class="details">Посещение купола и интерьера собора (~5–10 €).</div>
+				<div class="distance">Pergamonmuseum → Berliner Dom: ~ 0.5 км</div>
+			</div>
+			
+			<div class="event">
+				<div class="time">Same Place</div>
+				<div class="place grn">5. Springbrunnen im Lustgarten ( Tourist attraction )</div>
+				<div class="details">+18 °C	☁ Пасмурно</div>
+				<div class="distance">Berliner Dom → Lustgarten</div>
+			</div>
+			
+			<div class="event">
+				<div class="time">14:00 – 14:30</div>
+				<div class="place grn">6. Humboldt Forum ( Ethnographic museum )</div>
+				<div class="details">+19 °C	🌦 Дождь</div>
+				<div class="distance">Lustgarten → Humboldt Forum: ~ 0.2 км</div>
+			</div>
+
+			<div class="event">
+				<div class="place red">Restaurant</div>
+				<div class="place red">Georgbraeu ( Brauhaus GEORGBRAEU )</div>
+				<div class="place red">Zum Paddenwirt ( German restaurant )</div>
+			</div>
+
+			<div class="event">
+				<div class="time">14:30 – 15:00</div>
+				<div class="place grn">7. St. Nicholas' Church Museum</div>
+				<div class="details">+19 °C	🌦 Дождь</div>
+				<div class="distance">Humboldt Forum → St. Nicholas' Church: ~ 0.6 км</div>
+			</div>
+			
+			<div class="event">
+				<div class="time">15:00 – 15:30</div>
+				<div class="place grn">8. Neptune Fountain ( Neptunbrunnen )</div>
+				<div class="details">+19 °C	🌦 Дождь</div>
+				<div class="distance">St. Nicholas' Church → Neptunbrunnen: ~ 0.5 км</div>
+			</div>
+			
+			<div class="event">
+				<div class="time">15:30 – 16:00</div>
+				<div class="place grn">9. St. Marienkirche ( Evangelical church )</div>
+				<div class="details">+18 °C	☁ Пасмурно</div>
+				<div class="distance">Neptunbrunnen → St. Marienkirche: ~ 0.2 км</div>
+			</div>
+			
+			<div class="event">
+				<div class="time">16:00 – 16:30</div>
+				<div class="place grn">10. Berlin TV Tower ( Berliner Fernsehturm )</div>
+				<div class="details">Подъем на смотровую площадку (~20 €), панорама города.</div>
+				<div class="distance">St. Marienkirche → Fernsehturm: ~ 0.2 км</div>
+			</div>
+
+			<div class="event">
+				<div class="place red">Public Toilet ( Öffentliche Toilette )</div>
+			</div>
+
+			<hr/>
+			
+			<div class="event">
+				<div class="time"></div>
+				<div class="place grn">Michaelbrücke ( Bridge )</div>
+			</div>
+		</section>
+	</main>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	    <title>Book</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/index.css">
+	</head>
+	<body>
+
+	<div class="container">
+		<div class="row">
+
+		<h1>Visibility of Variables: <code>var</code>, <code>let</code>, and <code>const</code></h1>
+		
+		<div class="div-blockquote">
+			<pre>
+			<code>var</code> globalVar = "I am global!";
+
+			console.log(globalVar); // Accessible: "I am global!"
+			console.log(window.globalVar); // Accessible: "I am global!"
+			</pre>
+		</div>
+
+		<div class="div-blockquote">
+			<pre>
+			<w>var</w> greeter = "hey hi";
+			<w>var</w> greeter = "say Hello instead"; // Redeclared
+
+			console.log(greeter); // "say Hello instead"
+
+			<y>and this also won't get an error</y>
+
+			<w>var</w> greeter = "hey hi";
+			greeter = "say Hello instead"; // Redeclared
+
+			console.log(greeter); // "say Hello instead"
+			</pre>
+		</div>
+
+		<div class="div-blockquote">
+			<pre>
+			<w>let</w> greeting = "say Hi";
+			greeting = "say Hello instead";
+
+			<y>this will return an error:</y>
+
+			<w>let</w> greeting = "say Hi";
+			<w>let</w> greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
+			</pre>
+		</div>
+
+		<div class="div-blockquote">
+			<pre>
+			<w>const</w> greeting = "say Hi";
+			greeting = "say Hello instead"; // error: Assignment to constant variable.
+
+			<y>nor this:</y>
+
+			<w>const</w> greeting = "say Hi";
+			<w>const</w> greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
+			</pre>
+		</div>
+
+		<div class="div-blockquote">
+			<pre>
+			function testVar() {
+				if (true) {
+					var x = 10; // Function-scoped
+				}
+				console.log(x); // Accessible here: 10
+			}
+			testVar();
+			</pre>
+		</div>
+	
+		<div class="div-blockquote">
+			<pre>
+			function testLet() {
+				if (true) {
+					let x = 20; // Block-scoped
+					console.log(x); // Accessible here: 20
+				}
+				// console.log(x); // ReferenceError: x is not defined
+			}
+			testLet();
+			</pre>
+		</div>
+	
+		<div class="div-blockquote">
+			<pre>
+			function testConst() {
+				if (true) {
+					const x = 30; // Block-scoped
+					console.log(x); // Accessible here: 30
+				}
+				// console.log(x); // ReferenceError: x is not defined
+			}
+			testConst();
+			</pre>
+		</div>
+	
+		<div class="div-blockquote">
+			<pre>
+			class Example {
+				method() {
+					if (true) {
+						var a = "var in method"; // Function-scoped
+						let b = "let in method"; // Block-scoped
+						const c = "const in method"; // Block-scoped
+					}
+					console.log(a); // Accessible: "var in method"
+					// console.log(b); // ReferenceError
+					// console.log(c); // ReferenceError
+				}
+			}
+			
+			const obj = new Example();
+			obj.method();
+			</pre>
+		</div>
+	
+		<div class="div-blockquote">
+			<pre>
+			class Example {
+				// Public property
+				publicProperty = "This is public";
+				
+				// Private property
+				#privateProperty = "This is private";
+			
+				getPrivateProperty() {
+					return this.#privateProperty;
+				}
+			}
+			
+			const obj = new Example();
+			console.log(obj.publicProperty); // Accessible: "This is public"
+			// console.log(obj.#privateProperty); // SyntaxError: Private field must be accessed in class
+			console.log(obj.getPrivateProperty()); // Accessible via getter: "This is private"
+			</pre>
+		</div>
+	
+		<div class="div-blockquote">
+			<pre>
+			class Example {
+				static staticProperty = "This is static";
+			
+				static getStaticProperty() {
+					return Example.staticProperty;
+				}
+			}
+			
+			console.log(Example.staticProperty); // Accessible directly: "This is static"
+			console.log(Example.getStaticProperty()); // Accessible via static method: "This is static"
+			</pre>
+		</div>			
+
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<script src="../js/index.js"></script>
+</body>
+</html>
