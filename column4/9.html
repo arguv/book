@@ -9,31 +9,231 @@
 	    <title>Book</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/index.css">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background: #f9f9f9;
+				color: #333;
+			}
+	
+			header {
+				background: #2c3e50;
+				color: white;
+				padding: 1rem;
+				text-align: center;
+			}
+	
+			main {
+				padding: 1rem;
+				max-width: 900px;
+				margin: auto;
+			}
+	
+			h1, h2 {
+				margin: 0.5rem 0;
+			}
+	
+			.timeline {
+				border-left: 3px solid #3498db;
+				margin: 2rem 0;
+				padding-left: 1rem;
+			}
+	
+			.event {
+				margin: 1.5rem 0;
+				position: relative;
+			}
+	
+			.event::before {
+				content: "";
+				width: 15px;
+				height: 15px;
+				background: #3498db;
+				border-radius: 50%;
+				position: absolute;
+				left: -30px;
+				top: 5px;
+			}
+	
+			.time {
+				font-weight: bold;
+				color: #2c3e50;
+			}
+	
+			.place {
+				font-size: 1.1rem;
+				margin: 0.2rem 0;
+			}
+	
+			.details {
+				font-size: 0.9rem;
+				color: #555;
+			}
+
+			.red {
+				color: red;
+			}
+
+			.grn {
+				color: green;
+			}
+	
+			/* Responsive design */
+			@media (max-width: 600px) {
+				body {
+					font-size: 14px;
+				}
+	
+				.timeline {
+					padding-left: 0.5rem;
+				}
+	
+				.event::before {
+					left: -20px;
+					width: 12px;
+					height: 12px;
+				}
+			}
+		</style>
 	</head>
 	<body>
+	<main>
+		<section class="timeline">
+			<h1>Dresden Day 1</h1>
+			
+			<div class="event">
+				<div class="place grn">Cholerabrunnen (small fountain nearby)</div>
+				<div class="distance"></div>
+			</div>
 
-	    <div class="container">
-	        <div class="row">
+			<div class="event">
+				<div class="place grn">Grünes Gewölbe (inside Residenzschloss)</div>
+				<div class="distance"></div>
+			</div>
 
-				<pre>
+			<div class="event">
+				<div class="place grn">Residenzschloss (next door)</div>
+				<div class="distance"></div>
+			</div>
+			
+			<div class="event">
+				<div class="place grn">Dresden Transport Museum (walk back east toward Neumarkt)</div>
+				<div class="distance"></div>
+			</div>
 
-				</pre>
+			<div class="event">
+				<div class="place grn">Neumarkt (square around Frauenkirche)</div>
+				<div class="distance"></div>
+			</div>
+			
+			<div class="event">
+				<div class="place grn">Martin Luther Statue (in front of Frauenkirche)</div>
+				<div class="distance"></div>
+			</div>
+			
+			<div class="event">
+				<div class="place grn">Frauenkirche Dresden</div>
+				<div class="distance"></div>
+			</div>
 
-				<blockquote>
+			<div class="event">
+				<div class="place grn">Coselpalais (on Neumarkt)</div>
+				<div class="distance"></div>
+			</div>
+			
+			<div class="event">
+				<div class="place grn">Albertinum (at the end of Brühl’s Terrace)</div>
+				<div class="distance"></div>
+			</div>
+			
+			<div class="event">
+				<div class="place grn">Brühl's Terrace (walk north-east to the Elbe embankment)</div>
+				<div class="distance"></div>
+			</div>
+			
+			<div class="event">
+				<div class="place grn">Fürstenzug (short walk west)</div>
+				<div class="distance"></div>
+			</div>
 
-				</blockquote>
+			<div class="event">
+				<div class="place grn">Georgenbau (part of Residenzschloss)</div>
+				<div class="distance"></div>
+			</div>
 
-				<code>
+			<div class="event">
+				<div class="place grn">Cathedral St. Trinitatis (right beside the Schloss)</div>
+				<div class="distance"></div>
+			</div>
 
-  				</code>
+			<div class="event">
+				<div class="place grn">Schlossplatz (open square)</div>
+				<div class="distance"></div>
+			</div>
 
-	        </div>
-	    </div>
+			<div class="event">
+				<div class="place grn">Frederick Augustus I of Saxony Monument</div>
+				<div class="distance"></div>
+			</div>
 
+			<div class="event">
+				<div class="place grn">Augustus Bridge</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Theaterplatz (across the square)</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Statue of King Johann (in the middle of Theaterplatz)</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Semperoper Dresden (north side of Theaterplatz)</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Quadriga (on top of Semperoper — visible here)</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Dresden Zwinger (just west from Theaterplatz)</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Kronentor (Zwinger’s ornate gate)</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Nymphenbad (Zwinger courtyard fountain)</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">SKD | Old Masters Picture Gallery (inside Zwinger)</div>
+				<div class="distance"></div>
+			</div>
+
+			<hr/>
+
+			<div class="event">
+				<div class="place grn">Holy Cross Church (Kreuzkirche Dresden) </div>
+				<div class="distance"></div>
+			</div>
+
+		</section>
+	</main>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
 </body>
 </html>

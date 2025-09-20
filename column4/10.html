@@ -1,39 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	    <title>Book</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background: #f9f9f9;
+				color: #333;
+			}
 	
-		<title>Book</title>
+			header {
+				background: #2c3e50;
+				color: white;
+				padding: 1rem;
+				text-align: center;
+			}
 	
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/index.css">
+			main {
+				padding: 1rem;
+				max-width: 900px;
+				margin: auto;
+			}
+	
+			h1, h2 {
+				margin: 0.5rem 0;
+			}
+	
+			.timeline {
+				border-left: 3px solid #3498db;
+				margin: 2rem 0;
+				padding-left: 1rem;
+			}
+	
+			.event {
+				margin: 1.5rem 0;
+				position: relative;
+			}
+	
+			.event::before {
+				content: "";
+				width: 15px;
+				height: 15px;
+				background: #3498db;
+				border-radius: 50%;
+				position: absolute;
+				left: -30px;
+				top: 5px;
+			}
+	
+			.time {
+				font-weight: bold;
+				color: #2c3e50;
+			}
+	
+			.place {
+				font-size: 1.1rem;
+				margin: 0.2rem 0;
+			}
+	
+			.details {
+				font-size: 0.9rem;
+				color: #555;
+			}
+
+			.red {
+				color: red;
+			}
+
+			.grn {
+				color: green;
+			}
+	
+			/* Responsive design */
+			@media (max-width: 600px) {
+				body {
+					font-size: 14px;
+				}
+	
+				.timeline {
+					padding-left: 0.5rem;
+				}
+	
+				.event::before {
+					left: -20px;
+					width: 12px;
+					height: 12px;
+				}
+			}
+		</style>
 	</head>
 	<body>
+	<main>
+		<section class="timeline">
+			<h1>Dresden Day 2</h1>
+			
+			<div class="event">
+				<div class="place grn">Marienbrücke</div>
+				<div class="distance"></div>
+			</div>
 
-	    <div class="container">
-	        <div class="row">
+			<div class="event">
+				<div class="place grn">Königstraße - ( shopping street )</div>
+				<div class="distance"></div>
+			</div>
 
-				<pre>
+			<div class="event">
+				<div class="place grn">Japanisches Palais</div>
+				<div class="distance"></div>
+			</div>
 
-				</pre>
+			<div class="event">
+				<div class="place grn">Canaletto-Blick</div>
+				<div class="distance"></div>
+			</div>
 
-				<blockquote>
+			<div class="event">
+				<div class="place grn">Golden Rider</div>
+				<div class="distance"></div>
+			</div>
 
-				</blockquote>
+			<div class="event">
+				<div class="place grn">Filmnächte am Elbufer</div>
+				<div class="distance"></div>
+			</div>
 
-				<code>
+			<div class="event">
+				<div class="place grn">Ehemaliges Ministerialgebäude Königlich Sächsischer Ministerien</div>
+				<div class="distance"></div>
+			</div>
 
-  				</code>
+			<div class="event">
+				<div class="place grn">Königsufer Terrassen</div>
+				<div class="distance"></div>
+			</div>
 
-	        </div>
-	    </div>
+			<hr/>
+			<div>Shopping</div>
+			<hr/>
+			
 
+			<div class="event">
+				<div class="place grn">Altmarkt-Galerie</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">BS Designer Outlet, Kramergasse 2-4, Dresden</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Zalando Outlet Dresden</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Prager Straße</div>
+				<div class="distance"></div>
+			</div>
+
+
+			<hr/>
+
+			<div class="event">
+				<div class="place grn">Holy Cross Church (Kreuzkirche Dresden)</div>
+				<div class="distance"></div>
+			</div>
+
+			<hr/>
+
+			<div class="event">
+				<div class="place grn">The Grand Garden of Dresden</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Garnison Church St. Martin</div>
+				<div class="distance"></div>
+			</div>
+
+		</section>
+	</main>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
 </body>
 </html>
