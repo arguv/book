@@ -1,39 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	    <title>Book</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background: #f9f9f9;
+				color: #333;
+			}
 	
-		<title>Book</title>
+			header {
+				background: #2c3e50;
+				color: white;
+				padding: 1rem;
+				text-align: center;
+			}
 	
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/index.css">
+			main {
+				padding: 1rem;
+				max-width: 900px;
+				margin: auto;
+			}
+	
+			h1, h2 {
+				margin: 0.5rem 0;
+			}
+	
+			.timeline {
+				border-left: 3px solid #3498db;
+				margin: 2rem 0;
+				padding-left: 1rem;
+			}
+	
+			.event {
+				margin: 1.5rem 0;
+				position: relative;
+			}
+	
+			.event::before {
+				content: "";
+				width: 15px;
+				height: 15px;
+				background: #3498db;
+				border-radius: 50%;
+				position: absolute;
+				left: -30px;
+				top: 5px;
+			}
+	
+			.time {
+				font-weight: bold;
+				color: #2c3e50;
+			}
+	
+			.place {
+				font-size: 1.1rem;
+				margin: 0.2rem 0;
+			}
+	
+			.details {
+				font-size: 0.9rem;
+				color: #555;
+			}
+
+			.red {
+				color: red;
+			}
+
+			.grn {
+				color: green;
+			}
+	
+			/* Responsive design */
+			@media (max-width: 600px) {
+				body {
+					font-size: 14px;
+				}
+	
+				.timeline {
+					padding-left: 0.5rem;
+				}
+	
+				.event::before {
+					left: -20px;
+					width: 12px;
+					height: 12px;
+				}
+			}
+		</style>
 	</head>
 	<body>
+	<main>
+		<section class="timeline">
+			<h1>Leipzig</h1>
+			
+			<div class="event">
+				<div class="place grn">Peterskirche Leipzig, Schletterstraße 5</div>
+				<div class="distance"></div>
+			</div>
 
-	    <div class="container">
-	        <div class="row">
+			<div class="event">
+				<div class="place grn">Federal Administrative Court, Simsonpl. 1</div>
+				<div class="distance"></div>
+			</div>
 
-				<pre>
+			<div class="event">
+				<div class="place grn">New Town Hall, Martin-Luther-Ring 4</div>
+				<div class="distance"></div>
+			</div>
 
-				</pre>
+			<div class="event">
+				<div class="place grn">Rathausturm</div>
+				<div class="distance"></div>
+			</div>
 
-				<blockquote>
+			<div class="event">
+				<div class="place grn">Bach-Museum Leipzig</div>
+				<div class="distance"></div>
+			</div>
 
-				</blockquote>
+			<div class="event">
+				<div class="place grn">St. Thomas Church</div>
+				<div class="distance"></div>
+			</div>
 
-				<code>
+			<div class="event">
+				<div class="place grn">Marktplatz Leipzig</div>
+				<div class="distance"></div>
+			</div>
 
-  				</code>
+			<div class="event">
+				<div class="place grn">Stadtgeschichtliches Museum Leipzig, Altes Rathaus</div>
+				<div class="distance"></div>
+			</div>
 
-	        </div>
-	    </div>
+			<div class="event">
+				<div class="place grn">Alte Börse</div>
+				<div class="distance"></div>
+			</div>
 
+			<div class="event">
+				<div class="place grn">Mädler-Passage</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">St. Nicholas Church</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Augustuspl., Leipzig, Germany</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Gewandhaus</div>
+				<div class="distance"></div>
+			</div>
+
+		</section>
+	</main>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
 </body>
 </html>
