@@ -1,100 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	    <title>Book</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background: #f9f9f9;
+				color: #333;
+			}
 	
-		<title>Book</title>
+			header {
+				background: #2c3e50;
+				color: white;
+				padding: 1rem;
+				text-align: center;
+			}
 	
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/index.css">
+			main {
+				padding: 1rem;
+				max-width: 900px;
+				margin: auto;
+			}
+	
+			h1, h2 {
+				margin: 0.5rem 0;
+			}
+	
+			.timeline {
+				border-left: 3px solid #3498db;
+				margin: 2rem 0;
+				padding-left: 1rem;
+			}
+	
+			.event {
+				margin: 1.5rem 0;
+				position: relative;
+			}
+	
+			.event::before {
+				content: "";
+				width: 15px;
+				height: 15px;
+				background: #3498db;
+				border-radius: 50%;
+				position: absolute;
+				left: -30px;
+				top: 5px;
+			}
+	
+			.time {
+				font-weight: bold;
+				color: #2c3e50;
+			}
+	
+			.place {
+				font-size: 1.1rem;
+				margin: 0.2rem 0;
+			}
+	
+			.details {
+				font-size: 0.9rem;
+				color: #555;
+			}
+
+			.red {
+				color: red;
+			}
+
+			.grn {
+				color: green;
+			}
+	
+			/* Responsive design */
+			@media (max-width: 600px) {
+				body {
+					font-size: 14px;
+				}
+	
+				.timeline {
+					padding-left: 0.5rem;
+				}
+	
+				.event::before {
+					left: -20px;
+					width: 12px;
+					height: 12px;
+				}
+			}
+		</style>
 	</head>
 	<body>
-
-	    <div class="container">
-	        <div class="row">
-			<span class="m-5 space"></span>
-
-			<div>
-				<h2>1️⃣ Линейная алгебра (основы)</h2>
-				<ul>
-					<li><strong>Числа, векторы и матрицы</strong>
-						<ul>
-							<li>Векторы (1D массивы)</li>
-							<li>Матрицы (2D массивы)</li>
-							<li>Операции с матрицами (сложение, умножение, транспонирование)</li>
-						</ul>
-					</li>
-					<li><strong>Скалярное произведение и умножение матриц</strong> – используется в нейронных сетях</li>
-					<li><strong>Обратная матрица и определитель (детерминант)</strong> – помогают в преобразованиях и решении уравнений</li>
-					<li><strong>Собственные значения и собственные векторы</strong> – используются в методах снижения размерности (например, PCA)</li>
-				</ul>
-			</div>
-				
-			<div>
-				<h2>2️⃣ Вероятность и статистика (основы)</h2>
-				<ul>
-					<li><strong>Среднее, медиана, мода</strong> – определяют "центр" данных</li>
-					<li><strong>Дисперсия и стандартное отклонение</strong> – показывают, как сильно данные отличаются от среднего</li>
-					<li><strong>Основы теории вероятностей</strong>
-						<ul>
-							<li>Независимые и зависимые события</li>
-							<li>Теорема Байеса</li>
-						</ul>
-					</li>
-					<li><strong>Распределения вероятностей</strong> – нормальное, равномерное</li>
-					<li><strong>Корреляция и ковариация</strong> – определяют связь между переменными</li>
-				</ul>
+	<main>
+		<section class="timeline">
+			<h1>Prague 3</h1>
+			
+			<p>8km</p>
+			
+			<div class="event">
+				<div class="place grn">Národní divadlo (National Theatre)</div>
+				<div class="distance"></div>
 			</div>
 
-			<div>
-				<h2>3️⃣ Математический анализ (базовые концепции)</h2>
-				<ul>
-					<li><strong>Производные и частные производные</strong> – используются в градиентном спуске</li>
-					<li><strong>Правило цепочки</strong> – основной инструмент для обучения нейронных сетей (backpropagation)</li>
-					<li><strong>Минимумы и максимумы функций</strong> – помогают находить оптимальные параметры модели</li>
-				</ul>
+			<div class="event">
+				<div class="place grn">New Town Hall, Karlovo nám. 1</div>
+				<div class="distance"></div>
 			</div>
 
-			<div>
-				<h2>4️⃣ Оптимизация (простые принципы)</h2>
-				<ul>
-					<li><strong>Градиентный спуск</strong> – позволяет моделям корректировать параметры</li>
-					<li><strong>Функции потерь</strong>
-						<ul>
-							<li>Среднеквадратичная ошибка (MSE)</li>
-							<li>Кросс-энтропия</li>
-						</ul>
-					</li>
-				</ul>
+			<div class="event">
+				<div class="place grn">Ss. Cyril and Methodius Cathedral, Resslova 9a</div>
+				<div class="distance"></div>
 			</div>
 
-			<div>
-				<h2>5️⃣ Дискретная математика (основы)</h2>
-				<ul>
-					<li><strong>Булева алгебра</strong> (AND, OR, NOT, XOR) – используется в логических решениях</li>
-					<li><strong>Основы теории графов</strong> – применяется в Graph Neural Networks (GNNs)</li>
-				</ul>
+			<div class="event">
+				<div class="place grn">Dancing House, Jiráskovo nám. 1981/6</div>
+				<div class="distance"></div>
 			</div>
 
-			<div>
-				<p>Для начала сосредоточьтесь на:</p>
-				<ul>
-					<li><strong>Линейной алгебре</strong> (вектора, матрицы, умножение)</li>
-					<li><strong>Основах вероятности и статистики</strong> (среднее, дисперсия, распределения)</li>
-					<li><strong>Основах математического анализа</strong> (градиентный спуск, производные)</li>
-				</ul>
+			<div class="event">
+				<div class="place grn">Saints Peter & Paul Basilica, Štulcova</div>
+				<div class="distance"></div>
 			</div>
 
-			<span class="m-5 space"></span>
-	        </div>
-	    </div>
+			<div class="event">
+				<div class="place grn">Vyšehrad, V Pevnosti 163/2</div>
+				<div class="distance"></div>
+			</div>
 
+			<div class="event">
+				<div class="place grn">Tabor Gate, Vyšehrad, V Pevnosti</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Grébovka (Havlíčkovy sady), Havlíčkovy sady</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Bezručovy sady, Praha, Czechia</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Bazilika sv. Ludmily, Náměstí Míru </div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">National Museum, Václavské nám. 68</div>
+				<div class="distance"></div>
+			</div>
+
+		</section>
+	</main>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
 </body>
 </html>

@@ -9,23 +9,175 @@
 	    <title>Book</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/index.css">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background: #f9f9f9;
+				color: #333;
+			}
+	
+			header {
+				background: #2c3e50;
+				color: white;
+				padding: 1rem;
+				text-align: center;
+			}
+	
+			main {
+				padding: 1rem;
+				max-width: 900px;
+				margin: auto;
+			}
+	
+			h1, h2 {
+				margin: 0.5rem 0;
+			}
+	
+			.timeline {
+				border-left: 3px solid #3498db;
+				margin: 2rem 0;
+				padding-left: 1rem;
+			}
+	
+			.event {
+				margin: 1.5rem 0;
+				position: relative;
+			}
+	
+			.event::before {
+				content: "";
+				width: 15px;
+				height: 15px;
+				background: #3498db;
+				border-radius: 50%;
+				position: absolute;
+				left: -30px;
+				top: 5px;
+			}
+	
+			.time {
+				font-weight: bold;
+				color: #2c3e50;
+			}
+	
+			.place {
+				font-size: 1.1rem;
+				margin: 0.2rem 0;
+			}
+	
+			.details {
+				font-size: 0.9rem;
+				color: #555;
+			}
+
+			.red {
+				color: red;
+			}
+
+			.grn {
+				color: green;
+			}
+	
+			/* Responsive design */
+			@media (max-width: 600px) {
+				body {
+					font-size: 14px;
+				}
+	
+				.timeline {
+					padding-left: 0.5rem;
+				}
+	
+				.event::before {
+					left: -20px;
+					width: 12px;
+					height: 12px;
+				}
+			}
+		</style>
 	</head>
 	<body>
+	<main>
+		<section class="timeline">
+			<h1>Prague 1</h1>
+			
+			<div class="event">
+				<div class="place grn">Wenceslas Square ( Václavské nám. )</div>
+				<div class="distance"></div>
+			</div>
 
-	    <div class="container">
-	        <div class="row">
+			<div class="event">
+				<div class="place grn">The Powder Tower, Nám. Republiky 5</div>
+				<div class="distance"></div>
+			</div>
 
-				<div class="course">
-					<a href="" target="_blank"></a>
-				</div>
+			<div class="event">
+				<div class="place grn">Municipal House, Náměstí Republiky 1090/5</div>
+				<div class="distance"></div>
+			</div>
 
-	        </div>
-	    </div>
+			<div class="event">
+				<div class="place grn">Palladium Prague, Nám. Republiky 1078/1</div>
+				<div class="distance"></div>
+			</div>
 
+			<div class="event">
+				<div class="place grn">Basilica of St. James the Greater, Malá Štupartská 635</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">The Powder Tower, Nám. Republiky 5</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Church of Our Lady before Týn, Staroměstské nám.</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">St. Nicholas Church, Staroměstské nám. 1101</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Prague Astronomical Clock, Staroměstské nám. 1</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Spanish Synagogue, Vězeňská 1</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Rudolfinum, Alšovo nábř. 79/12</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Klementinum, Mariánské nám. 5</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Charles Bridge, Karlův most</div>
+				<div class="distance"></div>
+			</div>
+
+			<div class="event">
+				<div class="place grn">Lesser Town Bridge Tower</div>
+				<div class="distance"></div>
+			</div>
+
+
+		</section>
+	</main>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
 </body>
 </html>
