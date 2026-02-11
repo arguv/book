@@ -1,73 +1,916 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-	    <title>Book</title>
+    <title>List</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	    <div class="container">
-	        <div class="row">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-				<div class="course">
-					<h2>Phase 1: Foundations</h2>
-					<p><strong>Duration:</strong> 1-2 months</p>
-					<p><strong>Focus:</strong> Python, statistics, pandas, visualization</p>
-					<ul>
-						<li>Learn Python basics (syntax, loops, functions).</li>
-						<li>Understand statistics (mean, median, distributions).</li>
-						<li>Master data manipulation with pandas.</li>
-						<li>Create visualizations with Matplotlib and Seaborn.</li>
-					</ul>
-					<div class="mb-3">
-						<span class="tag tag-primary">Python</span>
-						<span class="tag tag-success">Statistics</span>
-						<span class="tag tag-warning">pandas</span>
-						<span class="tag tag-info">Matplotlib</span>
-					</div>
-				</div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-				<div class="course">
-					
-				</div>
+        .row {
+            padding: 30px;
+        }
 
-				<div class="course">
-					
-				</div>
+        h3 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-				<div class="course">
-					
-				</div>
+        .course {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-				<div class="course">
-					
-				</div>
+        .course:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
 
-				<div class="course">
-					
-				</div>
+        .course h5 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
 
-				<div class="course">
-					
-				</div>
+        .course h5:before {
+            content: "📌";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
 
-				<div class="course">
-					
-				</div>
-				
-	        </div>
-	    </div>
+        .features {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e9ecef;
+        }
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+        .features h6 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .course ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .course li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #495057;
+        }
+
+        .course li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-example h6 {
+            color: #ecf0f1;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .code-example h6:before {
+            content: "💻";
+            margin-right: 10px;
+        }
+
+        pre[class*="language-"] {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+        }
+
+        code[class*="language-"] {
+            font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', monospace;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #fffde7;
+            border-left: 4px solid #ffd600;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .note:before {
+            content: "💡 ";
+            font-weight: bold;
+            color: #f57c00;
+        }
+
+        .warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning:before {
+            content: "⚠️ ";
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .tip:before {
+            content: "🌟 ";
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .complexity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .complexity-table th {
+            background: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .complexity-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .complexity-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .complexity-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .complexity-good {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .complexity-bad {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .row {
+                padding: 15px;
+            }
+
+            h3 {
+                font-size: 1.8em;
+            }
+
+            .course {
+                padding: 15px;
+            }
+
+            .code-example {
+                padding: 15px;
+            }
+
+            code[class*="language-"] {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <h3>PYTHON СПИСКИ (LIST)</h3>
+
+        <div class="course">
+            <h5>Что такое список (list)?</h5>
+            <p>Список (list) - это изменяемая (mutable) упорядоченная коллекция объектов произвольных типов. Это одна из
+                самых часто используемых структур данных в Python.</p>
+            <div class="features">
+                <h6>Основные характеристики:</h6>
+                <ul>
+                    <li>Упорядоченность (элементы имеют определенный порядок)</li>
+                    <li>Изменяемость (можно добавлять, удалять, изменять элементы)</li>
+                    <li>Поддержка дубликатов (элементы могут повторяться)</li>
+                    <li>Гетерогенность (может содержать элементы разных типов)</li>
+                </ul>
+            </div>
+            <div class="code-example">
+                <h6>Пример списка:</h6>
+                <pre><code class="language-python"># Пример списка с разными типами данных
+my_list = [1, "hello", 3.14, True, [1, 2, 3]]
+print(my_list)  # [1, 'hello', 3.14, True, [1, 2, 3]]
+print(type(my_list))  # &lt;class 'list'></code></pre>
+            </div>
+            <div class="note">
+                Списки похожи на массивы в других языках программирования, но более гибкие и мощные.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Создание списков</h5>
+            <div class="code-example">
+                <h6>1. Прямое создание</h6>
+                <pre><code class="language-python"># Пустой список
+empty_list = []
+empty_list = list()
+
+# Список с элементами
+numbers = [1, 2, 3, 4, 5]
+fruits = ["apple", "banana", "cherry"]
+mixed = [1, "text", 3.14, True]
+
+print(numbers)    # [1, 2, 3, 4, 5]
+print(fruits)     # ['apple', 'banana', 'cherry']
+print(mixed)      # [1, 'text', 3.14, True]</code></pre>
+            </div>
+            <div class="tip">
+                Для создания пустого списка используйте [] вместо list() - это быстрее и более питонично.
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>2. Использование конструктора list()</h6>
+                <pre><code class="language-python"># Из строки (разбивает на символы)
+chars = list("hello")  # ['h', 'e', 'l', 'l', 'o']
+
+# Из кортежа
+tuple_data = (1, 2, 3)
+list_from_tuple = list(tuple_data)  # [1, 2, 3]
+
+# Из диапазона
+range_list = list(range(5))  # [0, 1, 2, 3, 4]
+range_list2 = list(range(1, 10, 2))  # [1, 3, 5, 7, 9]
+
+# Повторение элементов
+repeated = [0] * 5  # [0, 0, 0, 0, 0]
+text_list = ["Hi"] * 3  # ["Hi", "Hi", "Hi"]
+
+print(chars)         # ['h', 'e', 'l', 'l', 'o']
+print(range_list2)   # [1, 3, 5, 7, 9]
+print(repeated)      # [0, 0, 0, 0, 0]</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Доступ к элементам (индексация)</h5>
+            <div class="code-example">
+                <h6>Положительные и отрицательные индексы</h6>
+                <pre><code class="language-python">fruits = ["apple", "banana", "cherry", "orange"]
+
+# Положительные индексы (слева направо, начиная с 0)
+print(fruits[0])   # "apple" - первый элемент
+print(fruits[1])   # "banana" - второй элемент
+print(fruits[2])   # "cherry" - третий элемент
+
+# Отрицательные индексы (справа налево, начиная с -1)
+print(fruits[-1])  # "orange" - последний элемент
+print(fruits[-2])  # "cherry" - предпоследний элемент
+print(fruits[-3])  # "banana" - третий с конца элемент
+
+# Индексация вложенных списков
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(matrix[0][1])  # 2 (первая строка, второй элемент)</code></pre>
+            </div>
+            <div class="note">
+                Python использует 0-индексацию - первый элемент имеет индекс 0.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Изменение элементов</h5>
+            <div class="code-example">
+                <h6>Изменение одиночных и нескольких элементов</h6>
+                <pre><code class="language-python"># Изменение одного элемента
+fruits = ["apple", "banana", "cherry"]
+fruits[1] = "blueberry"  # Заменяем "banana" на "blueberry"
+print(fruits)  # ["apple", "blueberry", "cherry"]
+
+# Изменение нескольких элементов через срез
+numbers = [1, 2, 3, 4, 5]
+numbers[1:4] = [20, 30, 40]  # Заменяем элементы с индексами 1,2,3
+print(numbers)  # [1, 20, 30, 40, 5]
+
+# Расширение списка через срез
+numbers = [1, 2, 3]
+numbers[1:1] = [99, 88]  # Вставляем элементы без удаления существующих
+print(numbers)  # [1, 99, 88, 2, 3]</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Операции со списками</h5>
+            <div class="code-example">
+                <h6>Основные операции</h6>
+                <pre><code class="language-python"># Проверка наличия элемента
+fruits = ["apple", "banana", "cherry"]
+print("banana" in fruits)     # True
+print("grape" not in fruits)  # True
+
+# Конкатенация (объединение) списков
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+# Оператор + (создает новый список)
+combined = list1 + list2  # [1, 2, 3, 4, 5, 6]
+print("list1 после +:", list1)  # list1 не изменился
+
+# Оператор += (изменяет исходный список)
+list1 += list2  # list1 становится [1, 2, 3, 4, 5, 6]
+print("list1 после +=:", list1)
+
+# Метод extend()
+list1 = [1, 2, 3]
+list1.extend([4, 5, 6])  # list1 становится [1, 2, 3, 4, 5, 6]
+print("list1 после extend:", list1)
+
+# Длина списка
+fruits = ["apple", "banana", "cherry"]
+length = len(fruits)  # 3
+print(f"Длина списка: {length}")
+
+# Умножение списков (повторение)
+numbers = [1, 2, 3]
+repeated = numbers * 3  # [1, 2, 3, 1, 2, 3, 1, 2, 3]
+print("Повторенный список:", repeated)</code></pre>
+            </div>
+            <div class="tip">
+                Используйте extend() вместо += для добавления элементов из другого списка - это более явно и читаемо.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Методы списков</h5>
+            <div class="code-example">
+                <h6>Добавление элементов</h6>
+                <pre><code class="language-python">fruits = ["apple", "banana"]
+
+# append() - добавить один элемент в конец
+fruits.append("cherry")  # ["apple", "banana", "cherry"]
+
+# insert() - вставить элемент на определенную позицию
+fruits.insert(1, "orange")  # ["apple", "orange", "banana", "cherry"]
+
+# extend() - добавить несколько элементов
+fruits.extend(["grape", "melon"])  # Добавляет два элемента в конец
+
+print("После добавления:", fruits)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>Удаление элементов</h6>
+                <pre><code class="language-python">fruits = ["apple", "banana", "cherry", "banana", "orange"]
+
+# remove() - удалить первый найденный элемент по значению
+fruits.remove("banana")  # Удалит первый "banana"
+print("После remove:", fruits)
+
+# pop() - удалить элемент по индексу (по умолчанию последний)
+last_fruit = fruits.pop()  # Удаляет и возвращает "orange"
+print(f"Удален элемент: {last_fruit}")
+print("После pop:", fruits)
+
+second_fruit = fruits.pop(1)  # Удаляет и возвращает элемент с индексом 1
+print(f"Удален элемент с индексом 1: {second_fruit}")
+
+# clear() - очистить весь список
+fruits.clear()  # []
+print("После clear:", fruits)
+
+# del - оператор для удаления
+fruits = ["apple", "banana", "cherry"]
+del fruits[1]  # Удаляет "banana"
+print("После del:", fruits)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>Поиск и сортировка</h6>
+                <pre><code class="language-python">numbers = [10, 20, 30, 20, 40, 20]
+
+# index() - найти индекс первого вхождения элемента
+idx = numbers.index(20)  # 1
+print(f"Первое вхождение 20 на позиции: {idx}")
+
+# Можно искать с указанием диапазона
+idx = numbers.index(20, 2, 5)  # 3 (ищет между индексами 2 и 5)
+print(f"Вхождение 20 между позициями 2 и 5: {idx}")
+
+# count() - подсчитать количество вхождений элемента
+count_20 = numbers.count(20)  # 3
+print(f"Число 20 встречается {count_20} раз")
+
+# sort() - сортировка на месте (изменяет исходный список)
+numbers = [3, 1, 4, 1, 5, 9, 2]
+numbers.sort()  # [1, 1, 2, 3, 4, 5, 9]
+print("После sort:", numbers)
+
+numbers.sort(reverse=True)  # [9, 5, 4, 3, 2, 1, 1]
+print("После sort reverse:", numbers)
+
+# sorted() - возвращает новый отсортированный список
+numbers = [3, 1, 4]
+sorted_numbers = sorted(numbers)  # [1, 3, 4]
+print(f"Оригинал: {numbers}, Отсортированный: {sorted_numbers}")</code></pre>
+            </div>
+            <div class="note">
+                sort() изменяет оригинальный список, а sorted() возвращает новый отсортированный список.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Срезы (slicing)</h5>
+            <div class="code-example">
+                <h6>Работа со срезами</h6>
+                <pre><code class="language-python">numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Базовые срезы
+print(numbers[2:5])    # [2, 3, 4] - с 2-го до 5-го (не включая 5)
+print(numbers[:4])     # [0, 1, 2, 3] - с начала до 4-го
+print(numbers[4:])     # [4, 5, 6, 7, 8, 9] - с 4-го до конца
+print(numbers[:])      # Полная копия списка
+
+# С шагом
+print(numbers[::2])    # [0, 2, 4, 6, 8] - каждый второй
+print(numbers[1::2])   # [1, 3, 5, 7, 9] - каждый второй, начиная с 1
+
+# Отрицательные индексы и шаг
+print(numbers[-3:])    # [7, 8, 9] - последние три элемента
+print(numbers[:-3])    # [0, 1, 2, 3, 4, 5, 6] - все кроме последних трех
+print(numbers[::-1])   # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0] - обратный порядок
+
+# Срезы с шагом и отрицательными индексами
+print(numbers[5:2:-1]) # [5, 4, 3] - от 5 до 2 в обратном порядке
+
+# Изменение списка через срез
+numbers = [0, 1, 2, 3, 4, 5]
+numbers[1:4] = [10, 20, 30]  # Замена элементов
+print("После замены среза:", numbers)
+
+numbers[2:2] = [99, 88]  # Вставка элементов без удаления
+print("После вставки среза:", numbers)</code></pre>
+            </div>
+            <div class="tip">
+                Синтаксис среза: list[начало:конец:шаг]. Если начало не указано - с начала, если конец не указан - до
+                конца.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Генераторы списков (List Comprehensions)</h5>
+            <div class="code-example">
+                <h6>Создание и преобразование списков</h6>
+                <pre><code class="language-python"># Создание списка квадратов
+squares = [x**2 for x in range(10)]
+print("Квадраты:", squares)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# С условием (фильтрацией)
+even_squares = [x**2 for x in range(10) if x % 2 == 0]
+print("Квадраты четных:", even_squares)  # [0, 4, 16, 36, 64]
+
+# С условием в выражении (тернарный оператор)
+results = ["четное" if x % 2 == 0 else "нечетное" for x in range(5)]
+print("Четность:", results)
+
+# Вложенные циклы
+pairs = [(x, y) for x in range(3) for y in range(3)]
+print("Пары:", pairs)
+
+# Практический пример: преобразование строк
+words = ["hello", "world", "python"]
+upper_words = [word.upper() for word in words]
+print("Заглавные:", upper_words)  # ["HELLO", "WORLD", "PYTHON"]
+
+# Фильтрация данных
+numbers = [1, -2, 3, -4, 5]
+positive = [n for n in numbers if n > 0]
+print("Положительные:", positive)  # [1, 3, 5]</code></pre>
+            </div>
+            <div class="note">
+                Генераторы списков - это питоничный и эффективный способ создания и преобразования списков.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Вложенные списки (многомерные списки)</h5>
+            <div class="code-example">
+                <h6>Работа с матрицами</h6>
+                <pre><code class="language-python"># Двумерный список (матрица)
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Доступ к элементам
+print("Первая строка:", matrix[0])      # [1, 2, 3]
+print("Элемент [1][2]:", matrix[1][2])   # 6
+
+# Изменение элементов
+matrix[1][2] = 99
+print("После изменения:", matrix)
+
+# Обход вложенного списка
+print("Обход матрицы:")
+for row in matrix:
+    for element in row:
+        print(element, end=' ')
+    print()
+
+# Создание с помощью генератора списков
+matrix = [[0 for j in range(3)] for i in range(3)]
+print("Нулевая матрица 3x3:", matrix)
+
+# "Расплющивание" вложенного списка
+flattened = [num for row in matrix for num in row]
+print("Расплющенный список:", flattened)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Копирование списков</h5>
+            <div class="code-example">
+                <h6>Поверхностное и глубокое копирование</h6>
+                <pre><code class="language-python"># ПОВЕРХНОСТНОЕ КОПИРОВАНИЕ (shallow copy)
+original = [1, 2, 3]
+
+# 1. Метод copy()
+copied1 = original.copy()
+
+# 2. Срез [:]
+copied2 = original[:]
+
+# 3. Конструктор list()
+copied3 = list(original)
+
+print("Поверхностные копии равны оригиналу:",
+      copied1 == original and copied2 == original and copied3 == original)
+
+# Проблема поверхностного копирования
+original = [[1, 2], [3, 4]]
+shallow_copy = original.copy()
+original[0][0] = 99
+print("Оригинал:", original)      # [[99, 2], [3, 4]]
+print("Поверхностная копия:", shallow_copy)  # [[99, 2], [3, 4]] - тоже изменился!
+
+# ГЛУБОКОЕ КОПИРОВАНИЕ (deep copy)
+import copy
+original = [[1, 2], [3, 4]]
+deep_copied = copy.deepcopy(original)
+original[0][0] = 99
+print("Оригинал:", original)      # [[99, 2], [3, 4]]
+print("Глубокая копия:", deep_copied)   # [[1, 2], [3, 4]] - не изменился!</code></pre>
+            </div>
+            <div class="warning">
+                Внимание! При поверхностном копировании вложенных списков внутренние списки остаются теми же объектами.
+                Используйте copy.deepcopy() для полного копирования.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Итерация по спискам</h5>
+            <div class="code-example">
+                <h6>Различные способы обхода списка</h6>
+                <pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
+
+print("1. По значениям:")
+for fruit in fruits:
+    print(fruit)
+
+print("\n2. По индексам и значениям (enumerate):")
+for index, fruit in enumerate(fruits):
+    print(f"Index {index}: {fruit}")
+
+print("\n3. По индексам (традиционный способ):")
+for i in range(len(fruits)):
+    print(f"Element {i}: {fruits[i]}")
+
+print("\n4. В обратном порядке (reversed):")
+for fruit in reversed(fruits):
+    print(fruit)
+
+print("\n5. С использованием while:")
+i = 0
+while i < len(fruits):
+    print(fruits[i])
+    i += 1
+
+print("\n6. С применением функции (map):")
+upper_fruits = list(map(str.upper, fruits))
+print("Заглавные:", upper_fruits)
+
+print("\n7. С фильтрацией (filter):")
+long_fruits = list(filter(lambda x: len(x) > 5, fruits))
+print("Длинные названия:", long_fruits)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Производительность операций</h5>
+            <table class="complexity-table">
+                <thead>
+                <tr>
+                    <th>Операция</th>
+                    <th>Временная сложность</th>
+                    <th>Примечание</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Получение элемента по индексу</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>Быстрая операция</td>
+                </tr>
+                <tr>
+                    <td>Добавление в конец (append)</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>Амортизированная O(1)</td>
+                </tr>
+                <tr>
+                    <td>Добавление в начало (insert(0, x))</td>
+                    <td class="complexity-bad">O(n)</td>
+                    <td>Медленно, нужно сдвигать все элементы</td>
+                </tr>
+                <tr>
+                    <td>Удаление с конца (pop())</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>Быстро</td>
+                </tr>
+                <tr>
+                    <td>Удаление с начала (pop(0))</td>
+                    <td class="complexity-bad">O(n)</td>
+                    <td>Медленно</td>
+                </tr>
+                <tr>
+                    <td>Поиск по значению (x in list)</td>
+                    <td class="complexity-bad">O(n)</td>
+                    <td>Нужно проверять все элементы</td>
+                </tr>
+                <tr>
+                    <td>Доступ по срезу</td>
+                    <td>O(k)</td>
+                    <td>k - размер среза</td>
+                </tr>
+                <tr>
+                    <td>Сортировка</td>
+                    <td>O(n log n)</td>
+                    <td>Использует Timsort</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="tip">
+                Для частых операций добавления/удаления с обоих концов используйте collections.deque вместо list.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Полезные функции для работы со списками</h5>
+            <div class="code-example">
+                <h6>Встроенные функции Python</h6>
+                <pre><code class="language-python">numbers = [3, 1, 4, 1, 5, 9, 2]
+
+# len() - длина списка
+print("Длина:", len(numbers))  # 7
+
+# max() - максимальный элемент
+print("Максимум:", max(numbers))  # 9
+
+# min() - минимальный элемент
+print("Минимум:", min(numbers))  # 1
+
+# sum() - сумма элементов
+print("Сумма:", sum(numbers))  # 25
+
+# any() - True, если хотя бы один элемент истинный
+bool_list = [True, False, False]
+print("any:", any(bool_list))  # True
+
+# all() - True, если все элементы истинные
+print("all:", all(bool_list))  # False
+
+# enumerate() - возвращает пары (индекс, значение)
+for i, value in enumerate(numbers[:3]):
+    print(f"{i}: {value}")
+
+# zip() - объединяет несколько списков
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+for name, age in zip(names, ages):
+    print(f"{name} is {age} years old")
+
+# sorted() - возвращает отсортированный список
+sorted_nums = sorted(numbers)  # [1, 1, 2, 3, 4, 5, 9]
+print("Отсортировано:", sorted_nums)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Практические примеры</h5>
+            <div class="code-example">
+                <h6>Пример 1: Обработка данных</h6>
+                <pre><code class="language-python">def analyze_numbers(numbers):
+    """Анализ списка чисел"""
+    if not numbers:
+        return "Список пуст"
+
+    analysis = {
+        "count": len(numbers),
+        "sum": sum(numbers),
+        "average": sum(numbers) / len(numbers),
+        "max": max(numbers),
+        "min": min(numbers),
+        "positive": [n for n in numbers if n > 0],
+        "negative": [n for n in numbers if n < 0],
+        "unique": list(set(numbers))
+    }
+    return analysis
+
+# Пример использования
+data = [1, -2, 3, -4, 5, 3, 2, 1]
+result = analyze_numbers(data)
+for key, value in result.items():
+    print(f"{key}: {value}")</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>Пример 2: Удаление дубликатов с сохранением порядка</h6>
+                <pre><code class="language-python">def remove_duplicates(lst):
+    """Удаление дубликатов с сохранением порядка"""
+    seen = set()
+    result = []
+    for item in lst:
+        if item not in seen:
+            seen.add(item)
+            result.append(item)
+    return result
+
+# Или более короткий способ (Python 3.7+)
+def remove_duplicates_simple(lst):
+    """Удаление дубликатов через dict (сохраняет порядок)"""
+    return list(dict.fromkeys(lst))
+
+# Пример
+numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+unique = remove_duplicates(numbers)
+print("Без дубликатов:", unique)  # [1, 2, 3, 4]</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>Пример 3: Разбиение списка на части</h6>
+                <pre><code class="language-python">def chunk_list(lst, chunk_size):
+    """Разбивает список на части заданного размера"""
+    return [lst[i:i + chunk_size] for i in range(0, len(lst), chunk_size)]
+
+# Пример
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+chunks = chunk_list(numbers, 3)
+print("Разбиение на части по 3:", chunks)  # [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+# Реализация стека (LIFO) на основе списка
+stack = []
+stack.append(1)  # push
+stack.append(2)
+stack.append(3)
+print("Стек:", stack)
+top = stack.pop()  # pop
+print(f"Верхний элемент: {top}")
+print("Стек после pop:", stack)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Частые ошибки и лучшие практики</h5>
+            <div class="warning">
+                <strong>Ошибка 1: Изменение списка во время итерации</strong><br>
+                <pre><code class="language-python"># НЕПРАВИЛЬНО
+numbers = [1, 2, 3, 4, 5]
+for num in numbers:
+    if num % 2 == 0:
+        numbers.remove(num)  # Опасность: меняется размер списка во время итерации!</code></pre>
+
+                <strong>ПРАВИЛЬНО:</strong>
+                <pre><code class="language-python"># Вариант 1: Итерируйте по копии
+numbers = [1, 2, 3, 4, 5]
+for num in numbers[:]:
+    if num % 2 == 0:
+        numbers.remove(num)
+
+# Вариант 2: Используйте фильтрацию
+numbers = [1, 2, 3, 4, 5]
+numbers = [num for num in numbers if num % 2 != 0]</code></pre>
+            </div>
+
+            <div class="tip">
+                <strong>Совет: Проверка пустого списка</strong><br>
+                <pre><code class="language-python"># ПРАВИЛЬНО и эффективно
+my_list = []
+if not my_list:
+    print("Список пуст")
+
+# Менее эффективно
+if len(my_list) == 0:
+    print("Список пуст")
+
+# Тоже работает, но не рекомендуется
+if my_list == []:
+    print("Список пуст")</code></pre>
+            </div>
+
+            <div class="note">
+                <strong>Помните:</strong> При работе со вложенными списками используйте deepcopy для создания полностью
+                независимых копий.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 </html>

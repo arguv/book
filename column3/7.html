@@ -1,39 +1,1390 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-	    <title>Book</title>
+    <title>Dict</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	    <div class="container">
-	        <div class="row">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-				<pre>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-				</pre>
+        .row {
+            padding: 30px;
+        }
 
-				<blockquote>
+        h3 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e67e22;
+            background: linear-gradient(to right, #e67e22, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-				</blockquote>
+        .course {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #e67e22;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-				<code>
+        .course:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
 
-  				</code>
+        .course h5 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
 
-	        </div>
-	    </div>
+        .course h5:before {
+            content: "📌";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+        .features {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .features h6 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .course ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .course li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #495057;
+        }
+
+        .course li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-example h6 {
+            color: #ecf0f1;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .code-example h6:before {
+            content: "💻";
+            margin-right: 10px;
+        }
+
+        pre[class*="language-"] {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+        }
+
+        code[class*="language-"] {
+            font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', monospace;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #fffde7;
+            border-left: 4px solid #ffd600;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .note:before {
+            content: "💡 ";
+            font-weight: bold;
+            color: #f57c00;
+        }
+
+        .warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning:before {
+            content: "⚠️ ";
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .tip:before {
+            content: "🌟 ";
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .complexity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .complexity-table th {
+            background: #e67e22;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .complexity-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .complexity-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .complexity-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .complexity-good {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .complexity-bad {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .methods-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .methods-table th {
+            background: #d35400;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .methods-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .methods-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .dict-badge {
+            background: #e67e22;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .row {
+                padding: 15px;
+            }
+
+            h3 {
+                font-size: 1.8em;
+            }
+
+            .course {
+                padding: 15px;
+            }
+
+            .code-example {
+                padding: 15px;
+            }
+
+            code[class*="language-"] {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <h3>PYTHON СЛОВАРИ (DICT)</h3>
+
+        <div class="course">
+            <h5>Что такое словарь (dict)?</h5>
+            <p>Словарь (dict) - это <strong>изменяемая</strong> коллекция пар <strong>"ключ-значение"</strong> в Python.
+                Ключи должны быть уникальными и хешируемыми, значения могут быть любого типа. Словари оптимизированы
+                для быстрого получения значения по ключу.</p>
+            <div class="features">
+                <h6>Основные характеристики словарей:</h6>
+                <ul>
+                    <li><strong>Неупорядоченность</strong> (до Python 3.7, с 3.7+ сохраняют порядок добавления)</li>
+                    <li><strong>Изменяемость</strong> (можно добавлять, изменять, удалять пары ключ-значение)</li>
+                    <li><strong>Уникальность ключей</strong> (каждый ключ может встречаться только один раз)</li>
+                    <li><strong>Произвольность значений</strong> (значения могут быть любого типа)</li>
+                    <li><strong>Хешируемость ключей</strong> (ключи должны быть неизменяемыми)</li>
+                </ul>
+            </div>
+            <div class="code-example">
+                <h6>Пример словаря:</h6>
+                <pre><code class="language-python"># Пример словаря с разными типами данных
+my_dict = {
+    "name": "Alice",
+    "age": 25,
+    "is_student": True,
+    "grades": [85, 90, 88],
+    "address": {"city": "Moscow", "street": "Tverskaya"}
+}
+print(my_dict)
+print(type(my_dict))  # &lt;class 'dict'></code></pre>
+            </div>
+            <div class="note">
+                С Python 3.7 словари сохраняют порядок вставки элементов. Это официальная особенность языка с Python
+                3.7+.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Создание словарей</h5>
+            <div class="code-example">
+                <h6>1. Прямое создание с фигурными скобками</h6>
+                <pre><code class="language-python"># Пустой словарь
+empty_dict = {}
+empty_dict = dict()
+
+# Словарь с элементами
+person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "Moscow"
+}
+
+# Словарь с разными типами ключей (ключи должны быть хешируемыми)
+mixed_keys = {
+    "string_key": "value1",
+    123: "value2",           # целое число как ключ
+    3.14: "value3",          # float как ключ
+    (1, 2, 3): "value4",     # кортеж как ключ
+    True: "value5",          # булево значение как ключ
+    # [1, 2]: "value6"      # ОШИБКА: список не может быть ключом
+    # {"key": "value"}: "v" # ОШИБКА: словарь не может быть ключом
+}
+
+print(f"person: {person}")
+print(f"mixed_keys: {mixed_keys}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>2. Использование конструктора dict()</h6>
+                <pre><code class="language-python"># Создание из списка кортежей (пар ключ-значение)
+pairs = [("name", "Alice"), ("age", 25), ("city", "Moscow")]
+person = dict(pairs)
+print(f"Из списка кортежей: {person}")
+
+# Создание из ключевых аргументов
+person = dict(name="Bob", age=30, city="London")
+print(f"Из ключевых аргументов: {person}")
+
+# Создание из другого словаря (копия)
+original = {"a": 1, "b": 2}
+copy_dict = dict(original)
+print(f"Копия словаря: {copy_dict}")
+
+# Создание с помощью zip()
+keys = ["name", "age", "city"]
+values = ["Charlie", 35, "Paris"]
+person = dict(zip(keys, values))
+print(f"С помощью zip(): {person}")
+
+# Создание словаря с одинаковыми значениями
+default_dict = dict.fromkeys(["a", "b", "c"], 0)
+print(f"С одинаковыми значениями: {default_dict}")  # {'a': 0, 'b': 0, 'c': 0}</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>3. Генераторы словарей (Dict Comprehensions)</h6>
+                <pre><code class="language-python"># Создание словаря квадратов
+squares = {x: x**2 for x in range(1, 6)}
+print(f"Квадраты: {squares}")  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+# С условием (фильтрацией)
+even_squares = {x: x**2 for x in range(1, 11) if x % 2 == 0}
+print(f"Квадраты четных: {even_squares}")  # {2: 4, 4: 16, 6: 36, 8: 64, 10: 100}
+
+# Преобразование списка в словарь
+words = ["apple", "banana", "cherry"]
+word_lengths = {word: len(word) for word in words}
+print(f"Длины слов: {word_lengths}")  # {'apple': 5, 'banana': 6, 'cherry': 6}
+
+# Инвертирование словаря (ключи ↔ значения)
+original = {"a": 1, "b": 2, "c": 3}
+inverted = {value: key for key, value in original.items()}
+print(f"Инвертированный: {inverted}")  # {1: 'a', 2: 'b', 3: 'c'}
+
+# Словарь с условием в значении
+numbers = {x: "четное" if x % 2 == 0 else "нечетное" for x in range(1, 6)}
+print(f"Четность: {numbers}")</code></pre>
+            </div>
+            <div class="tip">
+                Генераторы словарей - это питоничный и эффективный способ создания словарей на основе итерируемых
+                объектов.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Доступ к элементам</h5>
+            <div class="code-example">
+                <h6>Получение значений по ключу</h6>
+                <pre><code class="language-python">person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "Moscow",
+    "hobbies": ["reading", "swimming"]
+}
+
+# 1. Прямой доступ через квадратные скобки
+print(f"Имя: {person['name']}")  # Alice
+print(f"Возраст: {person['age']}")  # 25
+
+# 2. Доступ через get() (безопасный способ)
+print(f"Город: {person.get('city')}")  # Moscow
+print(f"Страна: {person.get('country')}")  # None (ключ не существует)
+print(f"Страна с default: {person.get('country', 'Russia')}")  # Russia
+
+# 3. Доступ к вложенным словарям
+person["address"] = {"city": "Moscow", "street": "Tverskaya"}
+print(f"Улица: {person['address']['street']}")  # Tverskaya
+
+# 4. Доступ к элементам списка внутри словаря
+print(f"Первое хобби: {person['hobbies'][0]}")  # reading
+
+# ОШИБКА при доступе к несуществующему ключу через []
+try:
+    print(person['country'])  # KeyError: 'country'
+except KeyError as e:
+    print(f"Ошибка: ключ '{e}' не найден")
+
+# Проверка наличия ключа
+if "name" in person:
+    print(f"Ключ 'name' существует со значением: {person['name']}")
+
+if "country" not in person:
+    print("Ключ 'country' не существует")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Добавление и изменение элементов</h5>
+            <div class="code-example">
+                <h6>Модификация словаря</h6>
+                <pre><code class="language-python">person = {"name": "Alice", "age": 25}
+
+# 1. Добавление новой пары ключ-значение
+person["city"] = "Moscow"
+print(f"После добавления города: {person}")
+
+# 2. Изменение существующего значения
+person["age"] = 26
+print(f"После изменения возраста: {person}")
+
+# 3. Добавление нескольких элементов через update()
+person.update({"country": "Russia", "job": "Engineer"})
+print(f"После update: {person}")
+
+# 4. Добавление из другого словаря
+additional_info = {"hobbies": ["reading", "swimming"], "married": False}
+person.update(additional_info)
+print(f"После добавления другой инфо: {person}")
+
+# 5. Добавление из списка кортежей
+person.update([("salary", 50000), ("experience", 3)])
+print(f"После добавления из списка: {person}")
+
+# 6. Метод setdefault() - добавляет ключ только если его нет
+person.setdefault("city", "Saint Petersburg")  # Не изменится, т.к. ключ уже есть
+person.setdefault("language", "Russian")  # Добавит новый ключ
+print(f"После setdefault: {person}")
+
+# 7. Использование оператора |= (Python 3.9+)
+person |= {"new_field": "new_value"}  # Добавляет или обновляет
+print(f"После |= : {person}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Удаление элементов</h5>
+            <div class="code-example">
+                <h6>Удаление из словаря</h6>
+                <pre><code class="language-python">person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "Moscow",
+    "country": "Russia",
+    "job": "Engineer"
+}
+
+# 1. pop() - удаляет ключ и возвращает значение
+age = person.pop("age")
+print(f"Удален возраст: {age}")
+print(f"После pop('age'): {person}")
+
+# pop() с значением по умолчанию (если ключ не существует)
+salary = person.pop("salary", 0)  # Вернет 0, т.к. ключа нет
+print(f"Попытка удалить несуществующий ключ: {salary}")
+
+# 2. popitem() - удаляет и возвращает последнюю пару (Python 3.7+ сохраняет порядок)
+key, value = person.popitem()
+print(f"Удалена последняя пара: {key} = {value}")
+print(f"После popitem(): {person}")
+
+# 3. del - удаление оператором
+del person["city"]
+print(f"После del ['city']: {person}")
+
+# 4. clear() - очистка всего словаря
+person.clear()
+print(f"После clear(): {person}")  # {}
+
+# 5. Удаление несуществующего ключа вызывает ошибку
+try:
+    del person["nonexistent"]  # KeyError
+except KeyError as e:
+    print(f"Ошибка при удалении: ключ '{e}' не найден")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Методы словарей</h5>
+            <table class="methods-table">
+                <thead>
+                <tr>
+                    <th>Метод</th>
+                    <th>Описание</th>
+                    <th>Пример</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>keys()</code></td>
+                    <td>Возвращает представление ключей</td>
+                    <td><code>dict.keys()</code></td>
+                </tr>
+                <tr>
+                    <td><code>values()</code></td>
+                    <td>Возвращает представление значений</td>
+                    <td><code>dict.values()</code></td>
+                </tr>
+                <tr>
+                    <td><code>items()</code></td>
+                    <td>Возвращает представление пар (ключ, значение)</td>
+                    <td><code>dict.items()</code></td>
+                </tr>
+                <tr>
+                    <td><code>get(key, default)</code></td>
+                    <td>Возвращает значение для ключа или default</td>
+                    <td><code>dict.get('x', 0)</code></td>
+                </tr>
+                <tr>
+                    <td><code>setdefault(key, default)</code></td>
+                    <td>Возвращает значение, если ключ есть, иначе устанавливает default</td>
+                    <td><code>dict.setdefault('x', 0)</code></td>
+                </tr>
+                <tr>
+                    <td><code>update([other])</code></td>
+                    <td>Обновляет словарь элементами из other</td>
+                    <td><code>dict.update({'x': 1})</code></td>
+                </tr>
+                <tr>
+                    <td><code>pop(key[, default])</code></td>
+                    <td>Удаляет ключ и возвращает значение</td>
+                    <td><code>dict.pop('x')</code></td>
+                </tr>
+                <tr>
+                    <td><code>popitem()</code></td>
+                    <td>Удаляет и возвращает последнюю пару</td>
+                    <td><code>dict.popitem()</code></td>
+                </tr>
+                <tr>
+                    <td><code>clear()</code></td>
+                    <td>Удаляет все элементы</td>
+                    <td><code>dict.clear()</code></td>
+                </tr>
+                <tr>
+                    <td><code>copy()</code></td>
+                    <td>Возвращает поверхностную копию</td>
+                    <td><code>dict.copy()</code></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>Примеры использования методов</h6>
+                <pre><code class="language-python">person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "Moscow",
+    "country": "Russia"
+}
+
+# keys() - получение ключей
+print(f"Ключи: {list(person.keys())}")  # ['name', 'age', 'city', 'country']
+
+# values() - получение значений
+print(f"Значения: {list(person.values())}")  # ['Alice', 25, 'Moscow', 'Russia']
+
+# items() - получение пар ключ-значение
+print(f"Пары: {list(person.items())}")
+# [('name', 'Alice'), ('age', 25), ('city', 'Moscow'), ('country', 'Russia')]
+
+# get() - безопасное получение значения
+print(f"Имя: {person.get('name')}")      # Alice
+print(f"Зарплата: {person.get('salary', 0)}")  # 0 (значение по умолчанию)
+
+# setdefault() - установка значения по умолчанию
+person.setdefault("language", "Russian")
+print(f"После setdefault: {person}")
+
+# copy() - создание копии
+person_copy = person.copy()
+person_copy["age"] = 30
+print(f"Оригинал: {person['age']}")      # 25
+print(f"Копия: {person_copy['age']}")    # 30
+
+# Проверка наличия ключей
+print(f"Есть ли ключ 'name'? {'name' in person}")  # True
+print(f"Есть ли ключ 'salary'? {'salary' in person}")  # False</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Итерация по словарям</h5>
+            <div class="code-example">
+                <h6>Различные способы обхода словаря</h6>
+                <pre><code class="language-python">person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "Moscow",
+    "country": "Russia"
+}
+
+print("1. Итерация по ключам:")
+for key in person:
+    print(f"Ключ: {key}")
+
+print("\n2. Итерация по ключам через .keys():")
+for key in person.keys():
+    print(f"Ключ: {key}")
+
+print("\n3. Итерация по значениям:")
+for value in person.values():
+    print(f"Значение: {value}")
+
+print("\n4. Итерация по парам ключ-значение:")
+for key, value in person.items():
+    print(f"{key}: {value}")
+
+print("\n5. Итерация с индексом (enumerate):")
+for i, (key, value) in enumerate(person.items()):
+    print(f"{i}. {key}: {value}")
+
+print("\n6. Итерация с условием:")
+for key, value in person.items():
+    if isinstance(value, str):
+        print(f"Строковое поле {key}: {value}")
+
+print("\n7. Одновременная итерация по нескольким словарям:")
+dict1 = {"a": 1, "b": 2}
+dict2 = {"a": 10, "c": 30}
+for key in set(dict1) | set(dict2):
+    print(f"{key}: dict1={dict1.get(key)}, dict2={dict2.get(key)}")
+
+print("\n8. Преобразование в список при итерации:")
+keys_list = list(person.keys())
+values_list = list(person.values())
+print(f"Список ключей: {keys_list}")
+print(f"Список значений: {values_list}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Сортировка словарей</h5>
+            <div class="code-example">
+                <h6>Различные способы сортировки</h6>
+                <pre><code class="language-python">scores = {
+    "Alice": 85,
+    "Bob": 92,
+    "Charlie": 78,
+    "David": 95,
+    "Eve": 88
+}
+
+# 1. Сортировка по ключам
+print("Сортировка по ключам:")
+sorted_by_key = dict(sorted(scores.items()))
+for name, score in sorted_by_key.items():
+    print(f"{name}: {score}")
+
+# 2. Сортировка по значениям
+print("\nСортировка по значениям (оценкам):")
+sorted_by_value = dict(sorted(scores.items(), key=lambda item: item[1]))
+for name, score in sorted_by_value.items():
+    print(f"{name}: {score}")
+
+# 3. Сортировка по значениям в обратном порядке
+print("\nСортировка по значениям (по убыванию):")
+sorted_by_value_desc = dict(sorted(scores.items(), key=lambda item: item[1], reverse=True))
+for name, score in sorted_by_value_desc.items():
+    print(f"{name}: {score}")
+
+# 4. Сортировка по длине ключа
+print("\nСортировка по длине имени:")
+sorted_by_key_len = dict(sorted(scores.items(), key=lambda item: len(item[0])))
+for name, score in sorted_by_key_len.items():
+    print(f"{name}: {score}")
+
+# 5. Получение топ-3 по значениям
+top_3 = dict(sorted(scores.items(), key=lambda item: item[1], reverse=True)[:3])
+print(f"\nТоп-3 студентов: {top_3}")
+
+# 6. Сортировка сложных словарей
+students = {
+    "Alice": {"age": 25, "score": 85},
+    "Bob": {"age": 22, "score": 92},
+    "Charlie": {"age": 23, "score": 78}
+}
+
+print("\nСортировка по вложенному полю (score):")
+sorted_students = dict(sorted(students.items(), key=lambda item: item[1]["score"]))
+for name, info in sorted_students.items():
+    print(f"{name}: возраст={info['age']}, оценка={info['score']}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Вложенные словари</h5>
+            <div class="code-example">
+                <h6>Работа со сложными структурами данных</h6>
+                <pre><code class="language-python"># Создание вложенного словаря
+company = {
+    "name": "TechCorp",
+    "employees": {
+        "001": {
+            "name": "Alice",
+            "position": "Developer",
+            "salary": 80000,
+            "skills": ["Python", "JavaScript", "SQL"]
+        },
+        "002": {
+            "name": "Bob",
+            "position": "Manager",
+            "salary": 90000,
+            "skills": ["Leadership", "Project Management"]
+        },
+        "003": {
+            "name": "Charlie",
+            "position": "Data Scientist",
+            "salary": 85000,
+            "skills": ["Python", "Machine Learning", "Statistics"]
+        }
+    },
+    "departments": {
+        "IT": ["001", "003"],
+        "Management": ["002"]
+    }
+}
+
+# Доступ к вложенным данным
+print(f"Имя первого сотрудника: {company['employees']['001']['name']}")
+print(f"Навыки Алисы: {company['employees']['001']['skills']}")
+print(f"Зарплата Боба: ${company['employees']['002']['salary']:,}")
+
+# Изменение вложенных данных
+company['employees']['001']['salary'] = 85000
+company['employees']['002']['skills'].append("Agile")
+
+# Добавление нового сотрудника
+company['employees']['004'] = {
+    "name": "David",
+    "position": "DevOps Engineer",
+    "salary": 82000,
+    "skills": ["Docker", "Kubernetes", "AWS"]
+}
+
+# Итерация по вложенному словарю
+print("\nВсе сотрудники:")
+for emp_id, emp_info in company['employees'].items():
+    print(f"{emp_id}: {emp_info['name']} - {emp_info['position']}")
+
+# Поиск сотрудников по критериям
+print("\nРазработчики:")
+for emp_id, emp_info in company['employees'].items():
+    if "Developer" in emp_info['position']:
+        print(f"{emp_info['name']}")
+
+print("\nСотрудники со знанием Python:")
+for emp_id, emp_info in company['employees'].items():
+    if "Python" in emp_info['skills']:
+        print(f"{emp_info['name']}")
+
+# Глубокое копирование вложенного словаря
+import copy
+company_copy = copy.deepcopy(company)
+company_copy['employees']['001']['name'] = "Alicia"
+print(f"\nОригинальное имя: {company['employees']['001']['name']}")
+print(f"Имя в копии: {company_copy['employees']['001']['name']}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Специальные виды словарей</h5>
+            <div class="code-example">
+                <h6>1. Defaultdict</h6>
+                <pre><code class="language-python">from collections import defaultdict
+
+# defaultdict автоматически создает значения для отсутствующих ключей
+# 1. Со списком по умолчанию
+list_dict = defaultdict(list)
+list_dict['fruits'].append('apple')
+list_dict['fruits'].append('banana')
+list_dict['vegetables'].append('carrot')
+print(f"Defaultdict со списками: {dict(list_dict)}")
+
+# 2. С целым числом по умолчанию
+int_dict = defaultdict(int)
+words = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']
+for word in words:
+    int_dict[word] += 1
+print(f"Подсчет слов: {dict(int_dict)}")
+
+# 3. С пользовательской функцией по умолчанию
+def default_factory():
+    return "Неизвестное значение"
+
+custom_dict = defaultdict(default_factory)
+print(f"Значение для несуществующего ключа: {custom_dict['unknown']}")
+
+# Сравнение с обычным словарем
+# Без defaultdict:
+normal_dict = {}
+for word in words:
+    if word not in normal_dict:
+        normal_dict[word] = 0
+    normal_dict[word] += 1
+print(f"Без defaultdict: {normal_dict}")</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>2. OrderedDict</h6>
+                <pre><code class="language-python">from collections import OrderedDict
+
+# OrderedDict сохраняет порядок вставки (важно для Python < 3.7)
+# С Python 3.7+ обычные dict тоже сохраняют порядок
+
+ordered = OrderedDict()
+ordered['z'] = 1
+ordered['y'] = 2
+ordered['x'] = 3
+
+print("OrderedDict сохраняет порядок вставки:")
+for key, value in ordered.items():
+    print(f"{key}: {value}")
+
+# Особенности OrderedDict
+ordered.move_to_end('z')  # Перемещает ключ в конец
+ordered.popitem(last=False)  # Удаляет первый элемент
+
+print(f"\nПосле операций: {list(ordered.items())}")
+
+# OrderedDict полезен, когда нужен контроль над порядком
+# Например, для реализации кэша с ограниченным размером (LRU Cache)</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>3. Counter</h6>
+                <pre><code class="language-python">from collections import Counter
+
+# Counter - специальный словарь для подсчета элементов
+words = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple', 'apple']
+
+# Создание Counter
+word_counter = Counter(words)
+print(f"Подсчет слов: {word_counter}")
+print(f"Сколько раз 'apple'? {word_counter['apple']}")
+print(f"Сколько раз 'grape'? {word_counter['grape']}")  # 0 (не вызывает ошибку)
+
+# Методы Counter
+print(f"\n3 самых частых: {word_counter.most_common(3)}")
+print(f"Уникальные слова: {list(word_counter.keys())}")
+
+# Арифметические операции
+counter1 = Counter({'a': 3, 'b': 2, 'c': 1})
+counter2 = Counter({'a': 1, 'b': 2, 'd': 3})
+
+print(f"\nСложение: {counter1 + counter2}")
+print(f"Вычитание: {counter1 - counter2}")
+print(f"Пересечение: {counter1 & counter2}")
+print(f"Объединение: {counter1 | counter2}")
+
+# Практический пример: анализ текста
+text = "python is great python is awesome python is powerful"
+words = text.split()
+text_counter = Counter(words)
+print(f"\nАнализ текста: {text_counter.most_common()}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Объединение словарей</h5>
+            <div class="code-example">
+                <h6>Различные способы объединения (Python 3.5+)</h6>
+                <pre><code class="language-python">dict1 = {'a': 1, 'b': 2, 'c': 3}
+dict2 = {'b': 20, 'd': 4, 'e': 5}
+dict3 = {'c': 30, 'f': 6}
+
+print(f"dict1: {dict1}")
+print(f"dict2: {dict2}")
+print(f"dict3: {dict3}")
+
+# 1. Метод update() (изменяет исходный словарь)
+merged = dict1.copy()
+merged.update(dict2)
+merged.update(dict3)
+print(f"\n1. Через update(): {merged}")
+
+# 2. Распаковка словарей (Python 3.5+)
+merged = {**dict1, **dict2, **dict3}
+print(f"2. Через распаковку: {merged}")
+
+# 3. Использование | (Python 3.9+)
+# merged = dict1 | dict2 | dict3  # Работает в Python 3.9+
+# print(f"3. Через |: {merged}")
+
+# 4. Объединение с сохранением всех значений для повторяющихся ключей
+from collections import defaultdict
+
+dict1 = {'a': [1], 'b': [2]}
+dict2 = {'b': [20], 'c': [3]}
+dict3 = {'a': [10], 'c': [30]}
+
+# Создаем defaultdict с списками
+merged_with_lists = defaultdict(list)
+
+# Добавляем все значения
+for d in [dict1, dict2, dict3]:
+    for key, value in d.items():
+        if isinstance(value, list):
+            merged_with_lists[key].extend(value)
+        else:
+            merged_with_lists[key].append(value)
+
+print(f"\n4. Сохраняем все значения: {dict(merged_with_lists)}")
+
+# 5. Объединение с пользовательской логикой для конфликтующих ключей
+def merge_dicts_custom(*dicts, resolve=lambda x, y: y):
+    """Объединение словарей с функцией разрешения конфликтов"""
+    result = {}
+    for d in dicts:
+        for key, value in d.items():
+            if key in result:
+                result[key] = resolve(result[key], value)
+            else:
+                result[key] = value
+    return result
+
+# При конфликте берем сумму значений
+merged_sum = merge_dicts_custom(dict1, dict2, dict3, resolve=lambda x, y: x + y)
+print(f"\n5. Суммируем конфликтующие значения: {merged_sum}")
+
+# При конфликте берем максимальное значение
+merged_max = merge_dicts_custom(
+    {'a': 1, 'b': 5},
+    {'a': 3, 'b': 2},
+    resolve=max
+)
+print(f"   Берем максимум при конфликте: {merged_max}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Производительность операций</h5>
+            <table class="complexity-table">
+                <thead>
+                <tr>
+                    <th>Операция</th>
+                    <th>Временная сложность</th>
+                    <th>Примечание</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Получение значения по ключу</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>Быстрая операция (хеш-таблица)</td>
+                </tr>
+                <tr>
+                    <td>Добавление элемента</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>В среднем O(1), может быть O(n) при рехешировании</td>
+                </tr>
+                <tr>
+                    <td>Удаление элемента</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>Быстрая операция</td>
+                </tr>
+                <tr>
+                    <td>Проверка наличия ключа</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>Основное преимущество словарей</td>
+                </tr>
+                <tr>
+                    <td>Итерация по всем элементам</td>
+                    <td class="complexity-bad">O(n)</td>
+                    <td>Нужно пройти все элементы</td>
+                </tr>
+                <tr>
+                    <td>Копирование (copy())</td>
+                    <td class="complexity-bad">O(n)</td>
+                    <td>Нужно скопировать все элементы</td>
+                </tr>
+                <tr>
+                    <td>Объединение словарей</td>
+                    <td class="complexity-bad">O(n+m)</td>
+                    <td>Зависит от размеров обоих словарей</td>
+                </tr>
+                <tr>
+                    <td>Сортировка</td>
+                    <td>O(n log n)</td>
+                    <td>Зависит от алгоритма сортировки</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="tip">
+                Словари оптимизированы для поиска по ключу. Используйте их, когда нужен быстрый доступ к данным по
+                уникальному идентификатору.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Практические примеры использования</h5>
+            <div class="code-example">
+                <h6>Пример 1: Кэширование результатов вычислений (мемоизация)</h6>
+                <pre><code class="language-python">from functools import lru_cache
+
+# Встроенный декоратор для мемоизации
+@lru_cache(maxsize=128)
+def fibonacci(n):
+    """Вычисление числа Фибоначчи с кэшированием"""
+    if n < 2:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Ручная реализация мемоизации
+def memoize(func):
+    """Декоратор для мемоизации функции"""
+    cache = {}
+
+    def wrapper(*args):
+        if args not in cache:
+            cache[args] = func(*args)
+        return cache[args]
+
+    return wrapper
+
+@memoize
+def factorial(n):
+    """Вычисление факториала с мемоизацией"""
+    if n == 0:
+        return 1
+    return n * factorial(n-1)
+
+# Тестирование
+print("Числа Фибоначчи:")
+for i in range(10):
+    print(f"fib({i}) = {fibonacci(i)}")
+
+print("\nФакториалы:")
+for i in range(10):
+    print(f"{i}! = {factorial(i)}")
+
+# Практическое применение: кэширование запросов к API
+import time
+
+class APICache:
+    """Простой кэш для API запросов"""
+    def __init__(self, ttl=3600):  # TTL = 1 час
+        self.cache = {}
+        self.ttl = ttl
+
+    def get(self, key):
+        """Получение значения из кэша"""
+        if key in self.cache:
+            value, timestamp = self.cache[key]
+            if time.time() - timestamp < self.ttl:
+                return value
+            else:
+                # Удаляем просроченный элемент
+                del self.cache[key]
+        return None
+
+    def set(self, key, value):
+        """Сохранение значения в кэш"""
+        self.cache[key] = (value, time.time())
+
+    def clear(self):
+        """Очистка кэша"""
+        self.cache.clear()
+
+# Использование
+cache = APICache()
+cache.set("users/123", {"name": "Alice", "age": 25})
+print(f"\nИз кэша: {cache.get('users/123')}")</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>Пример 2: Конфигурация приложения</h6>
+                <pre><code class="language-python">class Config:
+    """Класс для управления конфигурацией приложения"""
+
+    def __init__(self, default_config=None):
+        self._config = default_config or {}
+        self._overrides = {}
+
+    def set(self, key, value):
+        """Установка значения конфигурации"""
+        keys = key.split('.')
+        current = self._overrides
+
+        for k in keys[:-1]:
+            if k not in current:
+                current[k] = {}
+            current = current[k]
+
+        current[keys[-1]] = value
+
+    def get(self, key, default=None):
+        """Получение значения конфигурации"""
+        keys = key.split('.')
+
+        # Сначала ищем в переопределениях
+        value = self._traverse_dict(self._overrides, keys)
+        if value is not None:
+            return value
+
+        # Затем в дефолтной конфигурации
+        value = self._traverse_dict(self._config, keys)
+        if value is not None:
+            return value
+
+        return default
+
+    def _traverse_dict(self, d, keys):
+        """Рекурсивный обход словаря по ключам"""
+        if not keys:
+            return d
+
+        key = keys[0]
+        if isinstance(d, dict) and key in d:
+            return self._traverse_dict(d[key], keys[1:])
+
+        return None
+
+    def to_dict(self):
+        """Возвращает полную конфигурацию как словарь"""
+        result = self._deep_merge(self._config.copy(), self._overrides)
+        return result
+
+    def _deep_merge(self, base, override):
+        """Глубокое объединение словарей"""
+        for key, value in override.items():
+            if key in base and isinstance(base[key], dict) and isinstance(value, dict):
+                base[key] = self._deep_merge(base[key], value)
+            else:
+                base[key] = value
+        return base
+
+# Использование
+config = Config({
+    "database": {
+        "host": "localhost",
+        "port": 5432,
+        "name": "myapp"
+    },
+    "server": {
+        "host": "0.0.0.0",
+        "port": 8000
+    }
+})
+
+# Переопределение значений
+config.set("database.host", "prod.db.example.com")
+config.set("server.port", 8080)
+
+# Получение значений
+print(f"Хост БД: {config.get('database.host')}")
+print(f"Порт сервера: {config.get('server.port')}")
+print(f"Полная конфигурация: {config.to_dict()}")</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>Пример 3: Агрегация и анализ данных</h6>
+                <pre><code class="language-python"># Анализ продаж
+sales_data = [
+    {"product": "Laptop", "category": "Electronics", "price": 1000, "quantity": 2},
+    {"product": "Mouse", "category": "Electronics", "price": 50, "quantity": 5},
+    {"product": "Desk", "category": "Furniture", "price": 300, "quantity": 1},
+    {"product": "Chair", "category": "Furniture", "price": 150, "quantity": 4},
+    {"product": "Monitor", "category": "Electronics", "price": 400, "quantity": 3},
+    {"product": "Keyboard", "category": "Electronics", "price": 80, "quantity": 2},
+    {"product": "Lamp", "category": "Home", "price": 30, "quantity": 6},
+]
+
+# 1. Общая выручка
+total_revenue = sum(item["price"] * item["quantity"] for item in sales_data)
+print(f"Общая выручка: ${total_revenue}")
+
+# 2. Выручка по категориям
+category_revenue = {}
+for item in sales_data:
+    category = item["category"]
+    revenue = item["price"] * item["quantity"]
+    category_revenue[category] = category_revenue.get(category, 0) + revenue
+
+print(f"\nВыручка по категориям:")
+for category, revenue in sorted(category_revenue.items(), key=lambda x: x[1], reverse=True):
+    print(f"  {category}: ${revenue}")
+
+# 3. Самые продаваемые товары
+product_sales = {}
+for item in sales_data:
+    product = item["product"]
+    quantity = item["quantity"]
+    product_sales[product] = product_sales.get(product, 0) + quantity
+
+print(f"\nСамые продаваемые товары:")
+for product, quantity in sorted(product_sales.items(), key=lambda x: x[1], reverse=True)[:3]:
+    print(f"  {product}: {quantity} шт.")
+
+# 4. Средняя цена товара по категориям
+category_prices = {}
+category_counts = {}
+
+for item in sales_data:
+    category = item["category"]
+    price = item["price"]
+
+    if category not in category_prices:
+        category_prices[category] = []
+    category_prices[category].append(price)
+
+    category_counts[category] = category_counts.get(category, 0) + 1
+
+print(f"\nСредняя цена по категориям:")
+for category, prices in category_prices.items():
+    avg_price = sum(prices) / len(prices)
+    print(f"  {category}: ${avg_price:.2f}")
+
+# 5. Группировка товаров по категориям
+products_by_category = {}
+for item in sales_data:
+    category = item["category"]
+    product_info = {
+        "product": item["product"],
+        "price": item["price"],
+        "quantity": item["quantity"],
+        "revenue": item["price"] * item["quantity"]
+    }
+
+    if category not in products_by_category:
+        products_by_category[category] = []
+    products_by_category[category].append(product_info)
+
+print(f"\nТовары по категориям:")
+for category, products in products_by_category.items():
+    print(f"\n{category}:")
+    for product in sorted(products, key=lambda x: x["revenue"], reverse=True):
+        print(f"  {product['product']}: ${product['revenue']}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Частые ошибки и лучшие практики</h5>
+            <div class="warning">
+                <strong>Ошибка 1: Использование изменяемых объектов как ключей</strong><br>
+                <pre><code class="language-python"># НЕПРАВИЛЬНО
+my_dict = {}
+my_dict[[1, 2, 3]] = "value"  # TypeError: unhashable type: 'list'
+my_dict[{"key": "value"}] = "value"  # TypeError: unhashable type: 'dict'
+
+# ПРАВИЛЬНО
+my_dict = {}
+my_dict[(1, 2, 3)] = "value"  # Кортеж можно использовать как ключ
+my_dict[frozenset([1, 2, 3])] = "value"  # frozenset тоже можно
+my_dict["ключ-строка"] = "value"  # Строки - отличные ключи</code></pre>
+            </div>
+
+            <div class="warning">
+                <strong>Ошибка 2: Модификация словаря во время итерации</strong><br>
+                <pre><code class="language-python"># НЕПРАВИЛЬНО
+my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+for key in my_dict:
+    if my_dict[key] % 2 == 0:
+        del my_dict[key]  # RuntimeError: dictionary changed size during iteration
+
+# ПРАВИЛЬНО
+my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+# Вариант 1: Итерируем по копии ключей
+for key in list(my_dict.keys()):
+    if my_dict[key] % 2 == 0:
+        del my_dict[key]
+
+# Вариант 2: Используем генератор словаря
+my_dict = {k: v for k, v in my_dict.items() if v % 2 != 0}</code></pre>
+            </div>
+
+            <div class="tip">
+                <strong>Совет: Использование get() для безопасного доступа</strong><br>
+                <pre><code class="language-python"># ВМЕСТО ЭТОГО (может вызвать KeyError)
+config = {'host': 'localhost'}
+if 'port' in config:
+    port = config['port']
+else:
+    port = 8080
+
+# ИСПОЛЬЗУЙТЕ ЭТО (более питонично)
+port = config.get('port', 8080)
+
+# Или для сложных вложенных структур
+value = (config.get('database', {})
+               .get('connection', {})
+               .get('pool_size', 10))</code></pre>
+            </div>
+
+            <div class="note">
+                <strong>Помните:</strong> Начиная с Python 3.7, словари сохраняют порядок вставки элементов.
+                Используйте OrderedDict только если нужны специфические операции (move_to_end, popitem(last=False)).
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Сравнение с другими структурами данных</h5>
+            <div class="features">
+                <h6>Когда использовать словари:</h6>
+                <ul>
+                    <li>Нужен быстрый доступ к данным по уникальному ключу</li>
+                    <li>Данные имеют естественную структуру "ключ-значение"</li>
+                    <li>Нужно агрегировать или группировать данные</li>
+                    <li>Работаете с конфигурациями или настройками</li>
+                    <li>Реализуете кэширование или мемоизацию</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>Золотые правила работы со словарями:</strong><br>
+                1. Используйте <span class="dict-badge">dict.get(key, default)</span> для безопасного доступа<br>
+                2. Используйте <span class="dict-badge">dict.items()</span> для итерации по парам ключ-значение<br>
+                3. Используйте <span class="dict-badge">генераторы словарей</span> для создания словарей<br>
+                4. Используйте <span class="dict-badge">collections.defaultdict</span> когда нужны значения по умолчанию<br>
+                5. Используйте <span class="dict-badge">collections.Counter</span> для подсчета элементов
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 </html>

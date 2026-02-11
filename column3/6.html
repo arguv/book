@@ -1,39 +1,1125 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-	    <title>Book</title>
+    <title>Set</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	    <div class="container">
-	        <div class="row">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-				<pre>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-				</pre>
+        .row {
+            padding: 30px;
+        }
 
-				<blockquote>
+        h3 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #9b59b6;
+            background: linear-gradient(to right, #9b59b6, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-				</blockquote>
+        .course {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #9b59b6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-				<code>
+        .course:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
 
-  				</code>
+        .course h5 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
 
-	        </div>
-	    </div>
+        .course h5:before {
+            content: "📌";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+        .features {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .features h6 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .course ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .course li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #495057;
+        }
+
+        .course li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-example h6 {
+            color: #ecf0f1;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .code-example h6:before {
+            content: "💻";
+            margin-right: 10px;
+        }
+
+        pre[class*="language-"] {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+        }
+
+        code[class*="language-"] {
+            font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', monospace;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #fffde7;
+            border-left: 4px solid #ffd600;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .note:before {
+            content: "💡 ";
+            font-weight: bold;
+            color: #f57c00;
+        }
+
+        .warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning:before {
+            content: "⚠️ ";
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .tip:before {
+            content: "🌟 ";
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .complexity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .complexity-table th {
+            background: #9b59b6;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .complexity-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .complexity-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .complexity-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .complexity-good {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .complexity-bad {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .operations-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .operations-table th {
+            background: #8e44ad;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .operations-table td {
+            padding: 10px 12px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .set-badge {
+            background: #9b59b6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        .frozenset-badge {
+            background: #8e44ad;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .row {
+                padding: 15px;
+            }
+
+            h3 {
+                font-size: 1.8em;
+            }
+
+            .course {
+                padding: 15px;
+            }
+
+            .code-example {
+                padding: 15px;
+            }
+
+            code[class*="language-"] {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <h3>PYTHON МНОЖЕСТВА (SET)</h3>
+
+        <div class="course">
+            <h5>Что такое множество (set)?</h5>
+            <p>Множество (set) - это <strong>неупорядоченная</strong> коллекция <strong>уникальных</strong> элементов в
+                Python. Множества реализуют математическую концепцию множества и оптимизированы для проверки наличия
+                элемента.</p>
+            <div class="features">
+                <h6>Основные характеристики множеств:</h6>
+                <ul>
+                    <li><strong>Неупорядоченность</strong> (элементы не имеют определенного порядка)</li>
+                    <li><strong>Уникальность</strong> (все элементы различны, дубликаты не допускаются)</li>
+                    <li><strong>Изменяемость</strong> (можно добавлять и удалять элементы)</li>
+                    <li>Элементы должны быть <strong>хешируемыми</strong> (неизменяемыми)</li>
+                    <li>Оптимизированы для операций членства (проверки наличия элемента)</li>
+                </ul>
+            </div>
+            <div class="code-example">
+                <h6>Пример множества:</h6>
+                <pre><code class="language-python"># Пример множества с разными типами данных
+my_set = {1, 2, 3, "hello", 3.14, True}
+print(my_set)  # Порядок может быть любым, например: {1, 2, 3, 3.14, 'hello'}
+print(type(my_set))  # &lt;class 'set'></code></pre>
+            </div>
+            <div class="note">
+                Множества автоматически удаляют дубликаты и не гарантируют сохранение порядка элементов.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Создание множеств</h5>
+            <div class="code-example">
+                <h6>1. Прямое создание с фигурными скобками</h6>
+                <pre><code class="language-python"># Пустое множество (ВАЖНО: {} создает словарь, а не множество!)
+empty_set = set()  # Правильно: создает пустое множество
+not_a_set = {}     # Неправильно: создает пустой словарь!
+
+# Множество с элементами
+numbers = {1, 2, 3, 4, 5}
+fruits = {"apple", "banana", "cherry"}
+mixed = {1, "text", 3.14, True, (1, 2)}  # Кортеж можно добавить в множество
+
+# Множество автоматически удаляет дубликаты
+duplicates = {1, 2, 2, 3, 3, 3, 4, 4, 4, 4}
+print(duplicates)  # {1, 2, 3, 4} - только уникальные элементы
+
+print(f"empty_set: {empty_set}, тип: {type(empty_set)}")
+print(f"not_a_set: {not_a_set}, тип: {type(not_a_set)}")
+print(f"numbers: {numbers}")
+print(f"fruits: {fruits}")</code></pre>
+            </div>
+            <div class="warning">
+                <strong>ВАЖНО!</strong> Для создания пустого множества всегда используйте <code>set()</code>, а не
+                <code>{}</code>, так как <code>{}</code> создает словарь!
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>2. Использование конструктора set()</h6>
+                <pre><code class="language-python"># Из строки (разбивает на уникальные символы)
+chars = set("hello")  # {'h', 'e', 'l', 'o'} - удалил дубликат 'l'
+
+# Из списка (удаляет дубликаты)
+list_data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+set_from_list = set(list_data)  # {1, 2, 3, 4}
+
+# Из кортежа
+tuple_data = (1, 2, 3, 2, 1)
+set_from_tuple = set(tuple_data)  # {1, 2, 3}
+
+# Из диапазона
+range_set = set(range(5))  # {0, 1, 2, 3, 4}
+
+# Из другого множества (создает копию)
+original = {1, 2, 3}
+copy_set = set(original)  # {1, 2, 3}
+
+print(f"chars: {chars}")
+print(f"set_from_list: {set_from_list}")
+print(f"set_from_tuple: {set_from_tuple}")
+print(f"range_set: {range_set}")</code></pre>
+            </div>
+            <div class="tip">
+                Конструктор <code>set()</code> - отличный способ удалить дубликаты из любой итерируемой коллекции.
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>3. Генераторы множеств (Set Comprehensions)</h6>
+                <pre><code class="language-python"># Создание множества квадратов
+squares = {x**2 for x in range(10)}
+print("Квадраты:", squares)  # {0, 1, 4, 9, 16, 25, 36, 49, 64, 81}
+
+# С условием (фильтрацией)
+even_squares = {x**2 for x in range(10) if x % 2 == 0}
+print("Квадраты четных:", even_squares)  # {0, 4, 16, 36, 64}
+
+# Уникальные длины строк
+words = ["apple", "banana", "cherry", "date", "elderberry"]
+unique_lengths = {len(word) for word in words}
+print("Уникальные длины:", unique_lengths)  # {5, 6, 10}
+
+# Преобразование символов в верхний регистр
+text = "hello world"
+unique_upper = {char.upper() for char in text if char != ' '}
+print("Уникальные символы:", unique_upper)  # {'D', 'E', 'H', 'L', 'O', 'R', 'W'}</code></pre>
+            </div>
+            <div class="note">
+                Генераторы множеств работают аналогично генераторам списков, но создают множества.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Добавление элементов</h5>
+            <div class="code-example">
+                <h6>Методы для добавления элементов</h6>
+                <pre><code class="language-python">fruits = {"apple", "banana"}
+
+# add() - добавить один элемент
+fruits.add("cherry")  # {"apple", "banana", "cherry"}
+print("После add:", fruits)
+
+# add() с существующим элементом (ничего не изменится)
+fruits.add("apple")  # Элемент уже есть, множество не изменится
+print("После повторного add:", fruits)
+
+# update() - добавить несколько элементов
+fruits.update(["orange", "grape", "kiwi"])
+print("После update с list:", fruits)
+
+# update() с другими итерируемыми объектами
+fruits.update(("mango", "pineapple"))  # Из кортежа
+fruits.update({"watermelon", "cantaloupe"})  # Из другого множества
+print("После нескольких update:", fruits)
+
+# update() со строкой (добавляет символы!)
+fruits.update("berry")  # Добавит символы: 'b', 'e', 'r', 'y'
+print("После update со строкой:", fruits)
+
+# Добавление через объединение
+fruits = fruits | {"peach", "plum"}  # Альтернатива update()
+print("После объединения:", fruits)</code></pre>
+            </div>
+            <div class="tip">
+                Используйте <code>update()</code> для добавления нескольких элементов, а <code>add()</code> для одного
+                элемента.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Удаление элементов</h5>
+            <div class="code-example">
+                <h6>Методы для удаления элементов</h6>
+                <pre><code class="language-python">fruits = {"apple", "banana", "cherry", "orange", "grape"}
+
+# remove() - удалить элемент по значению (вызывает ошибку если элемента нет)
+fruits.remove("banana")  # Удалит "banana"
+print("После remove:", fruits)
+
+# Попытка удалить несуществующий элемент
+try:
+    fruits.remove("mango")  # Вызовет KeyError
+except KeyError as e:
+    print(f"Ошибка при удалении: {e}")
+
+# discard() - удалить элемент по значению (не вызывает ошибку если элемента нет)
+fruits.discard("cherry")  # Удалит "cherry" если он есть
+fruits.discard("mango")   # Ничего не произойдет (элемента нет)
+print("После discard:", fruits)
+
+# pop() - удалить и вернуть случайный элемент
+removed_item = fruits.pop()  # Удалит случайный элемент
+print(f"Удален элемент: {removed_item}")
+print("После pop:", fruits)
+
+# clear() - очистить все множество
+fruits.clear()  # set()
+print("После clear:", fruits)
+
+# del - полностью удалить множество
+del fruits  # Теперь переменная fruits не существует
+# print(fruits)  # NameError: name 'fruits' is not defined</code></pre>
+            </div>
+            <div class="note">
+                Используйте <code>discard()</code> вместо <code>remove()</code>, если не уверены, что элемент существует
+                в множестве.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Операции с множествами</h5>
+            <div class="code-example">
+                <h6>Основные операции</h6>
+                <pre><code class="language-python">A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# Проверка наличия элемента
+print(f"3 в множестве A: {3 in A}")      # True
+print(f"9 в множестве A: {9 in A}")      # False
+print(f"3 не в множестве A: {3 not in A}")  # False
+
+# Длина множества
+print(f"Количество элементов в A: {len(A)}")  # 5
+
+# Проверка на пустое множество
+empty_set = set()
+print(f"empty_set пусто: {len(empty_set) == 0}")  # True
+print(f"empty_set пусто: {not empty_set}")        # True (более питонично)
+
+# Копирование множества
+C = A.copy()
+print(f"Копия A: {C}")
+print(f"A и C одинаковы: {A == C}")      # True
+print(f"A и C один объект: {A is C}")    # False (разные объекты)
+
+# Проверка подмножества и надмножества
+X = {1, 2, 3}
+Y = {1, 2, 3, 4, 5}
+Z = {1, 2, 3}
+
+print(f"X является подмножеством Y: {X <= Y}")  # True
+print(f"X является собственным подмножеством Y: {X < Y}")  # True (X ≠ Y)
+print(f"Y является надмножеством X: {Y >= X}")  # True
+print(f"X равен Z: {X == Z}")  # True</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Математические операции над множествами</h5>
+            <div class="code-example">
+                <h6>Теоретико-множественные операции</h6>
+                <pre><code class="language-python">A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+C = {2, 3, 4}
+
+print(f"Множество A: {A}")
+print(f"Множество B: {B}")
+print(f"Множество C: {C}")
+
+# ОБЪЕДИНЕНИЕ (union) - все элементы из A и B
+union_AB = A | B
+union_method = A.union(B)
+print(f"\nОбъединение A | B: {union_AB}")
+print(f"Объединение A.union(B): {union_method}")
+print(f"Объединение трех множеств: {A | B | C}")
+
+# ПЕРЕСЕЧЕНИЕ (intersection) - общие элементы
+intersection_AB = A & B
+intersection_method = A.intersection(B)
+print(f"\nПересечение A & B: {intersection_AB}")
+print(f"Пересечение A.intersection(B): {intersection_method}")
+print(f"Общие для всех трех: {A & B & C}")  # {4}
+
+# РАЗНОСТЬ (difference) - элементы в A, но не в B
+difference_AB = A - B
+difference_method = A.difference(B)
+print(f"\nРазность A - B: {difference_AB}")
+print(f"Разность A.difference(B): {difference_method}")
+print(f"Разность B - A: {B - A}")  # {6, 7, 8}
+
+# СИММЕТРИЧЕСКАЯ РАЗНОСТЬ (symmetric difference) - элементы в A или B, но не в обоих
+sym_diff_AB = A ^ B
+sym_diff_method = A.symmetric_difference(B)
+print(f"\nСимметрическая разность A ^ B: {sym_diff_AB}")
+print(f"Симметрическая разность A.symmetric_difference(B): {sym_diff_method}")
+
+# Проверка непересекающихся множеств
+D = {10, 11, 12}
+print(f"\nA и D не пересекаются: {A.isdisjoint(D)}")  # True
+print(f"A и B не пересекаются: {A.isdisjoint(B)}")    # False (есть общие элементы)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Модифицирующие методы множеств</h5>
+            <div class="code-example">
+                <h6>Методы, изменяющие исходное множество</h6>
+                <pre><code class="language-python">A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+C = {2, 3, 4}
+
+# intersection_update() - оставляет только общие элементы
+A_copy = A.copy()
+A_copy.intersection_update(B)
+print(f"A после intersection_update с B: {A_copy}")  # {4, 5}
+
+# difference_update() - удаляет элементы, присутствующие в другом множестве
+A_copy = A.copy()
+A_copy.difference_update(B)
+print(f"A после difference_update с B: {A_copy}")  # {1, 2, 3}
+
+# symmetric_difference_update() - оставляет элементы только в одном из множеств
+A_copy = A.copy()
+A_copy.symmetric_difference_update(B)
+print(f"A после symmetric_difference_update с B: {A_copy}")  # {1, 2, 3, 6, 7, 8}
+
+# update() - добавляет все элементы из других множеств
+A_copy = A.copy()
+A_copy.update(B, C)
+print(f"A после update с B и C: {A_copy}")  # {1, 2, 3, 4, 5, 6, 7, 8}
+
+# Практический пример: удаление стоп-слов
+text = {"this", "is", "a", "sample", "text", "with", "some", "words"}
+stop_words = {"a", "the", "is", "and", "with", "some"}
+
+# Удаляем стоп-слова из текста
+text.difference_update(stop_words)
+print(f"Текст без стоп-слов: {text}")  # {'this', 'sample', 'text', 'words'}</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Неизменяемые множества (frozenset)</h5>
+            <div class="code-example">
+                <h6>Создание и использование frozenset</h6>
+                <pre><code class="language-python"># Создание frozenset
+frozen = frozenset([1, 2, 3, 4, 5])
+print(f"frozenset: {frozen}")  # frozenset({1, 2, 3, 4, 5})
+print(f"Тип: {type(frozen)}")  # &lt;class 'frozenset'>
+
+# Frozenset можно использовать как ключ словаря (в отличие от обычного set)
+set_dict = {
+    frozenset([1, 2]): "один и два",
+    frozenset([3, 4]): "три и четыре",
+    frozenset([5]): "пять"
+}
+print(f"Словарь с frozenset ключами: {set_dict}")
+print(f"Значение для frozenset([1, 2]): {set_dict[frozenset([1, 2])]}")
+
+# Операции с frozenset (возвращают новый frozenset)
+A = frozenset([1, 2, 3, 4, 5])
+B = frozenset([4, 5, 6, 7, 8])
+
+union_frozen = A | B
+intersection_frozen = A & B
+print(f"\nОбъединение frozenset: {union_frozen}")
+print(f"Пересечение frozenset: {intersection_frozen}")
+
+# Frozenset поддерживает те же операции, что и set, кроме изменяющих методов
+print(f"Длина: {len(A)}")
+print(f"Проверка наличия: {3 in A}")
+print(f"Подмножество: {frozenset([1, 2]) <= A}")
+
+# НЕЛЬЗЯ изменять frozenset
+try:
+    frozen.add(6)  # AttributeError
+except AttributeError as e:
+    print(f"\nОшибка при попытке изменить frozenset: {e}")
+
+try:
+    frozen.remove(1)  # AttributeError
+except AttributeError as e:
+    print(f"Ошибка при попытке удалить из frozenset: {e}")</code></pre>
+            </div>
+            <div class="note">
+                frozenset - это неизменяемая версия set. Её можно использовать как ключ словаря и элемент другого
+                множества.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Итерация по множествам</h5>
+            <div class="code-example">
+                <h6>Различные способы обхода множества</h6>
+                <pre><code class="language-python">fruits = {"apple", "banana", "cherry", "orange", "grape"}
+
+print("1. Прямая итерация по значениям:")
+for fruit in fruits:
+    print(fruit)
+
+print("\n2. С использованием enumerate():")
+for index, fruit in enumerate(fruits):
+    print(f"Элемент {index}: {fruit}")
+
+print("\n3. Преобразование в список для упорядоченного обхода:")
+sorted_fruits = sorted(fruits)  # Возвращает отсортированный список
+for fruit in sorted_fruits:
+    print(fruit)
+
+print("\n4. Итерация с условием:")
+for fruit in fruits:
+    if len(fruit) > 5:
+        print(f"Длинное название: {fruit}")
+
+print("\n5. Одновременная итерация по нескольким множествам:")
+colors = {"red", "green", "blue"}
+fruits = {"apple", "banana", "cherry"}
+
+# Используем zip() для параллельной итерации
+for color, fruit in zip(colors, fruits):
+    print(f"{color} {fruit}")
+
+print("\n6. Генератор списка из множества:")
+fruit_lengths = [len(fruit) for fruit in fruits]
+print(f"Длины названий фруктов: {fruit_lengths}")
+
+print("\n7. Фильтрация с помощью filter():")
+long_fruits = list(filter(lambda x: len(x) > 5, fruits))
+print(f"Фрукты с длинными названиями: {long_fruits}")
+
+print("\n8. Применение функции с map():")
+upper_fruits = list(map(str.upper, fruits))
+print(f"Фрукты в верхнем регистре: {upper_fruits}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Хешируемость элементов множества</h5>
+            <div class="code-example">
+                <h6>Какие элементы можно добавлять в множество</h6>
+                <pre><code class="language-python"># Множество может содержать только хешируемые (неизменяемые) элементы
+
+# РАЗРЕШЕННЫЕ типы (хешируемые):
+allowed_set = {
+    42,                    # целые числа
+    3.14,                 # числа с плавающей точкой
+    "hello",              # строки
+    (1, 2, 3),            # кортежи (если все элементы хешируемы)
+    frozenset([1, 2]),    # frozenset
+    True,                 # булевы значения
+    None                  # None
+}
+print(f"Множество с разрешенными типами: {allowed_set}")
+
+# НЕРАЗРЕШЕННЫЕ типы (нехешируемые):
+try:
+    # Списки - НЕЛЬЗЯ
+    bad_set = {[1, 2, 3]}  # TypeError: unhashable type: 'list'
+    print(bad_set)
+except TypeError as e:
+    print(f"Ошибка со списком: {e}")
+
+try:
+    # Словари - НЕЛЬЗЯ
+    bad_set = {{"key": "value"}}  # TypeError: unhashable type: 'dict'
+    print(bad_set)
+except TypeError as e:
+    print(f"Ошибка со словарем: {e}")
+
+try:
+    # Множества - НЕЛЬЗЯ (кроме frozenset)
+    bad_set = {{1, 2, 3}}  # TypeError: unhashable type: 'set'
+    print(bad_set)
+except TypeError as e:
+    print(f"Ошибка с множеством: {e}")
+
+# Кортежи МОЖНО, если все элементы хешируемы
+good_tuple_set = {(1, 2, 3), (4, 5, 6)}
+print(f"\nМножество кортежей: {good_tuple_set}")
+
+# Но если кортеж содержит нехешируемый элемент - НЕЛЬЗЯ
+try:
+    bad_tuple_set = {(1, [2, 3])}  # Кортеж содержит список
+    print(bad_tuple_set)
+except TypeError as e:
+    print(f"Ошибка с кортежем, содержащим список: {e}")</code></pre>
+            </div>
+            <div class="warning">
+                Множества могут содержать только хешируемые (неизменяемые) объекты. Списки, словари и другие множества
+                нельзя добавить в множество.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Сравнение производительности</h5>
+            <div class="complexity-table">
+                <thead>
+                <tr>
+                    <th>Операция</th>
+                    <th>Временная сложность</th>
+                    <th>Примечание</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Проверка наличия элемента (x in set)</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>Основное преимущество множеств!</td>
+                </tr>
+                <tr>
+                    <td>Добавление элемента (add())</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>В среднем O(1), в худшем случае O(n)</td>
+                </tr>
+                <tr>
+                    <td>Удаление элемента (remove(), discard())</td>
+                    <td class="complexity-good">O(1)</td>
+                    <td>Быстрая операция</td>
+                </tr>
+                <tr>
+                    <td>Объединение (union)</td>
+                    <td>O(len(s) + len(t))</td>
+                    <td>Зависит от размеров обоих множеств</td>
+                </tr>
+                <tr>
+                    <td>Пересечение (intersection)</td>
+                    <td>O(min(len(s), len(t)))</td>
+                    <td>В худшем случае O(len(s) * len(t))</td>
+                </tr>
+                <tr>
+                    <td>Разность (difference)</td>
+                    <td>O(len(s))</td>
+                    <td>Зависит от размера первого множества</td>
+                </tr>
+                <tr>
+                    <td>Итерация по всем элементам</td>
+                    <td>O(n)</td>
+                    <td>Нужно пройти все элементы</td>
+                </tr>
+                <tr>
+                    <td>Копирование (copy())</td>
+                    <td>O(n)</td>
+                    <td>Нужно скопировать все элементы</td>
+                </tr>
+                </tbody>
+            </div>
+            <div class="tip">
+                Используйте множества вместо списков, когда нужно часто проверять наличие элементов - это значительно
+                ускорит вашу программу!
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Операции над множествами</h5>
+            <table class="operations-table">
+                <thead>
+                <tr>
+                    <th>Операция</th>
+                    <th>Синтаксис</th>
+                    <th>Метод</th>
+                    <th>Описание</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Объединение</td>
+                    <td><code>s | t</code></td>
+                    <td><code>s.union(t)</code></td>
+                    <td>Все элементы из s и t</td>
+                </tr>
+                <tr>
+                    <td>Пересечение</td>
+                    <td><code>s & t</code></td>
+                    <td><code>s.intersection(t)</code></td>
+                    <td>Элементы, общие для s и t</td>
+                </tr>
+                <tr>
+                    <td>Разность</td>
+                    <td><code>s - t</code></td>
+                    <td><code>s.difference(t)</code></td>
+                    <td>Элементы в s, но не в t</td>
+                </tr>
+                <tr>
+                    <td>Симметрическая разность</td>
+                    <td><code>s ^ t</code></td>
+                    <td><code>s.symmetric_difference(t)</code></td>
+                    <td>Элементы в s или t, но не в обоих</td>
+                </tr>
+                <tr>
+                    <td>Подмножество</td>
+                    <td><code>s <= t</code></td>
+                    <td><code>s.issubset(t)</code></td>
+                    <td>Все элементы s есть в t</td>
+                </tr>
+                <tr>
+                    <td>Надмножество</td>
+                    <td><code>s >= t</code></td>
+                    <td><code>s.issuperset(t)</code></td>
+                    <td>Все элементы t есть в s</td>
+                </tr>
+                <tr>
+                    <td>Собственное подмножество</td>
+                    <td><code>s < t</code></td>
+                    <td>-</td>
+                    <td>s ⊆ t и s ≠ t</td>
+                </tr>
+                <tr>
+                    <td>Собственное надмножество</td>
+                    <td><code>s > t</code></td>
+                    <td>-</td>
+                    <td>s ⊇ t и s ≠ t</td>
+                </tr>
+                <tr>
+                    <td>Непересекающиеся</td>
+                    <td>-</td>
+                    <td><code>s.isdisjoint(t)</code></td>
+                    <td>s и t не имеют общих элементов</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="course">
+            <h5>Практические примеры использования</h5>
+            <div class="code-example">
+                <h6>Пример 1: Удаление дубликатов из списка</h6>
+                <pre><code class="language-python">def remove_duplicates(lst):
+    """Удаляет дубликаты из списка с сохранением порядка (Python 3.7+)"""
+    return list(dict.fromkeys(lst))
+
+def remove_duplicates_set(lst):
+    """Удаляет дубликаты с помощью множества (не сохраняет порядок)"""
+    return list(set(lst))
+
+# Пример использования
+data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 1, 2, 3]
+
+# Сохранение порядка появления
+unique_ordered = remove_duplicates(data)
+print(f"Без дубликатов (с порядком): {unique_ordered}")
+
+# Без сохранения порядка (но быстрее)
+unique_set = remove_duplicates_set(data)
+print(f"Без дубликатов (без порядка): {unique_set}")
+
+# Подсчет уникальных элементов
+unique_count = len(set(data))
+print(f"Количество уникальных элементов: {unique_count}")
+
+# Найти элементы, которые встречаются только один раз
+from collections import Counter
+counter = Counter(data)
+unique_once = [item for item, count in counter.items() if count == 1]
+print(f"Элементы, встречающиеся один раз: {unique_once}")</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>Пример 2: Поиск общих друзей в социальной сети</h6>
+                <pre><code class="language-python">def find_common_friends(friends_dict):
+    """Находит общих друзей для всех пар пользователей"""
+    results = {}
+    users = list(friends_dict.keys())
+
+    for i in range(len(users)):
+        for j in range(i + 1, len(users)):
+            user1 = users[i]
+            user2 = users[j]
+            common = friends_dict[user1] & friends_dict[user2]
+            results[(user1, user2)] = common
+
+    return results
+
+# Данные о друзьях
+friends = {
+    "Alice": {"Bob", "Charlie", "David", "Eve"},
+    "Bob": {"Alice", "Charlie", "Frank", "George"},
+    "Charlie": {"Alice", "Bob", "David", "Eve", "George"},
+    "David": {"Alice", "Charlie", "Eve"},
+    "Eve": {"Alice", "Charlie", "David", "Frank"}
+}
+
+# Находим общих друзей
+common_friends = find_common_friends(friends)
+
+print("Общие друзья:")
+for (user1, user2), friends_set in common_friends.items():
+    if friends_set:
+        print(f"{user1} и {user2}: {friends_set}")
+
+# Находим друзей, которые есть у всех
+all_users = set(friends.keys())
+common_to_all = set.intersection(*friends.values())
+print(f"\nДрузья, которые есть у всех: {common_to_all}")
+
+# Находим уникальных друзей каждого пользователя
+print("\nУникальные друзья каждого пользователя:")
+for user, user_friends in friends.items():
+    # Друзья, которые есть только у этого пользователя
+    other_friends = set()
+    for other_user, other_friends_set in friends.items():
+        if other_user != user:
+            other_friends.update(other_friends_set)
+
+    unique_friends = user_friends - other_friends
+    if unique_friends:
+        print(f"{user}: {unique_friends}")</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>Пример 3: Анализ текста</h6>
+                <pre><code class="language-python">def analyze_text(text):
+    """Анализирует текст и возвращает статистику"""
+    # Разбиваем текст на слова
+    words = text.lower().split()
+
+    # Уникальные слова
+    unique_words = set(words)
+
+    # Частотный анализ
+    from collections import Counter
+    word_counts = Counter(words)
+
+    # Самые частые слова
+    most_common = word_counts.most_common(5)
+
+    # Длинные слова (более 5 символов)
+    long_words = {word for word in unique_words if len(word) > 5}
+
+    # Слова, начинающиеся с гласных
+    vowels = {'a', 'e', 'i', 'o', 'u', 'y'}
+    vowel_start_words = {word for word in unique_words if word[0] in vowels}
+
+    return {
+        "total_words": len(words),
+        "unique_words": len(unique_words),
+        "most_common": most_common,
+        "long_words": long_words,
+        "vowel_start_words": vowel_start_words,
+        "lexical_diversity": len(unique_words) / len(words) if words else 0
+    }
+
+# Пример текста
+sample_text = """
+Python is an interpreted high-level general-purpose programming language.
+Python's design philosophy emphasizes code readability with its notable
+use of significant indentation. Python is dynamically-typed and
+garbage-collected. It supports multiple programming paradigms including
+structured, object-oriented and functional programming.
+"""
+
+# Анализируем текст
+analysis = analyze_text(sample_text)
+
+print("Анализ текста:")
+print(f"Всего слов: {analysis['total_words']}")
+print(f"Уникальных слов: {analysis['unique_words']}")
+print(f"Лексическое разнообразие: {analysis['lexical_diversity']:.2f}")
+print(f"\n5 самых частых слов: {analysis['most_common']}")
+print(f"\nДлинные слова (>5 символов): {analysis['long_words']}")
+print(f"\nСлова, начинающиеся с гласных: {analysis['vowel_start_words']}")
+
+# Сравнение двух текстов
+text1 = "python is great for data science"
+text2 = "data science uses python and statistics"
+
+words1 = set(text1.lower().split())
+words2 = set(text2.lower().split())
+
+print(f"\nСравнение текстов:")
+print(f"Общие слова: {words1 & words2}")
+print(f"Уникальные для первого текста: {words1 - words2}")
+print(f"Уникальные для второго текста: {words2 - words1}")
+print(f"Все уникальные слова: {words1 | words2}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Частые ошибки и лучшие практики</h5>
+            <div class="warning">
+                <strong>Ошибка 1: Использование {} для создания пустого множества</strong><br>
+                <pre><code class="language-python"># НЕПРАВИЛЬНО
+empty = {}           # Это словарь, а не множество!
+print(type(empty))   # &lt;class 'dict'>
+
+# ПРАВИЛЬНО
+empty = set()        # Это множество
+print(type(empty))   # &lt;class 'set'></code></pre>
+            </div>
+
+            <div class="warning">
+                <strong>Ошибка 2: Попытка добавить нехешируемый объект</strong><br>
+                <pre><code class="language-python"># НЕПРАВИЛЬНО
+my_set = {1, 2, 3}
+my_set.add([4, 5])   # TypeError: unhashable type: 'list'
+
+# ПРАВИЛЬНО (если нужно хранить списки)
+my_set = {1, 2, 3}
+# Храним кортежи вместо списков
+my_set.add((4, 5))   # OK
+# Или используем frozenset
+my_set.add(frozenset([4, 5]))  # OK</code></pre>
+            </div>
+
+            <div class="tip">
+                <strong>Совет: Использование множеств для быстрой проверки наличия</strong><br>
+                <pre><code class="language-python"># МЕДЛЕННО (со списком, O(n) операция)
+items_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+if 5 in items_list:  # Проверяет все элементы
+    print("Найдено")
+
+# БЫСТРО (с множеством, O(1) операция)
+items_set = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+if 5 in items_set:   # Быстрая проверка
+    print("Найдено быстро")</code></pre>
+            </div>
+
+            <div class="note">
+                <strong>Помните:</strong> Множества не упорядочены! Если вам важен порядок элементов, используйте список
+                или рассмотрите возможность использования OrderedSet из сторонних библиотек.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Сравнение: Set vs List vs Tuple</h5>
+            <div class="features">
+                <h6>Когда использовать Set:</h6>
+                <ul>
+                    <li>Нужны уникальные элементы</li>
+                    <li>Частые проверки наличия элемента</li>
+                    <li>Математические операции с коллекциями</li>
+                    <li>Удаление дубликатов</li>
+                    <li>Не важен порядок элементов</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>Золотые правила:</strong><br>
+                1. Используйте <span class="set-badge">set</span> для проверки принадлежности (x in s)<br>
+                2. Используйте <span class="set-badge">set</span> для удаления дубликатов<br>
+                3. Используйте <span class="frozenset-badge">frozenset</span> для неизменяемых множеств и ключей словаря<br>
+                4. Используйте <span class="set-badge">set</span> для математических операций над коллекциями
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 </html>

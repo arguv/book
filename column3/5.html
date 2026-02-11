@@ -1,31 +1,989 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-	    <title>Book</title>
+    <title>Tuple</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	    <div class="container">
-	        <div class="row">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-				<div class="course">
-					<a href="" target="_blank"></a>
-				</div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-	        </div>
-	    </div>
+        .row {
+            padding: 30px;
+        }
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+        h3 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e74c3c;
+            background: linear-gradient(to right, #e74c3c, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .course {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #e74c3c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .course h5 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .course h5:before {
+            content: "📌";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .features {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .features h6 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .course ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .course li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #495057;
+        }
+
+        .course li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-example h6 {
+            color: #ecf0f1;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .code-example h6:before {
+            content: "💻";
+            margin-right: 10px;
+        }
+
+        pre[class*="language-"] {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+        }
+
+        code[class*="language-"] {
+            font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', monospace;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #fffde7;
+            border-left: 4px solid #ffd600;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .note:before {
+            content: "💡 ";
+            font-weight: bold;
+            color: #f57c00;
+        }
+
+        .warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning:before {
+            content: "⚠️ ";
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .tip:before {
+            content: "🌟 ";
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: #e74c3c;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .comparison-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .list-badge {
+            background: #3498db;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        .tuple-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .row {
+                padding: 15px;
+            }
+
+            h3 {
+                font-size: 1.8em;
+            }
+
+            .course {
+                padding: 15px;
+            }
+
+            .code-example {
+                padding: 15px;
+            }
+
+            code[class*="language-"] {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <h3>PYTHON КОРТЕЖИ (TUPLE)</h3>
+
+        <div class="course">
+            <h5>Что такое кортеж (tuple)?</h5>
+            <p>Кортеж (tuple) - это <strong>неизменяемая</strong> (immutable), упорядоченная коллекция элементов в
+                Python. Кортежи похожи на списки, но не могут быть изменены после создания.</p>
+            <div class="features">
+                <h6>Основные характеристики кортежей:</h6>
+                <ul>
+                    <li><strong>Неизменяемость</strong> (immutable) - главное отличие от списков</li>
+                    <li>Упорядоченность (элементы имеют определенный порядок)</li>
+                    <li>Поддержка дубликатов</li>
+                    <li>Гетерогенность (может содержать элементы разных типов)</li>
+                    <li>Быстрее списков при выполнении некоторых операций</li>
+                </ul>
+            </div>
+            <div class="code-example">
+                <h6>Пример кортежа:</h6>
+                <pre><code class="language-python"># Пример кортежа с разными типами данных
+my_tuple = (1, "hello", 3.14, True, [1, 2, 3])
+print(my_tuple)  # (1, 'hello', 3.14, True, [1, 2, 3])
+print(type(my_tuple))  # &lt;class 'tuple'></code></pre>
+            </div>
+            <div class="note">
+                Кортежи часто используются для хранения связанных данных, которые не должны изменяться (координаты,
+                настройки, записи БД).
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Создание кортежей</h5>
+            <div class="code-example">
+                <h6>1. Прямое создание с круглыми скобками</h6>
+                <pre><code class="language-python"># Пустой кортеж
+empty_tuple = ()
+empty_tuple = tuple()
+
+# Кортеж с одним элементом (ВАЖНО: нужна запятая!)
+single_tuple = (42,)  # Кортеж с одним элементом
+not_a_tuple = (42)    # Это просто число 42, а не кортеж!
+
+# Кортеж с несколькими элементами
+coordinates = (10, 20, 30)
+colors = ("red", "green", "blue")
+mixed = (1, "text", 3.14, True)
+
+print(f"single_tuple: {single_tuple}, тип: {type(single_tuple)}")
+print(f"not_a_tuple: {not_a_tuple}, тип: {type(not_a_tuple)}")
+print(f"coordinates: {coordinates}")
+print(f"colors: {colors}")</code></pre>
+            </div>
+            <div class="warning">
+                <strong>ВАЖНО!</strong> Для создания кортежа с одним элементом обязательно ставить запятую после
+                элемента: <code>(42,)</code>
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>2. Использование конструктора tuple()</h6>
+                <pre><code class="language-python"># Из строки (разбивает на символы)
+chars = tuple("hello")  # ('h', 'e', 'l', 'l', 'o')
+
+# Из списка
+list_data = [1, 2, 3]
+tuple_from_list = tuple(list_data)  # (1, 2, 3)
+
+# Из диапазона
+range_tuple = tuple(range(5))  # (0, 1, 2, 3, 4)
+
+# Из другого кортежа (создает копию)
+original = (1, 2, 3)
+copy_tuple = tuple(original)  # (1, 2, 3)
+
+print(f"chars: {chars}")
+print(f"tuple_from_list: {tuple_from_list}")
+print(f"range_tuple: {range_tuple}")</code></pre>
+            </div>
+            <div class="tip">
+                Кортежи можно создавать без скобок - через запятую (это называется "упаковка кортежа")
+            </div>
+            <div class="code-example">
+                <h6>3. Упаковка кортежа (без скобок)</h6>
+                <pre><code class="language-python"># Упаковка кортежа (создание без скобок)
+packed = 1, 2, 3, 4, 5
+print(f"packed: {packed}, тип: {type(packed)}")  # (1, 2, 3, 4, 5) &lt;class 'tuple'>
+
+# Автоматическая упаковка в функциях
+def get_coordinates():
+    return 10, 20, 30  # Возвращает кортеж (10, 20, 30)
+
+result = get_coordinates()
+print(f"Результат функции: {result}")  # (10, 20, 30)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Доступ к элементам (индексация)</h5>
+            <div class="code-example">
+                <h6>Положительные и отрицательные индексы</h6>
+                <pre><code class="language-python">fruits = ("apple", "banana", "cherry", "orange")
+
+# Положительные индексы (слева направо, начиная с 0)
+print(fruits[0])   # "apple" - первый элемент
+print(fruits[1])   # "banana" - второй элемент
+print(fruits[2])   # "cherry" - третий элемент
+
+# Отрицательные индексы (справа налево, начиная с -1)
+print(fruits[-1])  # "orange" - последний элемент
+print(fruits[-2])  # "cherry" - предпоследний элемент
+print(fruits[-3])  # "banana" - третий с конца элемент
+
+# Индексация вложенных кортежей
+matrix = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+print(matrix[0][1])  # 2 (первая строка, второй элемент)</code></pre>
+            </div>
+            <div class="note">
+                Индексация кортежей работает точно так же, как и у списков.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Срезы (slicing)</h5>
+            <div class="code-example">
+                <h6>Работа со срезами кортежей</h6>
+                <pre><code class="language-python">numbers = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Базовые срезы
+print(numbers[2:5])    # (2, 3, 4) - с 2-го до 5-го (не включая 5)
+print(numbers[:4])     # (0, 1, 2, 3) - с начала до 4-го
+print(numbers[4:])     # (4, 5, 6, 7, 8, 9) - с 4-го до конца
+print(numbers[:])      # Полная копия кортежа (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# С шагом
+print(numbers[::2])    # (0, 2, 4, 6, 8) - каждый второй
+print(numbers[1::2])   # (1, 3, 5, 7, 9) - каждый второй, начиная с 1
+
+# Отрицательные индексы и шаг
+print(numbers[-3:])    # (7, 8, 9) - последние три элемента
+print(numbers[:-3])    # (0, 1, 2, 3, 4, 5, 6) - все кроме последних трех
+print(numbers[::-1])   # (9, 8, 7, 6, 5, 4, 3, 2, 1, 0) - обратный порядок
+
+# Срезы возвращают новый кортеж (не изменяют оригинал)
+original = (1, 2, 3, 4, 5)
+sliced = original[1:4]  # (2, 3, 4)
+print(f"Оригинал: {original}, Срез: {sliced}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Операции с кортежами</h5>
+            <div class="code-example">
+                <h6>Основные операции</h6>
+                <pre><code class="language-python"># Проверка наличия элемента
+fruits = ("apple", "banana", "cherry")
+print("banana" in fruits)     # True
+print("grape" not in fruits)  # True
+
+# Конкатенация (объединение) кортежей
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+
+# Оператор + (создает новый кортеж)
+combined = tuple1 + tuple2  # (1, 2, 3, 4, 5, 6)
+print(f"tuple1 после +: {tuple1}")  # tuple1 не изменился
+print(f"Результат конкатенации: {combined}")
+
+# Умножение кортежей (повторение)
+numbers = (1, 2, 3)
+repeated = numbers * 3  # (1, 2, 3, 1, 2, 3, 1, 2, 3)
+print(f"Повторенный кортеж: {repeated}")
+
+# Длина кортежа
+fruits = ("apple", "banana", "cherry")
+length = len(fruits)  # 3
+print(f"Длина кортежа: {length}")
+
+# Сравнение кортежей (лексикографическое сравнение)
+tuple_a = (1, 2, 3)
+tuple_b = (1, 2, 4)
+tuple_c = (1, 2, 3)
+print(f"tuple_a == tuple_b: {tuple_a == tuple_b}")  # False
+print(f"tuple_a == tuple_c: {tuple_a == tuple_c}")  # True
+print(f"tuple_a < tuple_b: {tuple_a < tuple_b}")    # True (3 < 4)</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Методы кортежей</h5>
+            <div class="code-example">
+                <h6>Кортежи имеют только два метода:</h6>
+                <pre><code class="language-python">numbers = (10, 20, 30, 20, 40, 20)
+
+# count() - подсчитать количество вхождений элемента
+count_20 = numbers.count(20)  # 3
+print(f"Число 20 встречается {count_20} раз")
+
+# index() - найти индекс первого вхождения элемента
+idx = numbers.index(20)  # 1
+print(f"Первое вхождение 20 на позиции: {idx}")
+
+# Можно искать с указанием диапазона
+idx = numbers.index(20, 2, 5)  # 3 (ищет между индексами 2 и 5)
+print(f"Вхождение 20 между позициями 2 и 5: {idx}")
+
+# Ошибка при отсутствии элемента
+try:
+    idx = numbers.index(99)  # ValueError: tuple.index(x): x not in tuple
+except ValueError as e:
+    print(f"Ошибка: {e}")
+
+# Проверка наличия перед вызовом index()
+element = 20
+if element in numbers:
+    idx = numbers.index(element)
+    print(f"Индекс элемента {element}: {idx}")
+else:
+    print(f"Элемент {element} не найден")</code></pre>
+            </div>
+            <div class="note">
+                У кортежей всего 2 метода (count и index), так как они неизменяемы и не могут добавлять/удалять
+                элементы.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Распаковка кортежей (unpacking)</h5>
+            <div class="code-example">
+                <h6>Базовая распаковка</h6>
+                <pre><code class="language-python"># Базовый пример распаковки
+coordinates = (10, 20, 30)
+x, y, z = coordinates  # Распаковка кортежа в отдельные переменные
+print(f"x = {x}, y = {y}, z = {z}")
+
+# Распаковка при возврате из функции
+def get_user_info():
+    return ("Alice", 25, "alice@example.com")
+
+name, age, email = get_user_info()
+print(f"Имя: {name}, Возраст: {age}, Email: {email}")
+
+# Обмен значений через кортежи
+a = 5
+b = 10
+print(f"До обмена: a = {a}, b = {b}")
+a, b = b, a  # Короткий способ обмена значений
+print(f"После обмена: a = {a}, b = {b}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <div class="code-example">
+                <h6>Расширенная распаковка</h6>
+                <pre><code class="language-python"># Распаковка с использованием *
+numbers = (1, 2, 3, 4, 5)
+
+# Python 3.0+ - расширенная распаковка
+first, *middle, last = numbers
+print(f"first: {first}, middle: {middle}, last: {last}")
+# first: 1, middle: [2, 3, 4], last: 5
+
+# Использование * для сбора остатка
+head, *tail = numbers
+print(f"head: {head}, tail: {tail}")  # head: 1, tail: [2, 3, 4, 5]
+
+*start, last_two, last_one = numbers
+print(f"start: {start}, last_two: {last_two}, last_one: {last_one}")
+# start: [1, 2, 3], last_two: 4, last_one: 5
+
+# Распаковка вложенных кортежей
+nested = (1, (2, 3), 4)
+a, (b, c), d = nested
+print(f"a: {a}, b: {b}, c: {c}, d: {d}")  # a: 1, b: 2, c: 3, d: 4
+
+# Игнорирование значений при распаковке
+data = ("Alice", 25, "NY", "alice@example.com")
+name, _, city, email = data  # _ используется для игнорирования значения
+print(f"name: {name}, city: {city}, email: {email}")</code></pre>
+            </div>
+            <div class="tip">
+                Используйте <code>_</code> для игнорирования ненужных значений при распаковке кортежей.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Итерация по кортежам</h5>
+            <div class="code-example">
+                <h6>Различные способы обхода кортежа</h6>
+                <pre><code class="language-python">fruits = ("apple", "banana", "cherry")
+
+print("1. По значениям:")
+for fruit in fruits:
+    print(fruit)
+
+print("\n2. По индексам и значениям (enumerate):")
+for index, fruit in enumerate(fruits):
+    print(f"Index {index}: {fruit}")
+
+print("\n3. По индексам (традиционный способ):")
+for i in range(len(fruits)):
+    print(f"Element {i}: {fruits[i]}")
+
+print("\n4. В обратном порядке (reversed):")
+for fruit in reversed(fruits):
+    print(fruit)
+
+print("\n5. Одновременная итерация по нескольким кортежам (zip):")
+names = ("Alice", "Bob", "Charlie")
+ages = (25, 30, 35)
+for name, age in zip(names, ages):
+    print(f"{name} is {age} years old")
+
+print("\n6. Использование while:")
+i = 0
+while i < len(fruits):
+    print(fruits[i])
+    i += 1
+
+print("\n7. Распаковка во время итерации:")
+coordinates_list = [(1, 2), (3, 4), (5, 6)]
+for x, y in coordinates_list:
+    print(f"x={x}, y={y}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Кортежи как ключи словаря</h5>
+            <div class="code-example">
+                <h6>Использование кортежей в качестве ключей</h6>
+                <pre><code class="language-python"># Словарь с кортежами в качестве ключей
+# Это возможно благодаря неизменяемости кортежей
+coordinates_dict = {
+    (0, 0): "Центр",
+    (1, 0): "Восток",
+    (0, 1): "Север",
+    (1, 1): "Северо-восток"
+}
+
+# Доступ к значениям по кортежному ключу
+print(f"Значение в точке (0,0): {coordinates_dict[(0, 0)]}")
+print(f"Значение в точке (1,1): {coordinates_dict[(1, 1)]}")
+
+# Словарь для хранения оценок студентов по разным предметам
+grades = {
+    ("Alice", "Math"): 95,
+    ("Alice", "Physics"): 88,
+    ("Bob", "Math"): 78,
+    ("Bob", "Physics"): 92
+}
+
+# Получение оценки Алисы по математике
+alice_math_grade = grades[("Alice", "Math")]
+print(f"Оценка Алисы по математике: {alice_math_grade}")
+
+# Итерация по словарю с кортежными ключами
+for (student, subject), grade in grades.items():
+    print(f"{student} по предмету {subject}: {grade}")</code></pre>
+            </div>
+            <div class="note">
+                Кортежи можно использовать как ключи словаря благодаря их неизменяемости. Списки не могут быть ключами!
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Изменяемость внутри кортежей</h5>
+            <div class="code-example">
+                <h6>Кортежи содержащие изменяемые объекты</h6>
+                <pre><code class="language-python"># Кортеж может содержать изменяемые объекты (списки, словари и т.д.)
+mixed_tuple = (1, 2, [3, 4, 5], {"name": "Alice"})
+print(f"Исходный кортеж: {mixed_tuple}")
+
+# Элементы кортежа нельзя изменить
+# mixed_tuple[0] = 10  # ОШИБКА: TypeError: 'tuple' object does not support item assignment
+
+# НО: можно изменять изменяемые объекты внутри кортежа
+mixed_tuple[2].append(6)  # Добавляем элемент во внутренний список
+mixed_tuple[3]["age"] = 25  # Добавляем ключ во внутренний словарь
+
+print(f"Кортеж после изменения внутренних объектов: {mixed_tuple}")
+
+# Практический пример: хранение координат с метаданными
+point = ((10, 20), ["red", "green", "blue"])
+print(f"Точка: {point}")
+
+# Можно изменить цвет точки
+point[1][0] = "blue"  # Меняем первый цвет
+print(f"Точка после смены цвета: {point}")
+
+# Но нельзя изменить координаты
+# point[0] = (15, 25)  # ОШИБКА!</code></pre>
+            </div>
+            <div class="warning">
+                Хотя кортежи неизменяемы, они могут содержать изменяемые объекты, которые можно модифицировать!
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Именованные кортежи (namedtuple)</h5>
+            <div class="code-example">
+                <h6>Создание и использование именованных кортежей</h6>
+                <pre><code class="language-python">from collections import namedtuple
+
+# Создание класса для именованного кортежа
+Person = namedtuple('Person', ['name', 'age', 'city'])
+
+# Создание экземпляров
+person1 = Person('Alice', 25, 'New York')
+person2 = Person(name='Bob', age=30, city='London')
+
+# Доступ к полям
+print(f"Имя: {person1.name}, Возраст: {person1.age}, Город: {person1.city}")
+print(f"Имя: {person2.name}, Возраст: {person2.age}, Город: {person2.city}")
+
+# Доступ по индексу (как у обычных кортежей)
+print(f"Имя по индексу: {person1[0]}")  # Alice
+
+# Распаковка
+name, age, city = person1
+print(f"Распаковано: {name}, {age}, {city}")
+
+# Методы именованных кортежей
+print(f"Поля: {person1._fields}")  # ('name', 'age', 'city')
+
+# Создание из словаря
+person_dict = {'name': 'Charlie', 'age': 35, 'city': 'Paris'}
+person3 = Person(**person_dict)
+print(f"Из словаря: {person3}")
+
+# Замена значений (создает новый кортеж)
+person4 = person3._replace(age=36, city='Berlin')
+print(f"После замены: {person4}")
+
+# Преобразование в словарь
+person_dict = person4._asdict()
+print(f"Словарь: {person_dict}")</code></pre>
+            </div>
+            <div class="tip">
+                Именованные кортежи (namedtuple) обеспечивают лучшую читаемость кода при работе со структурированными
+                данными.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Сравнение списков и кортежей</h5>
+            <table class="comparison-table">
+                <thead>
+                <tr>
+                    <th>Характеристика</th>
+                    <th>Список (List)</th>
+                    <th>Кортеж (Tuple)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Изменяемость</td>
+                    <td><span class="list-badge">Изменяемый (mutable)</span></td>
+                    <td><span class="tuple-badge">Неизменяемый (immutable)</span></td>
+                </tr>
+                <tr>
+                    <td>Синтаксис</td>
+                    <td>Квадратные скобки []</td>
+                    <td>Круглые скобки () или без скобок</td>
+                </tr>
+                <tr>
+                    <td>Производительность</td>
+                    <td>Медленнее при некоторых операциях</td>
+                    <td>Быстрее, занимает меньше памяти</td>
+                </tr>
+                <tr>
+                    <td>Использование как ключ словаря</td>
+                    <td>Невозможно</td>
+                    <td>Возможно</td>
+                </tr>
+                <tr>
+                    <td>Встроенные методы</td>
+                    <td>Много (append, remove, sort и т.д.)</td>
+                    <td>Мало (только count и index)</td>
+                </tr>
+                <tr>
+                    <td>Безопасность данных</td>
+                    <td>Меньше (данные могут измениться)</td>
+                    <td>Больше (данные защищены от изменений)</td>
+                </tr>
+                <tr>
+                    <td>Использование</td>
+                    <td>Для коллекций, которые нужно изменять</td>
+                    <td>Для константных данных, ключей словаря</td>
+                </tr>
+                <tr>
+                    <td>Потребление памяти</td>
+                    <td>Больше</td>
+                    <td>Меньше (примерно на 12-15%)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="course">
+            <h5>Преимущества кортежей</h5>
+            <div class="features">
+                <h6>Почему использовать кортежи:</h6>
+                <ul>
+                    <li><strong>Защита данных</strong> - данные не могут быть случайно изменены</li>
+                    <li><strong>Быстродействие</strong> - кортежи работают быстрее списков</li>
+                    <li><strong>Экономия памяти</strong> - занимают меньше места</li>
+                    <li><strong>Хэшируемость</strong> - могут быть ключами словаря</li>
+                    <li><strong>Читаемость кода</strong> - показывают намерение использовать неизменяемые данные</li>
+                    <li><strong>Безопасность в многопоточных приложениях</strong> - нет проблем с доступом к данным</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Практические примеры использования кортежей</h5>
+            <div class="code-example">
+                <h6>Пример 1: Возврат нескольких значений из функции</h6>
+                <pre><code class="language-python">def get_statistics(data):
+    """Возвращает несколько статистических показателей"""
+    if not data:
+        return None
+
+    return (
+        min(data),      # минимум
+        max(data),      # максимум
+        sum(data),      # сумма
+        sum(data) / len(data),  # среднее
+        len(data)       # количество
+    )
+
+# Использование
+numbers = [10, 20, 30, 40, 50]
+stats = get_statistics(numbers)
+print(f"Статистика: мин={stats[0]}, макс={stats[1]}, сумма={stats[2]}, "
+      f"среднее={stats[3]:.2f}, количество={stats[4]}")
+
+# С распаковкой
+min_val, max_val, total, avg, count = get_statistics(numbers)
+print(f"Минимум: {min_val}, Максимум: {max_val}, Среднее: {avg:.2f}")</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>Пример 2: Кэширование с использованием кортежей как ключей</h6>
+                <pre><code class="language-python"># Простой кэш с кортежными ключами
+cache = {}
+
+def cached_function(x, y, operation='add'):
+    """Функция с кэшированием результатов"""
+    # Создаем ключ кэша - кортеж из параметров
+    key = (x, y, operation)
+
+    # Проверяем, есть ли результат в кэше
+    if key in cache:
+        print(f"Результат из кэша: {cache[key]}")
+        return cache[key]
+
+    # Вычисляем результат
+    if operation == 'add':
+        result = x + y
+    elif operation == 'multiply':
+        result = x * y
+    else:
+        result = None
+
+    # Сохраняем в кэш
+    cache[key] = result
+    print(f"Новый результат: {result}")
+    return result
+
+# Тестирование
+cached_function(5, 3, 'add')        # Новый результат: 8
+cached_function(5, 3, 'add')        # Результат из кэша: 8
+cached_function(5, 3, 'multiply')   # Новый результат: 15
+cached_function(2, 4, 'add')        # Новый результат: 6</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h6>Пример 3: Работа с координатами и точками</h6>
+                <pre><code class="language-python">def calculate_distance(point1, point2):
+    """Вычисляет расстояние между двумя точками"""
+    x1, y1 = point1
+    x2, y2 = point2
+    return ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+
+def find_closest_point(target, points):
+    """Находит ближайшую точку к целевой"""
+    closest_point = None
+    min_distance = float('inf')
+
+    for point in points:
+        distance = calculate_distance(target, point)
+        if distance < min_distance:
+            min_distance = distance
+            closest_point = point
+
+    return closest_point, min_distance
+
+# Использование
+points = [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+target = (1.5, 1.5)
+
+closest, distance = find_closest_point(target, points)
+print(f"Ближайшая точка к {target}: {closest}, расстояние: {distance:.2f}")</code></pre>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Производительность: списки vs кортежи</h5>
+            <div class="code-example">
+                <h6>Сравнение скорости создания и доступа</h6>
+                <pre><code class="language-python">import timeit
+import sys
+
+# Сравнение времени создания
+list_time = timeit.timeit('l = [1, 2, 3, 4, 5]', number=1000000)
+tuple_time = timeit.timeit('t = (1, 2, 3, 4, 5)', number=1000000)
+
+print(f"Время создания списка (1 млн раз): {list_time:.4f} сек")
+print(f"Время создания кортежа (1 млн раз): {tuple_time:.4f} сек")
+print(f"Кортежи быстрее в {list_time/tuple_time:.2f} раза")
+
+# Сравнение использования памяти
+list_obj = [1, 2, 3, 4, 5]
+tuple_obj = (1, 2, 3, 4, 5)
+
+print(f"\nРазмер списка: {sys.getsizeof(list_obj)} байт")
+print(f"Размер кортежа: {sys.getsizeof(tuple_obj)} байт")
+print(f"Кортеж занимает {sys.getsizeof(tuple_obj)/sys.getsizeof(list_obj)*100:.1f}% от размера списка")
+
+# Сравнение скорости итерации
+list_iter_time = timeit.timeit('for _ in l: pass',
+                               setup='l = [1, 2, 3, 4, 5]',
+                               number=1000000)
+tuple_iter_time = timeit.timeit('for _ in t: pass',
+                                setup='t = (1, 2, 3, 4, 5)',
+                                number=1000000)
+
+print(f"\nВремя итерации по списку: {list_iter_time:.4f} сек")
+print(f"Время итерации по кортежу: {tuple_iter_time:.4f} сек")
+print(f"Итерация по кортежам быстрее в {list_iter_time/tuple_iter_time:.2f} раза")</code></pre>
+            </div>
+            <div class="tip">
+                Для константных данных, которые не нужно изменять, всегда используйте кортежи вместо списков - это
+                быстрее и экономит память.
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Когда использовать списки, а когда кортежи</h5>
+            <div class="features">
+                <h6>Используйте СПИСКИ, когда:</h6>
+                <ul>
+                    <li>Нужно изменять коллекцию (добавлять/удалять элементы)</li>
+                    <li>Данные однородны по типу</li>
+                    <li>Нужны встроенные методы для модификации (append, remove, sort и т.д.)</li>
+                    <li>Работаете с динамическими данными</li>
+                </ul>
+            </div>
+
+            <div class="features">
+                <h6>Используйте КОРТЕЖИ, когда:</h6>
+                <ul>
+                    <li>Данные не должны изменяться (константы, настройки)</li>
+                    <li>Нужно использовать коллекцию как ключ словаря</li>
+                    <li>Работаете с гетерогенными данными (разные типы вместе)</li>
+                    <li>Возвращаете несколько значений из функции</li>
+                    <li>Производительность критична</li>
+                    <li>Данные логически связаны (координаты, записи БД)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="course">
+            <h5>Частые ошибки и лучшие практики</h5>
+            <div class="warning">
+                <strong>Ошибка 1: Забыть запятую при создании кортежа с одним элементом</strong><br>
+                <pre><code class="language-python"># НЕПРАВИЛЬНО
+single = (42)           # Это число, а не кортеж!
+
+# ПРАВИЛЬНО
+single = (42,)          # Это кортеж с одним элементом
+also_single = 42,       # Это тоже кортеж</code></pre>
+            </div>
+
+            <div class="warning">
+                <strong>Ошибка 2: Попытка изменить кортеж</strong><br>
+                <pre><code class="language-python"># НЕПРАВИЛЬНО
+coordinates = (10, 20, 30)
+coordinates[1] = 25     # TypeError: 'tuple' object does not support item assignment
+
+# ПРАВИЛЬНО (создание нового кортежа)
+coordinates = (10, 20, 30)
+new_coordinates = (coordinates[0], 25, coordinates[2])</code></pre>
+            </div>
+
+            <div class="tip">
+                <strong>Совет: Использование именованных кортежей для читаемости</strong><br>
+                <pre><code class="language-python"># ВМЕСТО
+person = ("Alice", 25, "NY")  # Что такое 25? Что такое "NY"?
+
+# ЛУЧШЕ
+from collections import namedtuple
+Person = namedtuple('Person', ['name', 'age', 'city'])
+person = Person("Alice", 25, "NY")
+print(person.age)  # Понятно, что это возраст</code></pre>
+            </div>
+
+            <div class="note">
+                <strong>Помните:</strong> Кортежи - это не просто "неизменяемые списки". Это отдельная структура данных
+                с
+                собственными use-cases и преимуществами. Используйте их осознанно!
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 </html>
