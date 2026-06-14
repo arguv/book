@@ -1,39 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	
-		<title>Book</title>
-	
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<title>Исключения: try / except / finally</title>
 
-	    <div class="container">
-	        <div class="row">
+	<style>
 
-				<pre>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
 
-				</pre>
+		body{
+			font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+			line-height:1.6;
+			color:#333;
+			background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
+			min-height:100vh;
+			padding:20px;
+		}
 
-				<blockquote>
+		.container{
+			max-width:1200px;
+			margin:0 auto;
+			background:white;
+			border-radius:15px;
+			box-shadow:0 10px 30px rgba(0,0,0,0.1);
+			overflow:hidden;
+		}
 
-				</blockquote>
+		.header{
+			background:linear-gradient(to right,#e74c3c,#2c3e50);
+			color:white;
+			padding:30px;
+			text-align:center;
+		}
 
-				<code>
+		.header h1{
+			font-size:2.5em;
+			margin-bottom:10px;
+		}
 
-  				</code>
+		.content{
+			padding:30px;
+		}
 
-	        </div>
-	    </div>
+		.section{
+			background:white;
+			border-radius:10px;
+			padding:25px;
+			margin-bottom:25px;
+			box-shadow:0 5px 15px rgba(0,0,0,0.05);
+			border-left:5px solid #e74c3c;
+		}
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+		h2{
+			color:#2c3e50;
+			font-size:2em;
+			margin:30px 0 15px 0;
+			padding-bottom:10px;
+			border-bottom:2px solid #e74c3c;
+		}
+
+		h3{
+			color:#e74c3c;
+			font-size:1.5em;
+			margin:25px 0 15px 0;
+		}
+
+		h4{
+			margin-bottom:10px;
+		}
+
+		.info-box{
+			background:#f8f9fa;
+			border-radius:8px;
+			padding:20px;
+			margin:20px 0;
+			border-left:4px solid #e74c3c;
+		}
+
+		.code-example{
+			background:#2d2d2d;
+			color:#f8f8f2;
+			border-radius:8px;
+			padding:20px;
+			margin:20px 0;
+			overflow-x:auto;
+			font-family:Consolas,monospace;
+		}
+
+		.keyword{color:#f92672;}
+		.string{color:#e6db74;}
+		.number{color:#ae81ff;}
+		.comment{color:#75715e;}
+		.function{color:#66d9ef;}
+
+		.note{
+			background:#fffde7;
+			border-left:4px solid #ffd600;
+			padding:15px;
+			margin:15px 0;
+		}
+
+		.warning{
+			background:#ffebee;
+			border-left:4px solid #f44336;
+			padding:15px;
+			margin:15px 0;
+		}
+
+		.tip{
+			background:#e8f5e9;
+			border-left:4px solid #4caf50;
+			padding:15px;
+			margin:15px 0;
+		}
+
+		table{
+			width:100%;
+			border-collapse:collapse;
+			margin-top:15px;
+		}
+
+		th{
+			background:#e74c3c;
+			color:white;
+			padding:10px;
+			text-align:left;
+		}
+
+		td{
+			padding:10px;
+			border-bottom:1px solid #eee;
+		}
+
+		tr:nth-child(even){
+			background:#f8f9fa;
+		}
+
+	</style>
+</head>
+
+<body>
+
+<div class="container">
+
+	<div class="header">
+		<h1>Исключения</h1>
+		<p>try / except / finally</p>
+	</div>
+
+	<div class="content">
+
+		<div class="section">
+
+			<p>
+				Исключения (Exceptions) — это механизм обработки ошибок во время выполнения программы.
+				Когда происходит ошибка, Python создает объект исключения.
+			</p>
+
+			<div class="info-box">
+
+				<h4>Зачем нужны исключения?</h4>
+
+				<ul>
+					<li>обработка ошибок без падения программы</li>
+					<li>контроль выполнения кода</li>
+					<li>обработка нестандартных ситуаций</li>
+					<li>надежность и безопасность программ</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Базовый синтаксис try / except</h2>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    <span class="comment"># код, где может возникнуть ошибка</span>
+
+<span class="keyword">except</span>:
+    <span class="comment"># обработка ошибки</span>
+</pre>
+			</div>
+
+			<h3>Простой пример</h3>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    result = <span class="number">10</span> / <span class="number">0</span>
+
+<span class="keyword">except</span>:
+    <span class="function">print</span>(<span class="string">"Произошла ошибка!"</span>)
+</pre>
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Обработка конкретных исключений</h2>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    x = <span class="function">int</span>(<span class="string">"abc"</span>)
+
+<span class="keyword">except</span> <span class="function">ValueError</span>:
+    <span class="function">print</span>(<span class="string">"Ошибка преобразования числа"</span>)
+</pre>
+			</div>
+
+			<div class="tip">
+				Лучше всегда указывать конкретный тип исключения.
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Несколько except</h2>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    x = <span class="function">int</span>(input())
+    y = <span class="number">10</span> / x
+
+<span class="keyword">except</span> <span class="function">ValueError</span>:
+    <span class="function">print</span>(<span class="string">"Нужно ввести число"</span>)
+
+<span class="keyword">except</span> <span class="function">ZeroDivisionError</span>:
+    <span class="function">print</span>(<span class="string">"Деление на ноль"</span>)
+</pre>
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>except как переменная</h2>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    <span class="number">5</span> / <span class="number">0</span>
+
+<span class="keyword">except</span> <span class="function">ZeroDivisionError</span> <span class="keyword">as</span> e:
+    <span class="function">print</span>(<span class="string">"Ошибка:"</span>, e)
+</pre>
+			</div>
+
+			<p>
+				Переменная <b>e</b> содержит объект ошибки.
+			</p>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Блок finally</h2>
+
+			<p>
+				Блок <b>finally</b> выполняется ВСЕГДА.
+			</p>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    x = <span class="number">10</span> / <span class="number">0</span>
+
+<span class="keyword">except</span>:
+    <span class="function">print</span>(<span class="string">"Ошибка"</span>)
+
+<span class="keyword">finally</span>:
+    <span class="function">print</span>(<span class="string">"Этот код выполнится всегда"</span>)
+</pre>
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Полная структура try</h2>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    code
+
+<span class="keyword">except</span> ErrorType:
+    handler
+
+<span class="keyword">else</span>:
+    code_if_no_error
+
+<span class="keyword">finally</span>:
+    always_run
+</pre>
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>else блок</h2>
+
+			<p>
+				<b>else</b> выполняется только если ошибок не произошло.
+			</p>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    x = <span class="number">10</span> / <span class="number">2</span>
+
+<span class="keyword">except</span>:
+    <span class="function">print</span>(<span class="string">"Ошибка"</span>)
+
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">"Все прошло успешно"</span>)
+</pre>
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>raise — создание исключения</h2>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">def</span> check_age(age):
+
+    <span class="keyword">if</span> age &lt; <span class="number">18</span>:
+        <span class="keyword">raise</span> <span class="function">ValueError</span>(<span class="string">"Возраст должен быть 18+"</span>)
+</pre>
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Создание собственного исключения</h2>
+
+			<div class="code-example">
+<pre>
+<span class="keyword">class</span> MyError(<span class="function">Exception</span>):
+    <span class="keyword">pass</span>
+
+
+<span class="keyword">raise</span> MyError(<span class="string">"Моя ошибка"</span>)
+</pre>
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Основные типы исключений Python</h2>
+
+			<table>
+
+				<tr>
+					<th>Исключение</th>
+					<th>Описание</th>
+				</tr>
+
+				<tr>
+					<td>ValueError</td>
+					<td>Неверное значение</td>
+				</tr>
+
+				<tr>
+					<td>TypeError</td>
+					<td>Неверный тип данных</td>
+				</tr>
+
+				<tr>
+					<td>IndexError</td>
+					<td>Выход за границы списка</td>
+				</tr>
+
+				<tr>
+					<td>KeyError</td>
+					<td>Нет ключа в словаре</td>
+				</tr>
+
+				<tr>
+					<td>ZeroDivisionError</td>
+					<td>Деление на ноль</td>
+				</tr>
+
+				<tr>
+					<td>FileNotFoundError</td>
+					<td>Файл не найден</td>
+				</tr>
+
+			</table>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Лучшие практики</h2>
+
+			<div class="tip">
+
+				<ul>
+					<li>ловите конкретные ошибки</li>
+					<li>не используйте пустой except</li>
+					<li>используйте finally для закрытия ресурсов</li>
+					<li>используйте raise для собственных ошибок</li>
+				</ul>
+
+			</div>
+
+			<div class="warning">
+
+				<h4>Плохая практика</h4>
+
+				<div class="code-example">
+<pre>
+<span class="keyword">try</span>:
+    code
+
+<span class="keyword">except</span>:
+    <span class="keyword">pass</span>
+</pre>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Когда использовать try/except</h2>
+
+			<ul>
+				<li>работа с файлами</li>
+				<li>сетевые запросы</li>
+				<li>обработка пользовательского ввода</li>
+				<li>работа с базами данных</li>
+				<li>API вызовы</li>
+			</ul>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Заключение</h2>
+
+			<div class="info-box">
+
+				<ul>
+					<li>try — код где может быть ошибка</li>
+					<li>except — обработка ошибки</li>
+					<li>else — если ошибки нет</li>
+					<li>finally — выполняется всегда</li>
+					<li>raise — создание исключения</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
 </body>
 </html>

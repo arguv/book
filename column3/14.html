@@ -1,39 +1,687 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	
-		<title>Book</title>
-	
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<title>LLM — Large Language Models</title>
 
-	    <div class="container">
-	        <div class="row">
+	<style>
+
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+
+		body{
+			font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+			line-height:1.6;
+			color:#333;
+			background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
+			min-height:100vh;
+			padding:20px;
+		}
+
+		.container{
+			max-width:1200px;
+			margin:0 auto;
+			background:white;
+			border-radius:15px;
+			box-shadow:0 10px 30px rgba(0,0,0,0.1);
+			overflow:hidden;
+		}
+
+		.header{
+			background:linear-gradient(to right,#3498db,#2c3e50);
+			color:white;
+			padding:30px;
+			text-align:center;
+		}
+
+		.header h1{
+			font-size:2.5em;
+			margin-bottom:10px;
+		}
+
+		.header p{
+			font-size:1.2em;
+			opacity:0.9;
+		}
+
+		.content{
+			padding:30px;
+		}
+
+		h2{
+			color:#2c3e50;
+			font-size:2em;
+			margin:30px 0 15px 0;
+			padding-bottom:10px;
+			border-bottom:2px solid #3498db;
+		}
+
+		h3{
+			color:#3498db;
+			font-size:1.5em;
+			margin:25px 0 15px 0;
+		}
+
+		h4{
+			color:#2c3e50;
+			font-size:1.2em;
+			margin:20px 0 10px 0;
+		}
+
+		.section{
+			background:white;
+			border-radius:10px;
+			padding:25px;
+			margin-bottom:25px;
+			box-shadow:0 5px 15px rgba(0,0,0,0.05);
+			border-left:5px solid #3498db;
+		}
+
+		.info-box{
+			background:#f8f9fa;
+			border-radius:8px;
+			padding:20px;
+			margin:20px 0;
+			border-left:4px solid #3498db;
+		}
+
+		.code-example{
+			background:#2d2d2d;
+			color:#f8f8f2;
+			border-radius:8px;
+			padding:20px;
+			margin:20px 0;
+			overflow-x:auto;
+			font-family:'Consolas','Monaco','Courier New',monospace;
+		}
+
+		.note{
+			background:#fffde7;
+			border-left:4px solid #ffd600;
+			padding:15px;
+			margin:15px 0;
+			border-radius:4px;
+		}
+
+		.warning{
+			background:#ffebee;
+			border-left:4px solid #f44336;
+			padding:15px;
+			margin:15px 0;
+			border-radius:4px;
+		}
+
+		.tip{
+			background:#e8f5e9;
+			border-left:4px solid #4caf50;
+			padding:15px;
+			margin:15px 0;
+			border-radius:4px;
+		}
+
+		.comparison-table{
+			width:100%;
+			border-collapse:collapse;
+			margin:20px 0;
+			background:white;
+			border-radius:8px;
+			overflow:hidden;
+			box-shadow:0 3px 10px rgba(0,0,0,0.1);
+		}
+
+		.comparison-table th{
+			background:#3498db;
+			color:white;
+			padding:12px;
+			text-align:left;
+		}
+
+		.comparison-table td{
+			padding:10px 12px;
+			border-bottom:1px solid #eee;
+		}
+
+		.comparison-table tr:nth-child(even){
+			background:#f8f9fa;
+		}
+
+		ul,ol{
+			margin-left:20px;
+			margin-bottom:15px;
+		}
+
+		li{
+			margin:5px 0;
+		}
+
+		p{
+			margin-bottom:15px;
+		}
+
+		.use-cases{
+			display:grid;
+			grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+			gap:20px;
+			margin:20px 0;
+		}
+
+		.use-case{
+			background:#f8f9fa;
+			padding:20px;
+			border-radius:8px;
+			border:1px solid #e9ecef;
+		}
+
+	</style>
+</head>
+
+<body>
+
+<div class="container">
+
+	<div class="header">
+		<h1>LLM — Large Language Models</h1>
+		<p>Полное руководство для AI / ML / Data Engineers</p>
+	</div>
+
+	<div class="content">
+
+
+		<div class="section">
+
+			<h2>Что такое LLM</h2>
+
+			<p>
+				LLM (Large Language Model) — это нейронная сеть огромного размера,
+				обученная на больших объемах текстовых данных для понимания,
+				генерации и анализа естественного языка.
+			</p>
+
+			<div class="info-box">
+
+				<h4>Основная идея</h4>
+
+				<p>
+					LLM предсказывает <b>следующее слово (token)</b> в последовательности.
+				</p>
+
+				<p>
+					Пример:
+				</p>
 
 				<pre>
+Input: "Machine learning is"
+Prediction: "a", "the", "an"
+</pre>
 
-				</pre>
+			</div>
 
-				<blockquote>
+			<p>
+				LLM используется для:
+			</p>
 
-				</blockquote>
+			<ul>
 
-				<code>
+				<li>чат-ботов</li>
+				<li>генерации текста</li>
+				<li>переводов</li>
+				<li>анализа документов</li>
+				<li>написания кода</li>
+				<li>поиска знаний</li>
 
-  				</code>
+			</ul>
 
-	        </div>
-	    </div>
+		</div>
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+
+
+		<div class="section">
+
+			<h2>Основные компоненты LLM</h2>
+
+			<ul>
+
+				<li>Transformer architecture</li>
+				<li>Tokenization</li>
+				<li>Embeddings</li>
+				<li>Self-Attention</li>
+				<li>Feed Forward layers</li>
+
+			</ul>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Transformer Architecture</h2>
+
+			<p>
+				Большинство LLM построены на архитектуре <b>Transformer</b>.
+			</p>
+
+			<p>
+				Она была предложена в 2017 году в статье:
+			</p>
+
+			<p>
+				<b>"Attention Is All You Need"</b>
+			</p>
+
+			<h3>Основные элементы</h3>
+
+			<ul>
+
+				<li>Embedding Layer</li>
+				<li>Attention Layers</li>
+				<li>Feed Forward Networks</li>
+				<li>Layer Normalization</li>
+
+			</ul>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Tokenization</h2>
+
+			<p>
+				LLM не работает напрямую с текстом.
+				Он работает с <b>tokens</b>.
+			</p>
+
+			<p>
+				Token — это часть слова или символ.
+			</p>
+
+			<div class="code-example">
+
+<pre>
+Text:
+
+Machine learning is powerful
+
+
+Tokens:
+
+["Machine", "learning", "is", "powerful"]
+</pre>
+
+			</div>
+
+			<p>
+				Популярные tokenizers:
+			</p>
+
+			<ul>
+
+				<li>BPE (Byte Pair Encoding)</li>
+				<li>WordPiece</li>
+				<li>SentencePiece</li>
+
+			</ul>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Embeddings</h2>
+
+			<p>
+				Embeddings — это числовое представление слов.
+			</p>
+
+			<p>
+				Каждое слово превращается в вектор.
+			</p>
+
+			<div class="code-example">
+
+<pre>
+
+import numpy as np
+
+word_vector = np.array([0.23, 0.11, -0.77, 0.91])
+
+</pre>
+
+			</div>
+
+			<p>
+				Embeddings позволяют модели понимать смысл слов.
+			</p>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Self Attention</h2>
+
+			<p>
+				Self-attention позволяет модели понимать
+				контекст слов.
+			</p>
+
+			<p>
+				Пример:
+			</p>
+
+			<pre>
+"The animal didn't cross the street because it was too tired."
+</pre>
+
+			<p>
+				Модель понимает,
+				что <b>it = animal</b>.
+			</p>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Обучение LLM</h2>
+
+			<h3>Этап 1 — Pretraining</h3>
+
+			<p>
+				Модель обучается на огромных текстовых данных.
+			</p>
+
+			<ul>
+
+				<li>Books</li>
+				<li>Wikipedia</li>
+				<li>Web pages</li>
+				<li>Code</li>
+
+			</ul>
+
+			<h3>Этап 2 — Fine-tuning</h3>
+
+			<p>
+				Модель обучается на конкретных задачах.
+			</p>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Python пример использования LLM</h2>
+
+			<div class="code-example">
+
+<pre>
+
+from transformers import pipeline
+
+generator = pipeline("text-generation")
+
+result = generator(
+"Artificial intelligence is",
+max_length=20
+)
+
+print(result)
+
+</pre>
+
+			</div>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Prompt Engineering</h2>
+
+			<p>
+				Prompt — это инструкция для модели.
+			</p>
+
+			<div class="code-example">
+
+<pre>
+
+Prompt:
+
+Explain quantum physics for a child.
+
+</pre>
+
+			</div>
+
+			<p>
+				Хороший prompt сильно влияет на результат.
+			</p>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>RAG — Retrieval Augmented Generation</h2>
+
+			<p>
+				RAG — это техника, которая позволяет LLM
+				использовать внешние данные.
+			</p>
+
+			<h3>Pipeline</h3>
+
+			<ol>
+
+				<li>Query</li>
+				<li>Vector search</li>
+				<li>Retrieve documents</li>
+				<li>Generate answer</li>
+
+			</ol>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Использование LLM в индустрии</h2>
+
+			<div class="use-cases">
+
+				<div class="use-case">
+
+					<h4>Chatbots</h4>
+
+					<p>
+						ChatGPT, assistants
+					</p>
+
+				</div>
+
+				<div class="use-case">
+
+					<h4>Code generation</h4>
+
+					<p>
+						GitHub Copilot
+					</p>
+
+				</div>
+
+				<div class="use-case">
+
+					<h4>Search</h4>
+
+					<p>
+						Semantic search
+					</p>
+
+				</div>
+
+				<div class="use-case">
+
+					<h4>Data analysis</h4>
+
+					<p>
+						LLM помогает анализировать данные
+					</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>LLM для разных специалистов</h2>
+
+			<table class="comparison-table">
+
+				<thead>
+
+				<tr>
+					<th>Роль</th>
+					<th>Использование LLM</th>
+				</tr>
+
+				</thead>
+
+				<tbody>
+
+				<tr>
+					<td>AI Engineer</td>
+					<td>Создание LLM систем</td>
+				</tr>
+
+				<tr>
+					<td>ML Engineer</td>
+					<td>Training / deployment моделей</td>
+				</tr>
+
+				<tr>
+					<td>Data Scientist</td>
+					<td>Анализ текстовых данных</td>
+				</tr>
+
+				<tr>
+					<td>Data Engineer</td>
+					<td>Пайплайны данных для LLM</td>
+				</tr>
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Ограничения LLM</h2>
+
+			<div class="warning">
+
+				<ul>
+
+					<li>Hallucinations (модель может выдумывать)</li>
+					<li>Большие вычислительные ресурсы</li>
+					<li>Зависимость от данных обучения</li>
+					<li>Стоимость GPU</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Популярные LLM</h2>
+
+			<ul>
+
+				<li>GPT</li>
+				<li>LLaMA</li>
+				<li>Claude</li>
+				<li>Gemini</li>
+				<li>Mistral</li>
+
+			</ul>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Заключение</h2>
+
+			<div class="info-box">
+
+				<p>
+
+					LLM — это основа современной AI революции.
+
+				</p>
+
+				<ul>
+
+					<li>они понимают язык</li>
+					<li>генерируют текст</li>
+					<li>анализируют информацию</li>
+					<li>используются в тысячах приложений</li>
+
+				</ul>
+
+			</div>
+
+			<div class="tip">
+
+				<p>
+					Для инженеров важно понимать:
+				</p>
+
+				<ul>
+
+					<li>transformers</li>
+					<li>tokenization</li>
+					<li>embeddings</li>
+					<li>fine tuning</li>
+					<li>RAG</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+
+	</div>
+</div>
+
 </body>
 </html>

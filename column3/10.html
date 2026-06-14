@@ -1,39 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	
-		<title>Book</title>
-	
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<title>Python Контекстные Менеджеры (with)</title>
 
-	    <div class="container">
-	        <div class="row">
+	<style>
 
-				<pre>
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
 
-				</pre>
+		body{
+			font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+			background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
+			line-height:1.6;
+			padding:20px;
+		}
 
-				<blockquote>
+		.container{
+			max-width:1200px;
+			margin:auto;
+			background:white;
+			border-radius:15px;
+			box-shadow:0 10px 30px rgba(0,0,0,0.1);
+			overflow:hidden;
+		}
 
-				</blockquote>
+		.header{
+			background:linear-gradient(to right,#8e44ad,#2c3e50);
+			color:white;
+			padding:30px;
+			text-align:center;
+		}
 
-				<code>
+		.header h1{
+			font-size:2.5em;
+			margin-bottom:10px;
+		}
 
-  				</code>
+		.content{
+			padding:30px;
+		}
 
-	        </div>
-	    </div>
+		.section{
+			background:white;
+			border-radius:10px;
+			padding:25px;
+			margin-bottom:25px;
+			border-left:5px solid #8e44ad;
+			box-shadow:0 5px 15px rgba(0,0,0,0.05);
+		}
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+		h2{
+			color:#2c3e50;
+			font-size:2em;
+			margin:30px 0 15px;
+			border-bottom:2px solid #8e44ad;
+			padding-bottom:10px;
+		}
+
+		h3{
+			color:#8e44ad;
+			margin:20px 0 10px;
+		}
+
+		.code-example{
+			background:#2d2d2d;
+			color:#f8f8f2;
+			padding:20px;
+			border-radius:8px;
+			margin:20px 0;
+			overflow-x:auto;
+			font-family:Consolas,monospace;
+		}
+
+		.note{
+			background:#fffde7;
+			border-left:4px solid #ffd600;
+			padding:15px;
+			margin:15px 0;
+		}
+
+		.warning{
+			background:#ffebee;
+			border-left:4px solid #f44336;
+			padding:15px;
+			margin:15px 0;
+		}
+
+		.tip{
+			background:#e8f5e9;
+			border-left:4px solid #4caf50;
+			padding:15px;
+			margin:15px 0;
+		}
+
+		table{
+			width:100%;
+			border-collapse:collapse;
+			margin-top:20px;
+		}
+
+		th{
+			background:#8e44ad;
+			color:white;
+			padding:12px;
+		}
+
+		td{
+			padding:10px;
+			border-bottom:1px solid #ddd;
+		}
+
+		tr:nth-child(even){
+			background:#f8f9fa;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<div class="container">
+
+	<div class="header">
+		<h1>Контекстные Менеджеры (with)</h1>
+	</div>
+
+	<div class="content">
+
+		<div class="section">
+
+			<p>
+				Контекстные менеджеры (Context Managers) в Python используются для
+				автоматического управления ресурсами — например:
+			</p>
+
+			<ul>
+				<li>файлы</li>
+				<li>соединения с базой данных</li>
+				<li>сетевые соединения</li>
+				<li>блокировки потоков</li>
+				<li>временные изменения состояния</li>
+			</ul>
+
+			<div class="note">
+				Главная идея: Python гарантирует, что ресурсы будут корректно освобождены.
+			</div>
+
+		</div>
+
+
+		<div class="section">
+
+			<h2>Что такое оператор with</h2>
+
+			<p>
+				Оператор <b>with</b> создает управляемый блок выполнения.
+			</p>
+
+			<div class="code-example">
+<pre>
+with expression as variable:
+    block
+</pre>
+			</div>
+
+			Python автоматически вызывает:
+
+			1. `__enter__()` — при входе
+			2. `__exit__()` — при выходе
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Самый распространенный пример — работа с файлами</h2>
+
+			<div class="code-example">
+<pre>
+with open("data.txt") as file:
+    data = file.read()
+    print(data)
+
+# файл автоматически закрывается
+</pre>
+			</div>
+
+			Без `with`:
+
+			<div class="code-example">
+<pre>
+file = open("data.txt")
+
+try:
+    data = file.read()
+finally:
+    file.close()
+</pre>
+			</div>
+
+			<div class="tip">
+				`with` заменяет try/finally и делает код безопаснее.
+			</div>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Как работает контекстный менеджер</h2>
+
+			Контекстный менеджер — это объект, имеющий методы:
+
+			<ul>
+				<li>__enter__()</li>
+				<li>__exit__()</li>
+			</ul>
+
+			<div class="code-example">
+<pre>
+class MyContext:
+
+    def __enter__(self):
+        print("Entering")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Exiting")
+
+
+with MyContext():
+    print("Inside block")
+</pre>
+			</div>
+
+			Результат:
+
+<div class="code-example">
+<pre>
+class AsyncContext:
+
+    async def __aenter__(self):
+        print("Async enter")
+
+    async def __aexit__(self, exc_type, exc, tb):
+        print("Async exit")
+
+
+async with AsyncContext():
+    pass
+</pre>
+			</div>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Где используются контекстные менеджеры</h2>
+
+			<ul>
+
+				<li>работа с файлами</li>
+				<li>database connections</li>
+				<li>thread locks</li>
+				<li>network sockets</li>
+				<li>temporary environment settings</li>
+				<li>transactions</li>
+
+			</ul>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Сравнение способов</h2>
+
+			<table>
+
+				<tr>
+					<th>Метод</th>
+					<th>Описание</th>
+				</tr>
+
+				<tr>
+					<td>try/finally</td>
+					<td>ручное управление ресурсами</td>
+				</tr>
+
+				<tr>
+					<td>with</td>
+					<td>автоматическое управление</td>
+				</tr>
+
+				<tr>
+					<td>@contextmanager</td>
+					<td>простой способ создания менеджера</td>
+				</tr>
+
+				<tr>
+					<td>async with</td>
+					<td>для асинхронного кода</td>
+				</tr>
+
+			</table>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Частые ошибки</h2>
+
+			<div class="warning">
+
+				<b>Ошибка 1</b>
+
+				Забыли вернуть объект из `__enter__`
+
+			</div>
+
+			<div class="warning">
+
+				<b>Ошибка 2</b>
+
+				Неправильная обработка исключений.
+
+			</div>
+
+			<div class="warning">
+
+				<b>Ошибка 3</b>
+
+				Использование ресурса вне блока `with`.
+
+			</div>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Лучшие практики</h2>
+
+			<div class="tip">
+
+				Всегда используйте `with` при работе с файлами.
+
+			</div>
+
+			<div class="tip">
+
+				Используйте `contextlib` для простых менеджеров.
+
+			</div>
+
+			<div class="tip">
+
+				Не подавляйте исключения без причины.
+
+			</div>
+
+		</div>
+
+
+
+		<div class="section">
+
+			<h2>Ключевые выводы</h2>
+
+			<ul>
+
+				<li>Контекстные менеджеры управляют ресурсами</li>
+
+				<li>Они реализуются через `__enter__` и `__exit__`</li>
+
+				<li>`with` автоматически закрывает ресурсы</li>
+
+				<li>`contextlib` позволяет создавать их проще</li>
+
+				<li>Есть синхронные и асинхронные менеджеры</li>
+
+			</ul>
+
+		</div>
+
+
+	</div>
+</div>
+
 </body>
 </html>

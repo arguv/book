@@ -1,39 +1,585 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	
-		<title>Book</title>
-	
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+<html lang="ru">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<title>Линейная алгебра для Python и Machine Learning</title>
 
-	    <div class="container">
-	        <div class="row">
+	<style>
 
-				<pre>
+		*{margin:0;padding:0;box-sizing:border-box;}
 
-				</pre>
+		body{
+			font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+			line-height:1.6;
+			color:#333;
+			background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
+			min-height:100vh;
+			padding:20px;
+		}
 
-				<blockquote>
+		.container{
+			max-width:1200px;
+			margin:auto;
+			background:white;
+			border-radius:15px;
+			box-shadow:0 10px 30px rgba(0,0,0,0.1);
+			overflow:hidden;
+		}
 
-				</blockquote>
+		.header{
+			background:linear-gradient(to right,#3498db,#2c3e50);
+			color:white;
+			padding:30px;
+			text-align:center;
+		}
 
-				<code>
+		.header h1{
+			font-size:2.5em;
+			margin-bottom:10px;
+		}
 
-  				</code>
+		.content{
+			padding:30px;
+		}
 
-	        </div>
-	    </div>
+		.section{
+			background:white;
+			border-radius:10px;
+			padding:25px;
+			margin-bottom:25px;
+			box-shadow:0 5px 15px rgba(0,0,0,0.05);
+			border-left:5px solid #3498db;
+		}
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+		h2{
+			color:#2c3e50;
+			font-size:2em;
+			margin:30px 0 15px;
+			border-bottom:2px solid #3498db;
+			padding-bottom:10px;
+		}
+
+		h3{
+			color:#3498db;
+			margin-top:20px;
+		}
+
+		.code-example{
+			background:#2d2d2d;
+			color:#f8f8f2;
+			border-radius:8px;
+			padding:20px;
+			margin:20px 0;
+			overflow-x:auto;
+			font-family:Consolas,monospace;
+		}
+
+		.info-box{
+			background:#f8f9fa;
+			border-left:4px solid #3498db;
+			padding:20px;
+			margin:20px 0;
+			border-radius:6px;
+		}
+
+		.tip{
+			background:#e8f5e9;
+			border-left:4px solid #4caf50;
+			padding:15px;
+			margin:15px 0;
+		}
+
+		.note{
+			background:#fffde7;
+			border-left:4px solid #ffd600;
+			padding:15px;
+			margin:15px 0;
+		}
+
+		table{
+			width:100%;
+			border-collapse:collapse;
+			margin-top:20px;
+		}
+
+		th{
+			background:#3498db;
+			color:white;
+			padding:10px;
+		}
+
+		td{
+			padding:10px;
+			border-bottom:1px solid #eee;
+		}
+
+		tr:nth-child(even){
+			background:#f8f9fa;
+		}
+
+	</style>
+</head>
+
+<body>
+
+<div class="container">
+
+	<div class="header">
+		<h1>Линейная алгебра для Python и Machine Learning</h1>
+		<p>Основы для нейронных сетей, Data Science и AI</p>
+	</div>
+
+	<div class="content">
+
+		<div class="section">
+
+			<h2>1. Числа, векторы и матрицы</h2>
+
+			<div class="info-box">
+
+				<p><b>Линейная алгебра</b> — фундамент Machine Learning.</p>
+
+				Она используется в:
+
+				<ul>
+					<li>нейронных сетях</li>
+					<li>обработке изображений</li>
+					<li>обработке текста</li>
+					<li>PCA (уменьшение размерности)</li>
+					<li>рекомендательных системах</li>
+				</ul>
+
+			</div>
+
+			<table>
+
+				<tr>
+					<th>Объект</th>
+					<th>Описание</th>
+					<th>Пример</th>
+				</tr>
+
+				<tr>
+					<td>Число</td>
+					<td>Обычное значение</td>
+					<td>5</td>
+				</tr>
+
+				<tr>
+					<td>Вектор</td>
+					<td>1D массив</td>
+					<td>[1,2,3]</td>
+				</tr>
+
+				<tr>
+					<td>Матрица</td>
+					<td>2D массив</td>
+					<td>[[1,2],[3,4]]</td>
+				</tr>
+
+			</table>
+
+		</div>
+
+		<div class="section">
+
+			<h2>2. Векторы (1D массивы)</h2>
+
+			<p>Вектор — это набор чисел.</p>
+
+			<div class="code-example">
+<pre>
+
+import numpy as np
+
+v = np.array([1,2,3])
+
+print(v)
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+[1 2 3]
+
+</pre>
+			</div>
+
+			<div class="tip">
+
+				В ML векторы используются для:
+
+				- признаков (features)
+				- embeddings
+				- входных данных нейронных сетей
+
+			</div>
+
+		</div>
+
+		<div class="section">
+
+			<h2>3. Матрицы (2D массивы)</h2>
+
+			<div class="code-example">
+<pre>
+
+import numpy as np
+
+A = np.array([
+[1,2],
+[3,4]
+])
+
+print(A)
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+[[1 2]
+ [3 4]]
+
+</pre>
+			</div>
+
+			<p>Матрица используется для хранения большого количества данных.</p>
+
+			Пример:
+
+			| объект | height | weight |
+			|------|------|------|
+			|1|170|65|
+			|2|180|80|
+
+		</div>
+
+		<div class="section">
+
+			<h2>4. Операции с матрицами</h2>
+
+			<h3>Сложение</h3>
+
+			<div class="code-example">
+<pre>
+
+A = np.array([[1,2],[3,4]])
+B = np.array([[5,6],[7,8]])
+
+print(A + B)
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+[[ 6  8]
+ [10 12]]
+
+</pre>
+			</div>
+
+			<h3>Транспонирование</h3>
+
+			<div class="code-example">
+<pre>
+
+print(A.T)
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+[[1 3]
+ [2 4]]
+
+</pre>
+			</div>
+
+		</div>
+
+		<div class="section">
+
+			<h2>5. Скалярное произведение (Dot Product)</h2>
+
+			<div class="code-example">
+<pre>
+
+v1 = np.array([1,2,3])
+v2 = np.array([4,5,6])
+
+print(np.dot(v1,v2))
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+32
+
+</pre>
+			</div>
+
+			Расчет:
+
+
+			14 + 25 + 3*6 = 32
+
+
+			<div class="tip">
+
+				Dot product используется в:
+
+				- нейронных сетях
+				- рекомендациях
+				- similarity search
+
+			</div>
+
+		</div>
+
+		<div class="section">
+
+			<h2>6. Умножение матриц</h2>
+
+			<div class="code-example">
+<pre>
+
+A = np.array([
+[1,2],
+[3,4]
+])
+
+B = np.array([
+[5,6],
+[7,8]
+])
+
+print(A @ B)
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+[[19 22]
+ [43 50]]
+
+</pre>
+			</div>
+
+			Расчет:
+
+
+			[15 + 27 , 16 + 28]
+			[35 + 47 , 36 + 48]
+
+
+			<div class="note">
+
+				Это **основная операция нейронных сетей**.
+
+
+				Output = Weights @ Inputs + Bias
+
+
+			</div>
+
+		</div>
+
+		<div class="section">
+
+			<h2>7. Определитель (Determinant)</h2>
+
+			Определитель показывает:
+
+			- можно ли обратить матрицу
+			- масштаб преобразования
+
+			<div class="code-example">
+<pre>
+
+A = np.array([
+[1,2],
+[3,4]
+])
+
+print(np.linalg.det(A))
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+-2.0
+
+</pre>
+			</div>
+
+		</div>
+
+		<div class="section">
+
+			<h2>8. Обратная матрица</h2>
+
+			Используется для решения систем уравнений.
+
+			<div class="code-example">
+<pre>
+
+A = np.array([
+[1,2],
+[3,4]
+])
+
+print(np.linalg.inv(A))
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+[[-2.   1. ]
+ [ 1.5 -0.5]]
+
+</pre>
+			</div>
+
+		</div>
+
+		<div class="section">
+
+			<h2>9. Собственные значения и векторы</h2>
+
+			Используются в:
+
+			- PCA
+			- спектральных методах
+			- компьютерном зрении
+
+			<div class="code-example">
+<pre>
+
+A = np.array([
+[2,0],
+[0,3]
+])
+
+values, vectors = np.linalg.eig(A)
+
+print(values)
+print(vectors)
+
+</pre>
+			</div>
+
+			<b>Результат</b>
+
+			<div class="code-example">
+<pre>
+
+[2. 3.]
+
+[[1. 0.]
+ [0. 1.]]
+
+</pre>
+			</div>
+
+		</div>
+
+		<div class="section">
+
+			<h2>10. PCA (уменьшение размерности)</h2>
+
+			PCA использует:
+
+			- eigenvalues
+			- eigenvectors
+
+			для поиска **главных направлений данных**.
+
+			Пример:
+
+			100 признаков → 2 признака.
+
+			Это используется в:
+
+			- ML
+			- визуализации данных
+			- compression
+
+		</div>
+
+		<div class="section">
+
+			<h2>Заключение</h2>
+
+			<div class="info-box">
+
+				<b>Ключевые элементы линейной алгебры для ML:</b>
+
+				<ul>
+
+					<li>Векторы — представление данных</li>
+
+					<li>Матрицы — хранение dataset</li>
+
+					<li>Dot product — similarity</li>
+
+					<li>Matrix multiplication — нейронные сети</li>
+
+					<li>Determinant — свойства матриц</li>
+
+					<li>Inverse matrix — решение уравнений</li>
+
+					<li>Eigenvalues / eigenvectors — PCA</li>
+
+				</ul>
+
+			</div>
+
+			<div class="tip">
+
+				Если вы хотите стать **ML Engineer или Data Engineer**,
+				эти операции используются **ежедневно в TensorFlow, PyTorch и NumPy**.
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
 </body>
 </html>
