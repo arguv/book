@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>QUESTIONS</title>
+	<!-- Bootstrap 4 + custom style -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/temp.css">
+	<style>
+		/* ----- base styles ----- */
+		body {
+			background: #f2f7fc;
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			padding: 2rem 0.5rem 2rem 0.5rem;
+			margin: 0;
+			/* we add extra left padding on large screens so content doesn't go under the floating menu */
+		}
+		.container {
+			max-width: 900px;
+		}
+		.qa-card {
+			background: white;
+			border-radius: 1.75rem;
+			box-shadow: 0 12px 30px -12px rgba(0, 20, 40, 0.12);
+			padding: 1.8rem 2rem 2rem 2rem;
+			margin-bottom: 2.2rem;
+			border: 1px solid #dfebf5;
+			transition: box-shadow 0.1s ease, border-color 0.2s ease;
+			scroll-margin-top: 90px; /* ensures anchor scroll doesn't hide card under top edge */
+		}
+		.qa-card:hover {
+			border-color: #c0d6ea;
+			box-shadow: 0 18px 36px -16px rgba(18, 52, 77, 0.15);
+		}
+		.question-badge {
+			display: inline-block;
+			background: #e5eff8;
+			padding: 0.2rem 1.2rem;
+			border-radius: 40px;
+			font-weight: 600;
+			font-size: 0.75rem;
+			letter-spacing: 0.02em;
+			color: #1b4b70;
+			text-transform: uppercase;
+			margin-bottom: 0.5rem;
+		}
+		.question-text {
+			font-weight: 600;
+			font-size: 1.4rem;
+			color: #0b2a44;
+			margin-bottom: 0.75rem;
+			line-height: 1.3;
+		}
+		.question-text .highlight-q {
+			background: #dce9f7;
+			padding: 0.05rem 0.5rem;
+			border-radius: 30px;
+			font-weight: 700;
+		}
+		.answer-label {
+			font-weight: 600;
+			font-size: 0.8rem;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			color: #3a6a8f;
+			border-bottom: 2px solid #d2e3f3;
+			padding-bottom: 0.2rem;
+			margin-top: 0.75rem;
+			margin-bottom: 0.6rem;
+			display: inline-block;
+		}
+		.answer-content {
+			font-size: 1.05rem;
+			line-height: 1.6;
+			color: #17334d;
+			background: #f6faff;
+			padding: 1.2rem 1.6rem;
+			border-radius: 1.2rem;
+			border-left: 4px solid #2f7cb0;
+			margin-top: 0.3rem;
+		}
+		.answer-content p {
+			margin-bottom: 0.5rem;
+		}
+		.answer-content p:last-child {
+			margin-bottom: 0;
+		}
+		.code-inline {
+			background: #e4edf6;
+			padding: 0.1rem 0.6rem;
+			border-radius: 12px;
+			font-family: 'SF Mono', 'Fira Code', monospace;
+			font-size: 0.9rem;
+			color: #004066;
+		}
+		.meta-note {
+			font-size: 0.85rem;
+			color: #3e6c8f;
+			background: #ebf3fb;
+			display: inline-block;
+			padding: 0.1rem 1rem;
+			border-radius: 40px;
+			margin-top: 0.4rem;
+		}
+		.divider-soft {
+			border: 0;
+			border-top: 1px dashed #cfdceb;
+			margin: 1.2rem 0 0.2rem 0;
+		}
+		.badge-senior {
+			background: #d1e2f5;
+			color: #0c3b60;
+			font-weight: 600;
+			padding: 0.1rem 0.8rem;
+			border-radius: 30px;
+			font-size: 0.7rem;
+			margin-left: 0.5rem;
+			letter-spacing: 0.02em;
+		}
+
+		/* ----- FLOATING STICKY MENU (fixed position, always on screen) ----- */
+		.floating-menu {
+			position: fixed;
+			top: 2rem;
+			left: 2rem;
+			width: 240px;
+			max-height: calc(100vh - 4rem);
+			background: white;
+			border-radius: 1.5rem;
+			padding: 1.6rem 0.8rem 1.6rem 1.2rem;
+			box-shadow: 0 8px 24px -8px rgba(0, 20, 40, 0.18);
+			border: 1px solid #dfebf5;
+			overflow-y: auto;
+			z-index: 1000;
+			transition: box-shadow 0.15s;
+			scrollbar-width: thin;
+		}
+		.floating-menu::-webkit-scrollbar {
+			width: 5px;
+		}
+		.floating-menu::-webkit-scrollbar-thumb {
+			background: #b8d0e5;
+			border-radius: 10px;
+		}
+
+		/* menu header */
+		.menu-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 0.6rem 0.8rem 0.6rem;
+			border-bottom: 1px solid #e2edf9;
+			margin-bottom: 1.2rem;
+		}
+		.menu-header span {
+			font-weight: 600;
+			font-size: 0.9rem;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			color: #1f5379;
+		}
+		.menu-header .plus-icon {
+			color: #6b8da8;
+			font-size: 1.2rem;
+			line-height: 1;
+			font-weight: 300;
+			cursor: default;
+		}
+
+		/* menu list */
+		.menu-list {
+			display: flex;
+			flex-direction: column;
+			gap: 0.15rem;
+		}
+		.menu-item {
+			display: flex;
+			align-items: center;
+			padding: 0.6rem 0.8rem 0.6rem 1rem;
+			border-radius: 0.75rem;
+			font-size: 0.95rem;
+			color: #295a7c;
+			text-decoration: none;
+			transition: background 0.12s, color 0.12s;
+			border-left: 3px solid transparent;
+			cursor: pointer;
+			font-weight: 500;
+			line-height: 1.3;
+			word-break: break-word;
+		}
+		.menu-item:hover {
+			background: #eef5fc;
+			color: #0b2a44;
+			text-decoration: none;
+		}
+		.menu-item.active {
+			background: #dce9f7;
+			color: #0b2a44;
+			border-left-color: #1b6b9e;
+			font-weight: 600;
+		}
+
+		/* remove doc icon styles entirely – no .doc-icon class used anymore */
+
+		/* Layout adjustments: add left margin to container so it doesn't overlap floating menu on large screens */
+		@media (min-width: 1000px) {
+			.container {
+				margin-left: 280px;  /* 240px menu + 40px gap */
+				margin-right: auto;
+			}
+			body {
+				padding-left: 2rem;
+			}
+		}
+
+		/* On smaller screens, we hide the floating menu or turn it into a top bar */
+		@media (max-width: 999px) {
+			.floating-menu {
+				position: static;
+				width: 100%;
+				max-height: none;
+				margin-bottom: 2rem;
+				box-shadow: 0 8px 20px -8px rgba(0, 20, 40, 0.1);
+				padding: 1.2rem 1rem;
+				border-radius: 1.5rem;
+			}
+			.container {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.menu-list {
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 0.4rem;
+			}
+			.menu-item {
+				padding: 0.4rem 1rem;
+				border-left: none;
+				border-radius: 40px;
+				background: #f0f6fe;
+				font-size: 0.85rem;
+				flex: 0 1 auto;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 200px;
+			}
+			.menu-item.active {
+				background: #cfe2f5;
+				border-left: none;
+			}
+			.menu-header {
+				margin-bottom: 0.8rem;
+				padding-bottom: 0.5rem;
+			}
+		}
+
+		@media (max-width: 600px) {
+			.qa-card {
+				padding: 1.2rem 1rem;
+			}
+			.question-text {
+				font-size: 1.2rem;
+			}
+			.answer-content {
+				padding: 1rem 1rem;
+				font-size: 0.98rem;
+			}
+			.floating-menu {
+				padding: 1rem 0.8rem;
+			}
+			.menu-item {
+				max-width: 140px;
+				font-size: 0.8rem;
+				padding: 0.3rem 0.8rem;
+			}
+		}
+
+		/* smooth scroll behaviour */
+		html {
+			scroll-behavior: smooth;
+		}
+	</style>
+</head>
+<body>
+
+<!-- ========== FLOATING MENU (fixed position) ========== -->
+<div class="floating-menu" id="floatingMenu">
+	<div class="menu-list" id="menuList">
+		<!-- menu items are generated via JS -->
+	</div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="container" id="mainContent">
+	<!-- card 1 -->
+	<div class="qa-card" id="q1">
+		<div class="question-text">
+			<span class="highlight-q">yourself</span>
+		</div>
+		<div class="answer-content">
+			<p>* I'm a Senior PHP Developer with 11 years of experience.</p>
+			<p>* My main expertise is PHP, Symfony, and Laravel. I also have experience in frontend development with JavaScript, TypeScript.</p>
+			<p>* I have worked with third-party APIs and different service integrations.</p>
+			<p>* I also have experience with MySQL, PostgreSQL, and Redis, Docker, Git, and CI/CD.</p>
+		</div>
+	</div>
+
+	<!-- card 2 -->
+	<div class="qa-card" id="q2">
+		<div class="question-text">
+			<span class="highlight-q">project</span>
+		</div>
+		<div class="answer-content">
+			<p>Currently, my role is Software Engineer. We have several squads working on different products, and all these products are related to betting and gaming.</p>
+			<p>Our squad is responsible for a couple of these products. We are responsible for their maintenance, bug fixes, new features, and delivering new epics on time.</p>
+			<p>In this role, we use PHP for the backend and JavaScript for the frontend. We use Redis for caching, F5 as a load balancer, and Docker for the project setup. We use CI/CD for the deployment process.</p>
+			<p>My role covers the full development process, starting from task investigation, then development, code review, and testing in lower environments.</p>
+			<p>On release days, I also handle the production deployment process. This includes preparing release branches and tags, checking configurations, preparing documentation, and handling configuration changes when needed.</p>
+		</div>
+	</div>
+
+	<!-- card 3 -->
+	<div class="qa-card" id="q3">
+		<div class="question-text">
+			<span class="highlight-q">new position</span>
+		</div>
+		<div class="answer-content">
+			<p>* The main reason is that the situation in my current company is not stable, and there have been several layoffs.</p>
+			<p>* So I decided to look for a more stable opportunity.</p>
+			<p>* At the same time, I want to continue growing.</p>
+		</div>
+	</div>
+
+	<!-- card 4 -->
+	<div class="qa-card" id="q4">
+		<div class="question-text">
+			<span class="highlight-q">next company</span>
+		</div>
+		<div class="answer-content">
+			<p>I’m looking for a stable company, a good team, and interesting technical challenges.</p>
+		</div>
+	</div>
+
+	<!-- card 5 -->
+	<div class="qa-card" id="q5">
+		<div class="question-text">
+			<span class="highlight-q">stability</span>
+		</div>
+		<div class="answer-content">
+			<p>* For me, stability means working for a company with a clear direction and a long-term product or project.</p>
+			<p>* I’m looking for a company where I can stay for the long term, contribute to the product, and continue developing my skills.</p>
+		</div>
+	</div>
+
+	<!-- card 6 -->
+	<div class="qa-card" id="q6">
+		<div class="question-text">
+			<span class="highlight-q">culture</span>
+		</div>
+		<div class="answer-content">
+			<p>* I prefer a professional and collaborative culture where people communicate openly and respect each other.</p>
+			<p>* I also like when responsibilities are clear, people can work independently, and team members are willing to help each other when needed.</p>
+		</div>
+	</div>
+
+	<!-- card 7 -->
+	<div class="qa-card" id="q7">
+		<div class="question-text">
+			<span class="highlight-q">interest project</span>
+		</div>
+		<div class="answer-content">
+			<p>* I like working on APIs and connecting different services and systems. I also enjoy projects with complex business logic and interesting technical problems to solve.</p>
+		</div>
+	</div>
+
+	<!-- card 8 -->
+	<div class="qa-card" id="q8">
+		<div class="question-text">
+			<span class="highlight-q">remotely</span>
+		</div>
+		<div class="answer-content">
+			<p>* Yes, absolutely. I have been working fully remotely for at least six years.</p>
+			<p>* My current company is international, and I work with different teams and colleagues from different countries and time zones.</p>
+			<p>* I’m comfortable with remote communication, meetings, task management, and working independently.</p>
+		</div>
+	</div>
+
+	<!-- card 9 -->
+	<div class="qa-card" id="q9">
+		<div class="question-text">
+			<span class="highlight-q">hybrid or on-side</span>
+		</div>
+		<div class="answer-content">
+			<p>* At the moment, fully remote is my preference, but I’m flexible and open to hybrid or on-site work if needed, depending on the company and the project.</p>
+		</div>
+	</div>
+
+	<!-- card 10 -->
+	<div class="qa-card" id="q10">
+		<div class="question-text">
+			<span class="highlight-q">salary</span>
+		</div>
+		<div class="answer-content">
+			<p>* I’m flexible regarding compensation. I think you probably have a salary range in mind for this position, so I would be happy to hear more about it.</p>
+			<p>* Based on the responsibilities and the overall compensation package, I’m sure we can find a suitable amount within that range.</p>
+			<p>Yes, thank you. That range sounds reasonable to me.</p>
+			<p></p>
+		</div>
+	</div>
+
+	<!-- card 11 -->
+	<div class="qa-card" id="q11">
+		<div class="question-text">
+			<span class="highlight-q">availability</span>
+		</div>
+		<div class="answer-content">
+			<p>* I would need to give notice to my current company, so I would be available to start after my notice period.</p>
+			<p>* I believe it would be around two to three weeks.</p>
+		</div>
+	</div>
+
+	<!-- card 12 -->
+	<div class="qa-card" id="q12">
+		<div class="question-text">
+			<span class="highlight-q">english</span>
+		</div>
+		<div class="answer-content">
+			<p>* I can communicate with international teams, discuss technical topics, participate in meetings, and communicate about tasks and problems.</p>
+			<p>* I’m also continuously improving my English, especially my speaking skills.</p>
+			<p>* I work with colleagues from different countries and time zones, so I use English for meetings, written communication, and discussing technical tasks.</p>
+		</div>
+	</div>
+
+	<!-- empty placeholder cards (kept for consistency but will be skipped in menu) -->
+	<div class="qa-card" id="q13">
+		<div class="question-text"><span class="highlight-q"></span></div>
+		<div class="answer-content"><p></p></div>
+	</div>
+	<div class="qa-card" id="q14">
+		<div class="question-text"><span class="highlight-q"></span></div>
+		<div class="answer-content"><p></p></div>
+	</div>
+	<div class="qa-card" id="q15">
+		<div class="question-text"><span class="highlight-q"></span></div>
+		<div class="answer-content"><p></p></div>
+	</div>
+	<div class="qa-card" id="q16">
+		<div class="question-text"><span class="highlight-q"></span></div>
+		<div class="answer-content"><p></p></div>
+	</div>
+	<div class="qa-card" id="q17">
+		<div class="question-text"><span class="highlight-q"></span></div>
+		<div class="answer-content"><p></p></div>
+	</div>
+	<div class="qa-card" id="q18">
+		<div class="question-text"><span class="highlight-q"></span></div>
+		<div class="answer-content"><p></p></div>
+	</div>
+	<div class="qa-card" id="q19">
+		<div class="question-text"><span class="highlight-q"></span></div>
+		<div class="answer-content"><p></p></div>
+	</div>
+	<div class="qa-card" id="q20">
+		<div class="question-text"><span class="highlight-q"></span></div>
+		<div class="answer-content"><p></p></div>
+	</div>
+</div>
+
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="../js/temp.js"></script>
+
+<script>
+	(function() {
+		// 1. collect all qa-cards with non-empty question text
+		const allCards = document.querySelectorAll('.qa-card');
+		const menuList = document.getElementById('menuList');
+		const menuItems = [];
+
+		allCards.forEach((card, index) => {
+			const questionSpan = card.querySelector('.question-text .highlight-q');
+			if (!questionSpan) return;
+
+			let qText = questionSpan.innerText.trim();
+			if (qText === '') return;
+
+			// Truncate for display
+			let displayText = qText;
+			if (displayText.length > 22) {
+				displayText = displayText.slice(0, 22) + '…';
+			}
+
+			if (!card.id) {
+				card.id = 'card-' + index;
+			}
+
+			menuItems.push({
+				id: card.id,
+				text: displayText,
+				fullText: qText,
+				element: card
+			});
+		});
+
+		// 2. Build the floating menu
+		if (menuItems.length === 0) {
+			menuList.innerHTML = '<div style="padding:0.8rem;color:#6b8da8;">No questions found</div>';
+			return;
+		}
+
+		menuList.innerHTML = '';
+
+		menuItems.forEach((item, idx) => {
+			const a = document.createElement('a');
+			a.href = '#' + item.id;
+			a.className = 'menu-item';
+			a.dataset.targetId = item.id;
+			a.innerText = item.text;   // no icon
+			a.title = item.fullText;
+
+			a.addEventListener('click', function(e) {
+				document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
+				this.classList.add('active');
+			});
+
+			menuList.appendChild(a);
+		});
+
+		// 3. scrollspy: highlight active menu item
+		const sections = menuItems.map(item => document.getElementById(item.id));
+		const menuLinks = document.querySelectorAll('.menu-item');
+
+		function updateActiveMenu() {
+			if (!sections.length) return;
+
+			const scrollPos = window.scrollY + 100;
+			let activeIndex = 0;
+
+			for (let i = 0; i < sections.length; i++) {
+				const section = sections[i];
+				if (section) {
+					const sectionTop = section.offsetTop;
+					const sectionBottom = sectionTop + section.offsetHeight;
+					if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+						activeIndex = i;
+						break;
+					}
+				}
+			}
+
+			// if at page bottom, select last
+			if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 80) {
+				activeIndex = sections.length - 1;
+			}
+
+			menuLinks.forEach((link, idx) => {
+				if (idx === activeIndex) {
+					link.classList.add('active');
+				} else {
+					link.classList.remove('active');
+				}
+			});
+		}
+
+		window.addEventListener('scroll', updateActiveMenu);
+		window.addEventListener('resize', updateActiveMenu);
+		window.addEventListener('load', updateActiveMenu);
+		updateActiveMenu();
+
+		// 4. handle initial hash
+		if (window.location.hash) {
+			const hash = window.location.hash;
+			const targetLink = document.querySelector(`.menu-item[href="${hash}"]`);
+			if (targetLink) {
+				menuLinks.forEach(el => el.classList.remove('active'));
+				targetLink.classList.add('active');
+			}
+		}
+	})();
+</script>
+</body>
+</html>

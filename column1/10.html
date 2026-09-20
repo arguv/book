@@ -1,43 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>QUESTIONS · Senior PHP</title>
 
-	    <title>Book</title>
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/index.css">
-	</head>
-	<body>
-	<script>
-		if (window.location.href === "http://arguv.github.io/book/column1/10.html") {
-			// Redirect to Amazon
-			window.location.replace("http://mobile-entrypage.dafabet.local/en/casino?errorCode=6");
+	<!-- Bootstrap 4 + custom style -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<style>
+		/* additional clean card style */
+		body {
+			background: #f2f7fc;
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			padding: 2rem 0.5rem;
 		}
-	</script>
-			<div class="container">
-				<div class="row">
+		.container {
+			max-width: 900px;
+		}
+		.qa-card {
+			background: white;
+			border-radius: 1.75rem;
+			box-shadow: 0 12px 30px -12px rgba(0, 20, 40, 0.12);
+			padding: 1.8rem 2rem 2rem 2rem;
+			margin-bottom: 2.2rem;
+			border: 1px solid #dfebf5;
+			transition: box-shadow 0.1s ease;
+		}
+		.qa-card:hover {
+			border-color: #c0d6ea;
+			box-shadow: 0 18px 36px -16px rgba(18, 52, 77, 0.15);
+		}
+		.question-badge {
+			display: inline-block;
+			background: #e5eff8;
+			padding: 0.2rem 1.2rem;
+			border-radius: 40px;
+			font-weight: 600;
+			font-size: 0.75rem;
+			letter-spacing: 0.02em;
+			color: #1b4b70;
+			text-transform: uppercase;
+			margin-bottom: 0.5rem;
+		}
+		.question-text {
+			font-weight: 600;
+			font-size: 1.4rem;
+			color: #0b2a44;
+			margin-bottom: 0.75rem;
+			line-height: 1.3;
+		}
+		.question-text .highlight-q {
+			background: #dce9f7;
+			padding: 0.05rem 0.5rem;
+			border-radius: 30px;
+			font-weight: 700;
+		}
+		.answer-label {
+			font-weight: 600;
+			font-size: 0.8rem;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			color: #3a6a8f;
+			border-bottom: 2px solid #d2e3f3;
+			padding-bottom: 0.2rem;
+			margin-top: 0.75rem;
+			margin-bottom: 0.6rem;
+			display: inline-block;
+		}
+		.answer-content {
+			font-size: 1.05rem;
+			line-height: 1.6;
+			color: #17334d;
+			background: #f6faff;
+			padding: 1.2rem 1.6rem;
+			border-radius: 1.2rem;
+			border-left: 4px solid #2f7cb0;
+			margin-top: 0.3rem;
+		}
+		.answer-content p {
+			margin-bottom: 0.5rem;
+		}
+		.answer-content p:last-child {
+			margin-bottom: 0;
+		}
+		.code-inline {
+			background: #e4edf6;
+			padding: 0.1rem 0.6rem;
+			border-radius: 12px;
+			font-family: 'SF Mono', 'Fira Code', monospace;
+			font-size: 0.9rem;
+			color: #004066;
+		}
+		.meta-note {
+			font-size: 0.85rem;
+			color: #3e6c8f;
+			background: #ebf3fb;
+			display: inline-block;
+			padding: 0.1rem 1rem;
+			border-radius: 40px;
+			margin-top: 0.4rem;
+		}
+		.divider-soft {
+			border: 0;
+			border-top: 1px dashed #cfdceb;
+			margin: 1.2rem 0 0.2rem 0;
+		}
+		.badge-senior {
+			background: #d1e2f5;
+			color: #0c3b60;
+			font-weight: 600;
+			padding: 0.1rem 0.8rem;
+			border-radius: 30px;
+			font-size: 0.7rem;
+			margin-left: 0.5rem;
+			letter-spacing: 0.02em;
+		}
+		@media (max-width: 600px) {
+			.qa-card { padding: 1.2rem 1rem; }
+			.question-text { font-size: 1.2rem; }
+			.answer-content { padding: 1rem 1rem; font-size: 0.98rem; }
+		}
+	</style>
+</head>
+<body>
+<div class="container">
 
-				<pre>
+	<!-- ====== Q&A CARD 1 ====== -->
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">“What is a class and what is an object?”</span>
+		</div>
+		<div class="answer-content">
+			<p><strong>A class</strong> is a blueprint or definition that describes an object's state and behavior. It defines properties, methods, and how the object should be initialized.</p>
+			<p><strong>An object</strong> is a concrete instance of that class created at runtime. Multiple objects can be created from the same class, each having its own state.</p>
+		</div>
+	</div>
 
-				</pre>
+	<!-- ====== Q&A CARD 2 ====== -->
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">“Why use objects?”</span>
+		</div>
+		<div class="answer-content">
+			<p><strong>Objects</strong> allow us to encapsulate related state and behavior behind a clear interface. This helps us:</p>
+			<ul style="margin-bottom:0.2rem; padding-left:1.4rem;">
+				<li>model domain concepts</li>
+				<li>control access to state</li>
+				<li>reduce coupling</li>
+				<li>make code easier to maintain, test and extend.</li>
+			</ul>
+			<p style="margin-top:0.2rem;">By grouping data and the operations that act on that data, we create cohesive, modular units that reflect real-world entities or business rules.</p>
+		</div>
+	</div>
 
-					<blockquote>
 
-					</blockquote>
 
-					<code>
+    <div class="qa-card">
+      <div class="question-text">
+        <span class="highlight-q">Encapsulation</span>
+      </div>
+      <div class="answer-content">
+        <p>Don't allow outside code to freely change an object's internal state. Give it controlled methods to do that.</p>
+		  <ul style="margin-bottom:0.2rem; padding-left:1.4rem;">
+			  <li>private</li>
+			  <li>protected</li>
+			  <li>public</li>
+			  <li>getters/setters</li>
+			  <li>methods that enforce business rules</li>
+		  </ul>
+      </div>
+    </div>
 
-					</code>
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">Static Members</span>
+		</div>
+		<div class="answer-content">
+			<p>A normal property belongs to an object. A static property belongs to the class itself.</p>
+			<ul>
+				<li>Normal property = each object has its own value</li>
+				<li>Static property = one value shared at the class level.</li>
+				<li>✅ static properties</li>
+				<li>✅ static methods</li>
+				<li>❌ static classes</li>
+			</ul>
+		</div>
+	</div>
 
-				</div>
-			</div>
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">Composition vs Inheritance</span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+			<ul>
+				<li>1. Inheritance — "is-a" relationship</li>
+				<li>Inheritance means one class extends another class and gets its properties/methods.</li>
 
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="./js/index.js"></script>
+				<li>2. Composition — "has-a" relationship</li>
+				<li>Composition means a class contains/uses another object instead of extending it.</li>
+			</ul>
+				<p>I generally prefer composition over inheritance because it reduces coupling and makes components easier to replace, test, and extend. I use inheritance when there is a clear 'is-a' relationship and the shared behavior genuinely belongs in a base class.</p>
+			
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">When would you use a trait?</span>
+		</div>
+		<div class="answer-content">
+			<ul>
+				<li>Several classes need the same behavior</li>
+				<li>Those classes don't have a natural inheritance relationship</li>
+				<li>You want to avoid duplicating the same code</li>
+				<li>The functionality is small and reusable</li>
+			</ul>
+			<p></p>
+		</div>
+	</div>
+
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">What is polymorphism in PHP?</span>
+		</div>
+		<div class="answer-content">
+			<p>Polymorphism means that different classes can be used through the same interface or parent type, while each class can provide its own implementation of the behavior. For example, different payment classes can implement the same PaymentMethod interface and provide their own pay() implementation. The service only depends on the interface and doesn't need to know which concrete payment class it receives.</p>
+		</div>
+	</div>
+
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">What us garbage collection in PHP ?</span>
+		</div>
+		<div class="answer-content">
+			<p>PHP uses automatic memory management, primarily through reference counting. When an object's reference count reaches zero, PHP can release it. PHP also has a garbage collector that detects and cleans up cyclic references that reference counting alone cannot remove.<br>
+				 Garbage Collection → manages PHP memory / objects</p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">SOLID Principles</span>
+		</div>
+		<div class="answer-content">
+			<p>SOLID = 5 object-oriented design principles:</p>
+			<ul>
+				<li>Single Responsibility Principle -> One class should have one responsibility</li>
+				<li>Open/Closed Principle -> Open for extension, closed for modification</li>
+				<li>Liskov Substitution Principle -> Child classes should safely replace their parent</li>
+				<li>Interface Segregation Principle -> Don't force classes to implement methods they don't need</li>
+				<li>Dependency Inversion Principle -> Depend on abstractions, not concrete implementations</li>
+			</ul>
+			<ul>
+				<li>A class should have one responsibility and one reason to change. It means the class should have one clear job.</li>
+				<li>Software should be open for extension but closed for modification.</li>
+				<li>A subclass should be usable wherever its parent class is expected without breaking the program.</li>
+				<li>Clients should not be forced to depend on methods they don't use. Don't create one huge interface for everything.</li>
+				<li>High-level modules should not depend directly on low-level implementations. Both should depend on abstractions.Depend on interfaces/abstractions rather than concrete classes.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q">Caching mechanisms — Redis & Memcached</span>
+		</div>
+		<div class="answer-content">
+			<p>Caching means storing frequently used data in a fast storage layer so we don't need to calculate or fetch it again every time</p>
+			
+			<h5>Redis</h5>
+			<p>Redis is an in-memory data store commonly used for caching.<br>
+			Because data is primarily kept in RAM, accessing it is much faster than querying a relational database.<br>
+			Redis can store more than simple <b>key/value</b> strings:</p>
+			<ul>
+				<li>Strings</li>
+				<li>Hashes</li>
+				<li>Lists</li>
+				<li>Sets</li>
+				<li>Sorted sets</li>
+				<li>JSON data</li>
+				<li>Expiration/TTL</li>
+				<li>Counters</li>
+
+			</ul>
+
+			<h5>Memcached</h5>
+			<p>Memcached is also an in-memory key/value cache.<br> It is intentionally simpler than Redis.</p>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+	<div class="qa-card">
+		<div class="question-text">
+			<span class="highlight-q"></span>
+		</div>
+		<div class="answer-content">
+			<p></p>
+		</div>
+	</div>
+
+
+</div>
+
+<!-- scripts (optional, for bootstrap) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Study Plan · 8 weeks</title>
+    <!-- Google Font & clean base -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: #f6f9fc;
+            color: #0b1a2f;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.15);
+            padding: 2.5rem 2.8rem;
+        }
+
+        /* header / meta */
+        .plan-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #eef4f9;
+            padding-bottom: 1.8rem;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 2.6rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(145deg, #0b2b44, #1e4b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #2c4a6a;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .subhead span {
+            background: #e9f0f8;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1b3a57;
+            -webkit-text-fill-color: #1b3a57;
+            background: #e6eefa;
+        }
+
+        .goal-box {
+            background: #e4edf8;
+            border-radius: 1.2rem;
+            padding: 1.6rem 2rem;
+            margin: 1.8rem 0 2.2rem 0;
+            border-left: 6px solid #1f6390;
+        }
+
+        .goal-box p {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .goal-box strong {
+            font-weight: 700;
+            color: #0b2b44;
+        }
+
+        /* weekly grid */
+        .week-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+        }
+
+        .week-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 20, 30, 0.04);
+            border: 1px solid #e3eef9;
+            transition: box-shadow 0.1s ease;
+        }
+
+        .week-card:hover {
+            border-color: #c2d9ed;
+            box-shadow: 0 8px 20px -12px rgba(18, 52, 77, 0.12);
+        }
+
+        .week-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .week-title {
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: #11334d;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .week-badge {
+            background: #d7e3f0;
+            padding: 0.15rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: #1e4b6b;
+        }
+
+        .week-goal {
+            color: #1a4a6b;
+            font-weight: 600;
+            background: #ecf3fa;
+            padding: 0.1rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        .day-block {
+            margin: 1.25rem 0 0.5rem 0;
+        }
+
+        .day-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #0d314a;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+            background: #f2f8ff;
+            padding: 0.1rem 1rem 0.1rem 0.6rem;
+            border-radius: 0 30px 30px 0;
+            border-left: 4px solid #3979a8;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 0.6rem;
+            margin: 0.6rem 0 0.8rem 0;
+        }
+
+        .topic-tag {
+            background: #eef4fa;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1d4463;
+            letter-spacing: -0.01em;
+        }
+
+        .topic-tag.highlight {
+            background: #d4e3f5;
+            color: #003057;
+            font-weight: 600;
+        }
+
+        .study-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0.2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem 1rem;
+        }
+
+        .study-list li {
+            font-size: 0.92rem;
+            color: #1d3e5a;
+            padding: 0.1rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .study-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2b79b0;
+            font-weight: 700;
+        }
+
+        .question-list {
+            margin: 0.75rem 0 0.2rem 0;
+            padding-left: 0.2rem;
+        }
+
+        .question-list li {
+            font-size: 0.9rem;
+            color: #133048;
+            padding: 0.1rem 0 0.1rem 1.5rem;
+            position: relative;
+            list-style: none;
+        }
+
+        .question-list li::before {
+            content: "❓";
+            position: absolute;
+            left: 0;
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dde9f5;
+            margin: 1.2rem 0 0.8rem 0;
+        }
+
+        .divider-light {
+            border-top: 1px dashed #d2e2f0;
+            margin: 1rem 0 0.8rem 0;
+        }
+
+        .small-note {
+            font-size: 0.85rem;
+            color: #3b5b78;
+            background: #f3f8fe;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 0.5rem 0 0.2rem 0;
+        }
+
+        /* special blocks for weeks with many items */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem 1.5rem;
+            margin-top: 0.4rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .week-card {
+                padding: 1.2rem 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .two-col-grid {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+            }
+            .week-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+            }
+            .goal-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        .code-badge {
+            font-family: 'Inter', monospace;
+            background: #eef3f9;
+            padding: 0.1rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #1f4f72;
+        }
+
+        /* inline highlight for key terms */
+        .keyword {
+            background: #e3edf7;
+            padding: 0.05rem 0.4rem;
+            border-radius: 8px;
+            font-weight: 500;
+            color: #004067;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="plan-header">
+        <h1>🧠 Senior PHP · Study Plan</h1>
+        <div class="subhead">
+            <span>📅 8 weeks</span>
+            <span>⏳ 1.5–2.5h / day</span>
+            <span>📆 5 days / week</span>
+        </div>
+    </div>
+
+    <div class="week-grid">
+
+        <!-- WEEK 1 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title"><span class="week-badge">WEEK 1</span> Modern PHP</span>
+            </div>
+
+            <div class="day-block">
+                <div class="day-title">Day 1 — PHP OOP</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">Classes / objects</span><span class="topic-tag">Encapsulation</span><span class="topic-tag">Inheritance</span>
+                    <span class="topic-tag">Polymorphism</span><span class="topic-tag">Composition</span><span class="topic-tag">Interfaces</span>
+                    <span class="topic-tag">Abstract classes</span><span class="topic-tag">Traits</span><span class="topic-tag">Static</span>
+                    <span class="topic-tag">final</span><span class="topic-tag">readonly</span><span class="topic-tag">Visibility</span>
+                    <span class="topic-tag highlight">Constructor promotion</span>
+                </div>
+                <ul class="question-list">
+                    <li>Interface vs abstract class?</li><li>Composition vs inheritance?</li><li>When would you use a trait?</li>
+                    <li>What problems can static methods cause?</li><li>What does final protect?</li>
+                    <li>What is polymorphism in PHP?</li><li>What is dependency injection?</li>
+                    <li>Why prefer composition over inheritance?</li>
+                </ul>
+            </div>
+
+            <div class="day-block">
+                <div class="day-title">Day 2 — PHP 8.x</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">Union types</span><span class="topic-tag">Intersection types</span><span class="topic-tag">Nullable</span>
+                    <span class="topic-tag">Named arguments</span><span class="topic-tag">Attributes</span><span class="topic-tag">Enums</span>
+                    <span class="topic-tag">Match</span><span class="topic-tag">Constructor promotion</span><span class="topic-tag">Readonly</span>
+                    <span class="topic-tag">Generators</span><span class="topic-tag">Closures</span><span class="topic-tag">Anonymous classes</span>
+                    <span class="topic-tag">Exceptions</span><span class="topic-tag">Throwable</span>
+                </div>
+                <ul class="question-list">
+                    <li>Exception vs Error?</li><li>What are PHP attributes?</li><li>Enum vs constants?</li>
+                    <li>What is a generator?</li><li>include / require / include_once / require_once differences?</li>
+                </ul>
+            </div>
+
+            <div class="day-block">
+                <div class="day-title">Day 3 — PHP internals (senior level)</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">zvals</span><span class="topic-tag">References</span><span class="topic-tag">Copy-on-write</span>
+                    <span class="topic-tag">Memory management</span><span class="topic-tag">Garbage collection</span><span class="topic-tag">OPcache</span>
+                    <span class="topic-tag">PHP-FPM</span><span class="topic-tag">CLI vs FPM</span><span class="topic-tag">Request lifecycle</span>
+                </div>
+                <ul class="question-list">
+                    <li>What happens when PHP executes a request?</li><li>What does OPcache do?</li><li>What is PHP-FPM?</li>
+                    <li>How does PHP handle memory?</li><li>What is copy-on-write?</li>
+                </ul>
+            </div>
+
+            <div class="day-block">
+                <div class="day-title">Day 4 — Composer</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">composer.json</span><span class="topic-tag">composer.lock</span><span class="topic-tag">PSR-4</span>
+                    <span class="topic-tag">Autoloading</span><span class="topic-tag">Semantic versioning</span><span class="topic-tag">require vs require-dev</span>
+                    <span class="topic-tag">Production install</span><span class="topic-tag">Dependency conflicts</span>
+                </div>
+                <ul class="question-list">
+                    <li>How does Composer autoload classes?</li><li>Why commit composer.lock?</li>
+                    <li>composer install vs composer update?</li>
+                </ul>
+            </div>
+
+            <div class="day-block">
+                <div class="day-title">Day 5 — Interview simulation</div>
+                <p style="font-size:0.95rem; color:#1d3e5a; background:#f2f7fd; padding:0.5rem 1rem; border-radius:40px;">20 senior PHP questions · no lookup · evaluation: Junior / Middle / Senior / Strong Senior</p>
+            </div>
+        </div>
+
+        <!-- WEEK 2 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title"><span class="week-badge">WEEK 2</span> OOP + SOLID + Design Patterns</span>
+            </div>
+            <div class="day-block">
+                <div class="day-title">SOLID — each with real PHP example</div>
+                <div class="topic-tags">
+                    <span class="topic-tag highlight">S</span><span class="topic-tag highlight">O</span><span class="topic-tag highlight">L</span>
+                    <span class="topic-tag highlight">I</span><span class="topic-tag highlight">D</span>
+                </div>
+                <ul class="question-list">
+                    <li>“This class has 1,500 lines. How would you refactor it?”</li>
+                    <li>“Where do you see SRP being violated?”</li>
+                    <li>“Give me a real example of Dependency Inversion.”</li>
+                    <li><strong>Dependency Injection vs Dependency Inversion?</strong> (senior trap)</li>
+                </ul>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Design Patterns (GoF)</div>
+                <div class="two-col-grid">
+                    <div><span class="keyword">Creational</span><br>Factory, Abstract Factory, Builder</div>
+                    <div><span class="keyword">Structural</span><br>Adapter, Decorator, Facade, Proxy</div>
+                    <div><span class="keyword">Behavioral</span><br>Strategy, Observer, Command, Chain of Responsibility, Template Method</div>
+                </div>
+                <p style="margin-top:0.6rem; background:#eef4fb; padding:0.3rem 1rem; border-radius:30px; display:inline-block; font-size:0.9rem;"><strong>Strategy</strong> · “five payment algorithms, add new without modifying existing code”</p>
+            </div>
+        </div>
+
+        <!-- WEEK 3 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title"><span class="week-badge">WEEK 3</span> Symfony + Doctrine</span>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Symfony</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">Request lifecycle</span><span class="topic-tag">Kernel</span><span class="topic-tag">HTTP Kernel</span>
+                    <span class="topic-tag">Routing</span><span class="topic-tag">Controllers</span><span class="topic-tag">Event Dispatcher</span>
+                    <span class="topic-tag">Event Subscribers</span><span class="topic-tag">Service Container</span><span class="topic-tag">Autowiring</span>
+                    <span class="topic-tag">Autoconfiguration</span><span class="topic-tag">Compiler passes</span><span class="topic-tag">Dependency Injection</span>
+                    <span class="topic-tag">Messenger</span><span class="topic-tag">Security</span><span class="topic-tag">Cache</span>
+                </div>
+                <ul class="question-list">
+                    <li>Explain Symfony’s request lifecycle.</li><li>What is the Service Container?</li>
+                    <li>How does autowiring work?</li><li>Autowiring vs autoconfiguration?</li>
+                    <li>What is a compiler pass?</li><li>Event listener vs event subscriber?</li>
+                    <li>When would you use Messenger?</li><li>How would you process 1 million messages?</li>
+                </ul>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Doctrine</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">Entity</span><span class="topic-tag">EntityManager</span><span class="topic-tag">Unit of Work</span>
+                    <span class="topic-tag">Identity Map</span><span class="topic-tag">Lazy/Eager loading</span><span class="topic-tag">Relations</span>
+                    <span class="topic-tag">DQL</span><span class="topic-tag">QueryBuilder</span><span class="topic-tag">Transactions</span>
+                    <span class="topic-tag">Optimistic/Pessimistic locking</span><span class="topic-tag highlight">N+1</span>
+                </div>
+                <ul class="question-list">
+                    <li><strong>What is the N+1 problem and how do you solve it?</strong></li>
+                    <li>What happens when you call persist()?</li>
+                    <li>persist() vs flush() ?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- WEEK 4 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title"><span class="week-badge">WEEK 4</span> PostgreSQL / MySQL / SQL</span>
+            </div>
+            <div class="topic-tags">
+                <span class="topic-tag">JOINs</span><span class="topic-tag">GROUP BY</span><span class="topic-tag">HAVING</span><span class="topic-tag">Subqueries</span>
+                <span class="topic-tag">CTE</span><span class="topic-tag">Window functions</span><span class="topic-tag">Indexes</span><span class="topic-tag">Composite indexes</span>
+                <span class="topic-tag">Query planner</span><span class="topic-tag">EXPLAIN</span><span class="topic-tag">Transactions</span><span class="topic-tag">ACID</span>
+                <span class="topic-tag">Isolation levels</span><span class="topic-tag">Locks</span><span class="topic-tag">Deadlocks</span>
+                <span class="topic-tag">Normalization</span><span class="topic-tag">Denormalization</span>
+            </div>
+            <ul class="question-list">
+                <li>Why is this query slow?</li><li>Which index would you create?</li><li>Why isn’t the database using my index?</li>
+                <li>What is a composite index? Order of columns?</li><li>Explain ACID.</li><li>Transaction isolation levels?</li>
+                <li>What causes a deadlock?</li><li>Optimistic vs pessimistic locking?</li>
+                <li>How would you optimize a table containing 100 million records?</li>
+            </ul>
+        </div>
+
+        <!-- WEEK 5 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title"><span class="week-badge">WEEK 5</span> Redis + REST APIs + Microservices</span>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Redis</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">Strings</span><span class="topic-tag">Hashes</span><span class="topic-tag">Lists</span>
+                    <span class="topic-tag">Sets</span><span class="topic-tag">Sorted sets</span><span class="topic-tag">TTL</span>
+                    <span class="topic-tag">Cache</span><span class="topic-tag">Distributed locks</span><span class="topic-tag">Pub/Sub</span>
+                    <span class="topic-tag">Queues</span><span class="topic-tag">Cache stampede</span>
+                </div>
+                <ul class="question-list">
+                    <li>Why Redis instead of PostgreSQL?</li><li>When should you NOT use Redis?</li>
+                    <li>What happens if Redis goes down?</li><li>How do you prevent stale cache?</li>
+                    <li>What is cache stampede?</li>
+                </ul>
+            </div>
+            <div class="day-block">
+                <div class="day-title">REST API</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">HTTP methods</span><span class="topic-tag">Status codes</span><span class="topic-tag">Idempotency</span>
+                    <span class="topic-tag">AuthN/AuthZ</span><span class="topic-tag">Pagination</span><span class="topic-tag">Filtering</span>
+                    <span class="topic-tag">Sorting</span><span class="topic-tag">Versioning</span><span class="topic-tag">Rate limiting</span>
+                    <span class="topic-tag">Webhooks</span><span class="topic-tag">Retries</span><span class="topic-tag">OpenAPI</span>
+                </div>
+                <ul class="question-list">
+                    <li>PUT vs PATCH?</li><li>401 vs 403?</li><li>409 vs 422?</li>
+                    <li>What makes an API idempotent?</li>
+                </ul>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Microservices</div>
+                <ul class="question-list">
+                    <li>“You have 5 microservices and one database. Is this really microservices?”</li>
+                    <li>“Service A calls B, B calls C, and C is down. What happens?”</li>
+                    <li>Service boundaries, sync/async, events, retry, DLQ, idempotency, saga, eventual consistency</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- WEEK 6 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title"><span class="week-badge">WEEK 6</span> Architecture — DDD · CQRS · Event Sourcing</span>
+            </div>
+            <div class="topic-tags">
+                <span class="topic-tag highlight">MVC</span><span class="topic-tag highlight">Layered</span><span class="topic-tag highlight">Clean</span>
+                <span class="topic-tag highlight">Hexagonal</span><span class="topic-tag highlight">DDD</span><span class="topic-tag highlight">CQRS</span>
+                <span class="topic-tag highlight">Event Sourcing</span><span class="topic-tag">Monolith · Modular · Microservices</span>
+            </div>
+            <div class="day-block">
+                <div class="day-title">DDD — Entity, Value Object, Aggregate, Repository, Domain Service, Application Service, Domain Event, Bounded Context</div>
+                <ul class="question-list">
+                    <li>What is a Value Object?</li><li>Entity vs Value Object?</li><li>What is an Aggregate?</li>
+                    <li>What is an Aggregate Root?</li><li>Where should business logic live?</li><li>What is a bounded context?</li>
+                </ul>
+            </div>
+            <div class="day-block">
+                <div class="day-title">CQRS & Event Sourcing</div>
+                <ul class="question-list">
+                    <li>Command → changes state, Query → reads state</li>
+                    <li>When does CQRS make sense? When does it become overengineering?</li>
+                    <li>Event Sourcing: events → current state (vs traditional)</li>
+                    <li><strong>CQRS does NOT require Event Sourcing</strong> — senior distinction</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- WEEK 7 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title"><span class="week-badge">WEEK 7</span> Docker · Kubernetes · CI/CD · Production</span>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Docker</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">Image</span><span class="topic-tag">Container</span><span class="topic-tag">Dockerfile</span>
+                    <span class="topic-tag">Layers</span><span class="topic-tag">Volumes</span><span class="topic-tag">Networks</span>
+                    <span class="topic-tag">Multi-stage builds</span><span class="topic-tag">Docker Compose</span><span class="topic-tag">Health checks</span>
+                </div>
+                <ul class="question-list">
+                    <li>Container vs VM?</li><li>How do you make a Docker image smaller?</li>
+                    <li>What is a multi-stage build?</li><li>How would you run PHP-FPM + Nginx + PostgreSQL?</li>
+                </ul>
+            </div>
+            <div class="day-block">
+                <div class="day-title">Kubernetes (essentials)</div>
+                <div class="topic-tags">
+                    <span class="topic-tag">Pod</span><span class="topic-tag">Deployment</span><span class="topic-tag">Service</span>
+                    <span class="topic-tag">ConfigMap</span><span class="topic-tag">Secret</span><span class="topic-tag">Ingress</span>
+                    <span class="topic-tag">Replica</span><span class="topic-tag">Horizontal scaling</span><span class="topic-tag">Rolling deployment</span>
+                </div>
+            </div>
+            <div class="day-block">
+                <div class="day-title">CI/CD (Jenkins experience)</div>
+                <ul class="question-list">
+                    <li>What should happen when a developer pushes code?</li>
+                    <li>How do you prevent broken code from reaching production?</li>
+                    <li>Blue/green vs rolling deployment?</li>
+                    <li>How do you handle database migrations?</li>
+                    <li>What happens if deployment fails halfway through?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- WEEK 8 -->
+        <div class="week-card">
+            <div class="week-header">
+                <span class="week-title"><span class="week-badge">WEEK 8</span> Laravel + Drupal + Testing + Interview</span>
+            </div>
+            <div class="topic-tags">
+                <span class="topic-tag">Service Container</span><span class="topic-tag">Service Providers</span><span class="topic-tag">Facades</span>
+                <span class="topic-tag">Middleware</span><span class="topic-tag">Eloquent</span><span class="topic-tag">Relationships</span>
+                <span class="topic-tag">Events</span><span class="topic-tag">Listeners</span><span class="topic-tag">Jobs</span><span class="topic-tag">Queues</span>
+                <span class="topic-tag">Policies</span><span class="topic-tag">Gates</span><span class="topic-tag">Form Requests</span>
+                <span class="topic-tag">Validation</span><span class="topic-tag">Cache</span><span class="topic-tag">Artisan</span>
+                <span class="topic-tag">Migrations</span><span class="topic-tag">Transactions</span>
+            </div>
+            <p style="margin-top:0.8rem; background:#edf5fd; padding:0.4rem 1.2rem; border-radius:30px; font-size:0.95rem;">
+                <strong>Laravel</strong> · recent senior interviews emphasize Service Container, request lifecycle, performance, N+1, caching, architecture.
+            </p>
+            <div class="day-block" style="margin-top:0.8rem;">
+                <div class="day-title">Testing & Interview prep</div>
+                <ul class="question-list">
+                    <li>Unit / integration / feature tests</li>
+                    <li>Mocking, test doubles, database testing</li>
+                    <li>Final interview simulation & evaluation</li>
+                </ul>
+            </div>
+        </div>
+        <!-- end week grid -->
+    </div>
+</div>
+</body>
+</html>
