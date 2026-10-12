@@ -1,229 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>QUESTIONS</title>
-	<!-- Bootstrap 4 + custom style -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/temp.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Robots -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex, noodp, noydir">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <meta name="ia_archiver" content="noindex, nofollow">
+
+    <!-- Cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, private">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Referrer & Framing -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
+
+    <!-- Empty social previews -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <!-- Title -->
+    <title></title>
+
+    <!-- Bootstrap 4 + custom style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/temp.css">
 </head>
 <body>
 
 <!-- ========== FLOATING MENU (fixed position) ========== -->
 <div class="floating-menu" id="floatingMenu">
-	<div class="menu-list" id="menuList">
-		<!-- menu items are generated via JS -->
-	</div>
+    <div class="menu-list" id="menuList">
+        <!-- menu items are generated via JS -->
+    </div>
 </div>
 
 <!-- ========== MAIN CONTENT ========== -->
 <div class="container" id="mainContent">
 
+    <div class="qa-card" id="q15">
+        <div class="question-text"><span class="highlight-q">AI or LLM</span></div>
+        <div class="answer-content">
+            <p>I use AI tools like GitHub Copilot in my development workflow.</p>
+            <p>I use it for implementation, investigation, and code review.</p>
+            <p>But I always review and validate the generated code myself.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q15">
-		<div class="question-text"><span class="highlight-q">AI or LLM</span></div>
-		<div class="answer-content">
-			<p>I use AI tools like GitHub Copilot in my development workflow.</p>
-			<p>I use it for implementation, investigation, and code review.</p>
-			<p>But I always review and validate the generated code myself.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q16">
+        <div class="question-text"><span class="highlight-q">Laravel Telescope</span></div>
+        <div class="answer-content">
+            <p>Yes, I used Laravel Telescope for debugging. It's a great tool — shows all requests, SQL queries, N+1
+                problems, exceptions, jobs, and logs in one dashboard.</p>
+            <p>I use it in local development. Never enable it in production — it's heavy and exposes sensitive data.
+                Telescope supports Laravel 8 and above.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q16">
-		<div class="question-text"><span class="highlight-q">Laravel Telescope</span></div>
-		<div class="answer-content">
-			<p>Yes, I used Laravel Telescope for debugging. It's a great tool — shows all requests, SQL queries, N+1 problems, exceptions, jobs, and logs in one dashboard.</p>
-			<p>I use it in local development. Never enable it in production — it's heavy and exposes sensitive data. Telescope supports Laravel 8 and above.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q17">
+        <div class="question-text"><span class="highlight-q">Laravel Horizon</span></div>
+        <div class="answer-content">
+            <p>Yes, I used Laravel Horizon for monitoring queues and jobs. It's a great tool — shows all jobs, their
+                status, execution time, and failures in one dashboard.</p>
+            <p>I use it in local development. Never enable it in production — it's heavy and exposes sensitive data.
+                Horizon supports Laravel 5.7 and above.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q17">
-		<div class="question-text"><span class="highlight-q">Laravel Horizon</span></div>
-		<div class="answer-content">
-			<p>Yes, I used Laravel Horizon for monitoring queues and jobs. It's a great tool — shows all jobs, their status, execution time, and failures in one dashboard.</p>
-			<p>I use it in local development. Never enable it in production — it's heavy and exposes sensitive data. Horizon supports Laravel 5.7 and above.</p>
-		</div>
+    <div class="qa-card" id="q18">
+        <div class="question-text"><span class="highlight-q">worked with TDD</span></div>
+        <div class="answer-content">
+            <p>I understand the TDD approach: first write a failing test, then implement the code to make it pass,
+                and finally refactor it.</p>
+            <p>But I don't have experience with TDD.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q18">
-		<div class="question-text"><span class="highlight-q">worked with TDD</span></div>
-		<div class="answer-content">
-			<p>I understand the TDD approach: first write a failing test, then implement the code to make it pass, and finally refactor it.</p>
-			<p>But I don't have experience with TDD.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q52">
+        <div class="question-text"><span class="highlight-q">experience with Laravel</span></div>
+        <div class="answer-content">
+            <p>I have professional experience with Laravel around 5 years.</p>
+            <p>I worked with authentication, middleware, validation, Eloquent, Events and third-party
+                integrations.</p>
+            <p>In Laravel, I have worked on several projects related to integrations, e-commerce (shops), and site
+                builders.</p>
+            <p>was a legacy custom PHP project that we migrated to Laravel.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q52">
-		<div class="question-text"><span class="highlight-q">experience with Laravel</span></div>
-		<div class="answer-content">
-			<p>I have professional experience with Laravel around 5 years.</p>
-			<p>I worked with authentication, middleware, validation, Eloquent, Events and third-party integrations.</p>
-			<p>In Laravel, I have worked on several projects related to integrations, e-commerce (shops), and site builders.</p>
-			<p>was a legacy custom PHP project that we migrated to Laravel.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q21">
+        <div class="question-text"><span class="highlight-q">Repository Pattern</span></div>
+        <div class="answer-content">
+            <p>Repository Pattern separates data access logic from business logic. The service holds the business
+                rules, and the repository handles data access, usually via Eloquent.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q21">
-		<div class="question-text"><span class="highlight-q">Repository Pattern</span></div>
-		<div class="answer-content">
-			<p>Repository Pattern separates data access logic from business logic. The service holds the business rules, and the repository handles data access, usually via Eloquent.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q29">
+        <div class="question-text"><span class="highlight-q">Kubernetes</span></div>
+        <div class="answer-content">
+            <p>I understand the main Kubernetes concepts and I'm interested in developing deeper.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q29">
-		<div class="question-text"><span class="highlight-q">Kubernetes</span></div>
-		<div class="answer-content">
-			<p>I understand the main Kubernetes concepts and I'm interested in developing deeper.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q30">
+        <div class="question-text"><span class="highlight-q">AWS</span></div>
+        <div class="answer-content">
+            <p>I have some previous experience with AWS, mainly around [S3 / deployments / backups]</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q30">
-		<div class="question-text"><span class="highlight-q">AWS</span></div>
-		<div class="answer-content">
-			<p>I have some previous experience with AWS, mainly around [S3 / deployments / backups]</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q31">
+        <div class="question-text"><span class="highlight-q">GO</span></div>
+        <div class="answer-content">
+            <p>I don't have direct experience with it yet, but I'm confident I can learn it quickly.</p>
+            <p>I've learned new technologies on the job.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q31">
-		<div class="question-text"><span class="highlight-q">GO</span></div>
-		<div class="answer-content">
-			<p>I don't have direct experience with it yet, but I'm confident I can learn it quickly.</p>
-			<p>I've learned new technologies on the job.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q34">
+        <div class="question-text"><span class="highlight-q">distributed system</span></div>
+        <div class="answer-content">
+            <p>system where different components or services run independently and communicate over a network.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q34">
-		<div class="question-text"><span class="highlight-q">distributed system</span></div>
-		<div class="answer-content">
-			<p>system where different components or services run independently and communicate over a network.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q35">
+        <div class="question-text"><span class="highlight-q">circuit breaker</span></div>
+        <div class="answer-content">
+            <p>design pattern, It protects a system. If a service fails, the circuit opens and temporarily stops
+                requests to that service.</p>
+            <p>A circuit breaker stops repeated failing requests from overloading a system.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q35">
-		<div class="question-text"><span class="highlight-q">circuit breaker</span></div>
-		<div class="answer-content">
-			<p>design pattern, It protects a system. If a service fails, the circuit opens and temporarily stops requests to that service.</p>
-			<p>A circuit breaker stops repeated failing requests from overloading a system.</p>
-		</div>
-	</div>
-
-	<div class="qa-card" id="q36">
-		<div class="question-text"><span class="highlight-q">CQRS</span></div>
-		<div class="answer-content">
-			<p>It's a pattern. Command Query Responsibility Segregation</p>
-			<p>It separates operations that change data from operations that read data.</p>
-			<p>It can have different models and can be optimized independently</p>
-			<ul>
-				<li>Simple CQRS — only classes/services are separated; there is a single database.</li>
-				<li>Full CQRS — separate databases, synchronization via events, eventual consistency.</li>
-			</ul>
-			<pre>
+    <div class="qa-card" id="q36">
+        <div class="question-text"><span class="highlight-q">CQRS</span></div>
+        <div class="answer-content">
+            <p>It's a pattern. Command Query Responsibility Segregation</p>
+            <p>It separates operations that change data from operations that read data.</p>
+            <p>It can have different models and can be optimized independently</p>
+            <ul>
+                <li>Simple CQRS — only classes/services are separated; there is a single database.</li>
+                <li>Full CQRS — separate databases, synchronization via events, eventual consistency.</li>
+            </ul>
+            <pre>
 Два уровня:
 
 Простой CQRS — разделены только классы/сервисы, БД одна.
 
 Полный CQRS — разные БД, синхронизация через события, eventual consistency.
 			</pre>
-			
-		</div>
-	</div>
 
-	<div class="qa-card" id="q37">
-		<div class="question-text"><span class="highlight-q">Saga orchestration</span></div>
-		<div class="answer-content">
-			<p>It's a pattern. It's a way to manage a business transaction across multiple services</p>
-			<p>This is useful in microservice architectures, mostly for payments or order processing.</p>
-			<p>A central orchestrator coordinates the steps and handles failures or compensating actions.</p>
-		</div>
-	</div>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q38">
-		<div class="question-text"><span class="highlight-q">Temporal</span></div>
-		<div class="answer-content">
-			<p>Temporal is a platform for orchestrating complex, long-running business processes. It manages workflow state and helps recover automatically from failures.</p>
-		</div>
-	</div>
-	<div class="qa-card" id="q39">
-		<div class="question-text"><span class="highlight-q">lazy loading</span></div>
-		<div class="answer-content">
-			<p>Lazy loading means related data is loaded only when it is accessed. It can avoid loading unnecessary data, but if used incorrectly, it can cause the N+1 query problem.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q37">
+        <div class="question-text"><span class="highlight-q">Saga orchestration</span></div>
+        <div class="answer-content">
+            <p>It's a pattern. It's a way to manage a business transaction across multiple services</p>
+            <p>This is useful in microservice architectures, mostly for payments or order processing.</p>
+            <p>A central orchestrator coordinates the steps and handles failures or compensating actions.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q40">
-		<div class="question-text"><span class="highlight-q">isolation levels</span></div>
-		<div class="answer-content">
-			<p>Isolation levels define how much one transaction is isolated from changes made by other transactions.</p>
-			<p>Common levels are Read Uncommitted, Read Committed, Repeatable Read and Serializable.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q38">
+        <div class="question-text"><span class="highlight-q">Temporal</span></div>
+        <div class="answer-content">
+            <p>Temporal is a platform for orchestrating complex, long-running business processes. It manages
+                workflow state and helps recover automatically from failures.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q41">
-		<div class="question-text"><span class="highlight-q">index</span></div>
-		<div class="answer-content">
-			<p>A data structure that helps the database find rows faster without scanning the whole table.</p>
-			<p>Can jump directly to the relevant locations instead of scanning every row. So fewer reads, faster lookups, especially on large tables.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q39">
+        <div class="question-text"><span class="highlight-q">lazy loading</span></div>
+        <div class="answer-content">
+            <p>Lazy loading means related data is loaded only when it is accessed. It can avoid loading unnecessary
+                data, but if used incorrectly, it can cause the N+1 query problem.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q42">
-		<div class="question-text"><span class="highlight-q">slow database query</span></div>
-		<div class="answer-content">
-			<p>First, identify the exact query and check its execution plan with EXPLAIN or EXPLAIN ANALYZE. Then look at indexes, joins, filtering, sorting, and data volume. Make one change at a time, then measure again. Never guess or change multiple things blindly.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q40">
+        <div class="question-text"><span class="highlight-q">isolation levels</span></div>
+        <div class="answer-content">
+            <p>Isolation levels define how much one transaction is isolated from changes made by other
+                transactions.</p>
+            <p>Common levels are Read Uncommitted, Read Committed, Repeatable Read and Serializable.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q43">
-		<div class="question-text"><span class="highlight-q">optimize a slow Doctrine query</span></div>
-		<div class="answer-content">
-			<p>I would first check, Symfony Profiler, Doctrine SQL Logger, Doctrine Doctor. Then the query plan, indexes. And if the data is massive, consider async processing, pagination.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q41">
+        <div class="question-text"><span class="highlight-q">index</span></div>
+        <div class="answer-content">
+            <p>A data structure that helps the database find rows faster without scanning the whole table.</p>
+            <p>Can jump directly to the relevant locations instead of scanning every row. So fewer reads, faster
+                lookups, especially on large tables.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q44">
-		<div class="question-text"><span class="highlight-q">normalization</span></div>
-		<div class="answer-content">
-			<p></p>
-		</div>
-	</div>
+    <div class="qa-card" id="q42">
+        <div class="question-text"><span class="highlight-q">slow database query</span></div>
+        <div class="answer-content">
+            <p>First, identify the exact query and check its execution plan with EXPLAIN or EXPLAIN ANALYZE. Then
+                look at indexes, joins, filtering, sorting, and data volume. Make one change at a time, then measure
+                again. Never guess or change multiple things blindly.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q45">
-		<div class="question-text"><span class="highlight-q">idempotency</span></div>
-		<div class="answer-content">
-			<p>processing the same request or message multiple times produces the same final result</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q43">
+        <div class="question-text"><span class="highlight-q">optimize a slow Doctrine query</span></div>
+        <div class="answer-content">
+            <p>I would first check, Symfony Profiler, Doctrine SQL Logger, Doctrine Doctor. Then the query plan,
+                indexes. And if the data is massive, consider async processing, pagination.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q46">
-		<div class="question-text"><span class="highlight-q">background tasks in Symfony</span></div>
-		<div class="answer-content">
-			<p>In Symfony, I use Symfony Messenger for background tasks. It sends messages to a queue, such as RabbitMQ, Redis, Doctrine, or SQS, and workers process them asynchronously. For scheduled tasks, I can use Scheduler or cron. In production, workers can be managed with Supervisor or systemd, with retries, failure transport, and memory limits. This way, heavy tasks don't block the user's request.</p>
-		</div>
-	</div>
+    <div class="qa-card" id="q44">
+        <div class="question-text"><span class="highlight-q">normalization</span></div>
+        <div class="answer-content">
+            <p></p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q47">
-		<div class="question-text"><span class="highlight-q">SQS</span></div>
-		<div class="answer-content">
-			<p></p>
-		</div>
-	</div>
+    <div class="qa-card" id="q45">
+        <div class="question-text"><span class="highlight-q">idempotency</span></div>
+        <div class="answer-content">
+            <p>processing the same request or message multiple times produces the same final result</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q48">
-		<div class="question-text"><span class="highlight-q">Magic Methods</span></div>
-		<div class="answer-content">
-			<ul>
-				<li>Magic methods are special methods that PHP calls automatically when certain events happen on an object. You don't call them directly — PHP invokes them behind the scenes. They all start with a double underscore (__).</li>
-				<li></li>
-			</ul>
-		</div>
-	</div>
+    <div class="qa-card" id="q46">
+        <div class="question-text"><span class="highlight-q">background tasks in Symfony</span></div>
+        <div class="answer-content">
+            <p>In Symfony, I use Symfony Messenger for background tasks. It sends messages to a queue, such as
+                RabbitMQ, Redis, Doctrine, or SQS, and workers process them asynchronously. For scheduled tasks, I
+                can use Scheduler or cron. In production, workers can be managed with Supervisor or systemd, with
+                retries, failure transport, and memory limits. This way, heavy tasks don't block the user's
+                request.</p>
+        </div>
+    </div>
 
-	<div class="qa-card" id="q50">
-		<div class="question-text"><span class="highlight-q"></span></div>
-		<div class="answer-content"><p></p></div>
-	</div>
+    <div class="qa-card" id="q47">
+        <div class="question-text"><span class="highlight-q">SQS</span></div>
+        <div class="answer-content">
+            <p></p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q48">
+        <div class="question-text"><span class="highlight-q">Magic Methods</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Magic methods are special methods that PHP calls automatically when certain events happen on an
+                    object. You don't call them directly — PHP invokes them behind the scenes. They all start with a
+                    double underscore (__).
+                </li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q50">
+        <div class="question-text"><span class="highlight-q"></span></div>
+        <div class="answer-content"><p></p></div>
+    </div>
 
 </div>
 
