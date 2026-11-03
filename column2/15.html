@@ -1,38 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	    <title>Book</title>
+    <!-- Robots -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex, noodp, noydir">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <meta name="ia_archiver" content="noindex, nofollow">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+    <!-- Referrer & Framing -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
 
-	    <div class="container">
-	        <div class="row">
+    <!-- Empty social previews -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <title></title>
 
-				<pre>
+    <!-- Bootstrap 4 + custom style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/temp.css">
+</head>
+<body>
 
-				</pre>
+<!-- ========== FLOATING MENU (fixed position) ========== -->
+<div class="floating-menu" id="floatingMenu">
+    <div class="menu-list" id="menuList">
+        <!-- menu items are generated via JS -->
+    </div>
+</div>
 
-				<blockquote>
+<!-- ========== MAIN CONTENT ========== -->
+<div class="container" id="mainContent">
+    <h5>WEEK GOAL</h5>
 
-				</blockquote>
+    <div class="qa-card" id="q1">
+        <div class="question-text"><span class="highlight-q">Check Python and Git</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>python3 --version</li>
+                <li>git --version</li>
+            </ul>
+            <ul>
+                <li>Python 3.12.x</li>
+                <li>git version 2.x.x</li>
+            </ul>
+            <ul>
+                <li>sudo apt update</li>
+                <li>sudo apt install python3 python3-venv python3-pip git</li>
+            </ul>
+        </div>
+    </div>
 
-				<code>
+    <div class="qa-card" id="q2">
+        <div class="question-text"><span class="highlight-q">Create project and virtual env</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>mkdir ai-knowledge-assistant</li>
+                <li>git init</li>
+                <li>python3 -m venv .venv</li>
+                <li>source .venv/bin/activate</li>
+            </ul>
+        </div>
+    </div>
 
-  				</code>
+    <div class="qa-card" id="q3">
+        <div class="question-text"><span class="highlight-q">Install dependencies</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>python -m pip install --upgrade pip</li>
+                <li>python -m pip install fastapi uvicorn pytest httpx</li>
+                <li></li>
+                <li>Create requirements.txt:</li>
+                <li>python -m pip freeze > requirements.txt</li>
+            </ul>
+        </div>
+    </div>
 
-	        </div>
-	    </div>
+    <div class="qa-card" id="q4">
+        <div class="question-text"><span class="highlight-q"></span></div>
+        <div class="answer-content">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    </div>
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+    <div class="qa-card" id="q5">
+        <div class="question-text"><span class="highlight-q"></span></div>
+        <div class="answer-content">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="../js/temp.js"></script>
 </body>
 </html>

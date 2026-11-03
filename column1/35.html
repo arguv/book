@@ -10,22 +10,14 @@
     <meta name="bingbot" content="noindex, nofollow, noarchive">
     <meta name="ia_archiver" content="noindex, nofollow">
 
-    <!-- Cache -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, private">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-
     <!-- Referrer & Framing -->
     <meta name="referrer" content="no-referrer">
-    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
 
     <!-- Empty social previews -->
     <meta property="og:title" content="">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
-
-    <!-- Title -->
     <title></title>
 
     <!-- Bootstrap 4 + custom style -->
@@ -228,24 +220,6 @@
         </div>
     </div>
 
-    <div class="qa-card" id="q22">
-        <div class="question-text"><span class="highlight-q">background tasks in Symfony</span></div>
-        <div class="answer-content">
-            <p>In Symfony, I use Symfony Messenger for background tasks. It sends messages to a queue, such as
-                RabbitMQ, Redis, Doctrine, or SQS, and workers process them asynchronously. For scheduled tasks, I
-                can use Scheduler or cron. In production, workers can be managed with Supervisor or systemd, with
-                retries, failure transport, and memory limits. This way, heavy tasks don't block the user's
-                request.</p>
-        </div>
-    </div>
-
-    <div class="qa-card" id="q23">
-        <div class="question-text"><span class="highlight-q">SQS</span></div>
-        <div class="answer-content">
-            <p></p>
-        </div>
-    </div>
-
     <div class="qa-card" id="q24">
         <div class="question-text"><span class="highlight-q">Magic Methods</span></div>
         <div class="answer-content">
@@ -260,8 +234,181 @@
     </div>
 
     <div class="qa-card" id="q25">
+        <div class="question-text"><span class="highlight-q">DDD</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Domain-Driven Design is a software development approach that focuses on business logic and business rules, rather than starting with databases, controllers, or frameworks.</li>
+                <li>DDD is especially useful for complex applications built with PHP, Symfony, Laravel, and microservices.</li>
+                <li>With DDD, these rules belong to the domain, not directly inside controllers.</li>
+                <li>DDD stands for Domain-Driven Design. It is an approach to designing software around business requirements and domain logic. The main concepts include Entities, Value Objects, Aggregates, Repositories, and Bounded Contexts. The goal is to keep business logic independent of frameworks, databases, and infrastructure, making complex systems easier to maintain and evolve.</li>
+                <li>Domain:	The business area your application solves</li>
+                <li>Entity:	An object with a unique identity, such as Order or Customer</li>
+                <li>Value Object:	An immutable object defined by its values, such as Money or Email</li>
+                <li>Aggregate:	A group of related domain objects with consistency rules</li>
+                <li>Aggregate Root:	The main entity controlling access to an aggregate</li>
+                <li>Repository:	An abstraction for retrieving and saving aggregates</li>
+                <li>Domain Service:	Business logic that doesn't naturally belong to one entity</li>
+                <li>Bounded Context: A clearly defined boundary for a particular business model</li>
+                <li>Ubiquitous Language: Shared terminology used by developers and business experts</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q26">
+        <div class="question-text"><span class="highlight-q">ClickHouse</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>ClickHouse is a high-performance, open-source, column-oriented database management system (DBMS) designed for analytical queries on large amounts of data.</li>
+                <li>It is especially useful for real-time analytics, reporting, logs, monitoring, and processing billions of records.</li>
+                <li>OLTP = Online Transaction Processing (orders, payments, accounts).</li>
+                <li>OLAP = Online Analytical Processing (reports, statistics, trends).</li>
+                <li>Row-oriented database (MySQL)</li>
+                <li>Column-oriented database (ClickHouse)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q27">
+        <div class="question-text"><span class="highlight-q">Kafka</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Apache Kafka is a distributed event-streaming platform used to send, store, and process large volumes of events between services.</li>
+                <li>Kafka is commonly used in microservices, event-driven architecture, real-time analytics, and high-load systems.</li>
+                <li>One service publishes an event to Kafka, and other services consume that event asynchronously.</li>
+                <li>In PHP, a common Kafka client uses the php-rdkafka extension, which wraps librdkafka.</li>
+                <li>Apache Kafka is a distributed event-streaming platform used for asynchronous communication between services. Producers publish events to topics, and consumers read and process them. Kafka supports partitions for scalability, replication for fault tolerance, and message retention for replay. It is commonly used in microservices, real-time analytics, and high-load systems.</li>
+                <li>the most important concepts to understand are Producer, Consumer, Topic, Partition, Consumer Group, Offset, retry handling, and idempotency.</li>
+                <li>(Kafka = "This event happened.") Choose Kafka when:</li>
+                <li>Processing millions of events.</li>
+                <li>Building real-time analytics.</li>
+                <li>Sending events to multiple independent services.</li>
+                <li>Replaying historical events.</li>
+                <li>Streaming data into ClickHouse.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q28">
+        <div class="question-text"><span class="highlight-q">RabbitMQ</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>RabbitMQ is an open-source message broker that allows applications and microservices to communicate asynchronously using message queues.</li>
+                <li>RabbitMQ is commonly used for background jobs, notifications, order processing, microservices, and reliable task distribution.</li>
+                <li>A producer sends a message to RabbitMQ, and a consumer processes it asynchronously, without blocking the original request.</li>
+                <li>RabbitMQ and Kafka are similar, but they are not the same.</li>
+                <li>RabbitMQ is primarily a message broker for distributing and processing tasks.</li>
+                <li>Kafka is primarily an event-streaming platform for storing, distributing, and replaying events.</li>
+                <li>(RabbitMQ = "Please do this task.") Choose RabbitMQ when:</li>
+                <li>Sending emails asynchronously.</li>
+                <li>Processing background jobs.</li>
+                <li>Distributing tasks between workers.</li>
+                <li>Routing messages to different queues.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q23">
+        <div class="question-text"><span class="highlight-q">SQS</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Amazon Simple Queue Service (SQS) is a fully managed message queue service from AWS used for asynchronous communication between applications and microservices.</li>
+                <li>SQS is similar to RabbitMQ in its primary use case: sending messages to queues and processing them using background workers.</li>
+                <li>The main difference is that AWS manages the queue infrastructure for you.</li>
+                <li>Unlike RabbitMQ's ACK mechanism, SQS consumers explicitly delete successfully processed messages.</li>
+                <li>If processing fails and the message is not deleted, it can become visible again after the visibility timeout.</li>
+                <li>Amazon SQS provides two main queue types (Standard Queue vs FIFO Queue)</li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q22">
+        <div class="question-text"><span class="highlight-q">background tasks in Symfony</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Symfony Messenger supports Amazon SQS through its SQS transport.</li>
+                <li>In Symfony, I use Symfony Messenger for background tasks. It sends messages to a queue, such as
+                    RabbitMQ, Redis, Doctrine, or SQS, and workers process them asynchronously. For scheduled tasks, I
+                    can use Scheduler or cron. In production, workers can be managed with Supervisor or systemd, with
+                    retries, failure transport, and memory limits. This way, heavy tasks don't block the user's
+                    request.</li>
+                <li>composer require symfony/amazon-sqs-messenger</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q29">
+        <div class="question-text"><span class="highlight-q">Symfony Dependency Injection Container</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>A container that creates and manages services and their dependencies.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q30">
+        <div class="question-text"><span class="highlight-q">What is autowiring</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Symfony automatically determines and injects dependencies based on type hints.</li>
+                <li>Autowiring is a technique that automatically injects dependencies into a class.</li>
+                <li>Autowiring is a technique used in frameworks like Laravel and Symfony that automatically injects dependencies into a class.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q31">
+        <div class="question-text"><span class="highlight-q">What is autoconfiguration</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Symfony automatically applies service configuration, tags and behavior based on the class.</li>
+                <li>Autoconfiguration is a Symfony feature that automatically applies configuration, such as service tags, based on a class's interface or attributes.</li>
+                <li>It helps Symfony recognise and register services for specific purposes.</li>
+                <li>In Symfony, the compiled service container is typically stored in the var/cache/ directory.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q32">
         <div class="question-text"><span class="highlight-q"></span></div>
-        <div class="answer-content"><p></p></div>
+        <div class="answer-content">
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q33">
+        <div class="question-text"><span class="highlight-q"></span></div>
+        <div class="answer-content">
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q34">
+        <div class="question-text"><span class="highlight-q"></span></div>
+        <div class="answer-content">
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q35">
+        <div class="question-text"><span class="highlight-q"></span></div>
+        <div class="answer-content">
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
 
 </div>

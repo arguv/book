@@ -1,38 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	    <title>Book</title>
+    <!-- Robots -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex, noodp, noydir">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <meta name="ia_archiver" content="noindex, nofollow">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/index.css">
-	</head>
-	<body>
+    <!-- Referrer & Framing -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
 
-	    <div class="container">
-	        <div class="row">
+    <!-- Empty social previews -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
-				<pre>
+    <style>
+        body {
+            background: #f5f7fb;
+            color: #253047;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65
+        }
 
-				</pre>
+        .container {
+            max-width: 1040px;
+            padding-top: 42px;
+            padding-bottom: 70px
+        }
 
-				<blockquote>
+        .qa-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 13px;
+            padding: 27px;
+            margin-bottom: 22px;
+            box-shadow: 0 3px 14px rgba(20, 40, 80, .04)
+        }
 
-				</blockquote>
+        .question-text {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 18px
+        }
 
-				<code>
+        .highlight-q {
+            color: #1d4ed8
+        }
 
-  				</code>
+        h1 {
+            font-weight: 800
+        }
 
-	        </div>
-	    </div>
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-top: 25px
+        }
 
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	    <script src="../js/index.js"></script>
+        pre {
+            background: #172235;
+            color: #edf5ff;
+            border-radius: 8px;
+            padding: 17px;
+            overflow: auto;
+            font-size: .9rem;
+            line-height: 1.55
+        }
+
+        code {
+            color: #be185d
+        }
+
+        pre code {
+            color: inherit
+        }
+
+        .note {
+            border-left: 4px solid #2563eb;
+            background: #eff6ff;
+            padding: 13px 17px;
+            border-radius: 5px;
+            margin: 15px 0
+        }
+
+        .table td, .table th {
+            vertical-align: middle
+        }
+
+        .section-links {
+            font-size: .92rem
+        }
+
+        .task-list li {
+            margin: 7px 0
+        }
+
+        .floating-menu {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            z-index: 1000
+        }
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: white;
+            padding: 9px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px #0002;
+            max-height: 80vh;
+            overflow: auto
+        }
+
+        .menu-list a {
+            font-size: 12px;
+            color: #1d4ed8;
+            padding: 3px 5px
+        }
+
+        .intro {
+            margin-bottom: 26px
+        }
+
+        .answer-content p {
+            margin-bottom: 12px
+        }
+
+        @media (max-width: 1200px) {
+            .floating-menu {
+                display: none
+            }
+        }
+
+        @media (max-width: 600px) {
+            .qa-card {
+                padding: 18px
+            }
+
+            .container {
+                padding-top: 24px
+            }
+
+            pre {
+                font-size: .8rem
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="floating-menu" id="floatingMenu">
+    <div class="menu-list" id="menuList"><!-- menu items are generated via JS --></div>
+</div>
+<div class="container" id="mainContent">
+    <header class="intro"><h1>Day 1 — Python Syntax and Data Structures</h1>
+        <p class="lead">Learn Python syntax through practical examples and comparisons with PHP.</p>
+        <p><strong>Goal:</strong> Understand Python's core types, control flow, collections and comprehensions, then
+            build a small support-ticket filtering program. <strong>Estimated time:</strong> 3–4 hours.</p>
+        <div class="note">Since you already know PHP, focus on Python conventions instead of translating PHP patterns
+            literally. Use <code>snake_case</code>, four-space indentation and readable code.
+        </div>
+    </header>
+    <div class="qa-card" id="q1">
+        <div class="question-text"><span class="highlight-q">1. Variables, types, and expressions</span></div>
+        <div class="answer-content">
+            <p>Python variables do not start with <code>$</code>, and statements usually do not need semicolons. Python
+                is dynamically typed and supports optional type hints.</p>
+            <h3>PHP vs Python</h3>
+            <div class="row">
+                <div class="col-md-6"><strong>PHP</strong>
+                    <pre><code>$name = "John";
+$age = 30;
+$isActive = true;
+$salary = null;</code></pre>
+                </div>
+                <div class="col-md-6"><strong>Python</strong>
+                    <pre><code>name = "John"
+age = 30
+is_active = True
+salary = None</code></pre>
+                </div>
+            </div>
+            <h3>Basic data types</h3>
+            <div class="table-responsive">
+                <table class="table table-sm table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Python</th>
+                        <th>PHP equivalent</th>
+                        <th>Example</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><code>str</code></td>
+                        <td>string</td>
+                        <td><code>"Hello"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>int</code></td>
+                        <td>int</td>
+                        <td><code>42</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>float</code></td>
+                        <td>float</td>
+                        <td><code>3.14</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>bool</code></td>
+                        <td>bool</td>
+                        <td><code>True</code>, <code>False</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>NoneType</code></td>
+                        <td>null</td>
+                        <td><code>None</code></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <pre><code>name = "John"
+age = 30
+salary = 2500.50
+is_active = True
+department = None
+
+print(type(name))        # &lt;class 'str'&gt;
+print(type(age))         # &lt;class 'int'&gt;
+print(type(salary))      # &lt;class 'float'&gt;
+print(type(is_active))   # &lt;class 'bool'&gt;
+print(type(department))  # &lt;class 'NoneType'&gt;</code></pre>
+            <h3>Expressions and operators</h3>
+            <pre><code>a = 10
+b = 3
+
+print(a + b)   # 13
+print(a - b)   # 7
+print(a * b)   # 30
+print(a / b)   # 3.333...
+print(a // b)  # 3 (floor division)
+print(a % b)   # 1 (remainder)
+print(a ** b)  # 1000 (exponentiation)
+
+print(10 == "10")  # False
+print(10 != 5)     # True</code></pre>
+            <p>Unlike PHP, Python has no <code>===</code> operator. Python's <code>==</code> does not perform PHP-style
+                numeric-string coercion. Use <code>is None</code> when checking for <code>None</code>.</p>
+            <h3>Strings and f-strings</h3>
+            <div class="row">
+                <div class="col-md-6"><strong>PHP</strong>
+                    <pre><code>$name = "John";
+echo "Hello, $name";</code></pre>
+                </div>
+                <div class="col-md-6"><strong>Python</strong>
+                    <pre><code>name = "John"
+print(f"Hello, {name}")</code></pre>
+                </div>
+            </div>
+            <pre><code>price = 100
+quantity = 3
+print(f"Total: {price * quantity}")  # Total: 300</code></pre>
+            <p><strong>Practice:</strong> Create five variables with different types, print their types, and build an
+                f-string containing two expressions.</p>
+        </div>
+    </div>
+    <div class="qa-card" id="q2">
+        <div class="question-text"><span class="highlight-q">2. Conditions and loops</span></div>
+        <div class="answer-content">
+            <p>Python uses indentation rather than braces to define code blocks. Put a colon (<code>:</code>) after
+                <code>if</code>, <code>elif</code>, <code>else</code>, <code>for</code> and <code>while</code>
+                statements.</p>
+            <h3>Conditions</h3>
+            <pre><code>status = "open"
+priority = "high"
+
+if status == "open" and priority == "high":
+    print("Urgent ticket")
+elif status == "open":
+    print("Normal open ticket")
+else:
+    print("Ticket is not open")</code></pre>
+            <p>Python uses <code>and</code>, <code>or</code> and <code>not</code> instead of PHP's
+                <code>&amp;&amp;</code>, <code>||</code> and <code>!</code>.</p>
+            <h3>For loops</h3>
+            <pre><code>names = ["Anna", "John", "David"]
+for name in names:
+    print(name)
+
+for i in range(5):
+    print(i)  # 0 through 4
+
+for index, name in enumerate(names):
+    print(index, name)</code></pre>
+            <p>A Python <code>for</code> loop is often similar to PHP's <code>foreach</code>. <code>range(5)</code>
+                stops before 5. <code>enumerate()</code> gives the index and item together.</p>
+            <h3>While loops</h3>
+            <pre><code>count = 0
+while count &lt; 3:
+    print(count)
+    count += 1</code></pre>
+            <p><code>break</code> exits a loop; <code>continue</code> skips to the next iteration.</p>
+            <p><strong>Practice:</strong> Print numbers 0–9, then print only the even numbers. Try the same exercise
+                using <code>while</code>.</p>
+        </div>
+    </div>
+    <div class="qa-card" id="q3">
+        <div class="question-text"><span class="highlight-q">3. Lists, tuples, dictionaries, and sets</span></div>
+        <div class="answer-content">
+            <p>A PHP array can represent both a sequential list and an associative map. Python uses distinct collection
+                types with different behaviors.</p>
+            <div class="table-responsive">
+                <table class="table table-sm table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Example</th>
+                        <th>Properties</th>
+                        <th>Common use</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>List</td>
+                        <td><code>[1, 2, 3]</code></td>
+                        <td>Ordered, mutable, duplicates allowed</td>
+                        <td>Sequence of tickets</td>
+                    </tr>
+                    <tr>
+                        <td>Tuple</td>
+                        <td><code>(1, 2, 3)</code></td>
+                        <td>Ordered, immutable, duplicates allowed</td>
+                        <td>Fixed coordinates</td>
+                    </tr>
+                    <tr>
+                        <td>Dictionary</td>
+                        <td><code>{"id": 1}</code></td>
+                        <td>Insertion-ordered key/value mapping, mutable</td>
+                        <td>Ticket data / JSON objects</td>
+                    </tr>
+                    <tr>
+                        <td>Set</td>
+                        <td><code>{1, 2, 3}</code></td>
+                        <td>Unique values, unordered</td>
+                        <td>Allowed statuses</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Lists</h3>
+            <pre><code>tickets = [101, 102, 103]
+tickets.append(104)
+tickets.remove(102)
+print(tickets)       # [101, 103, 104]
+print(tickets[0])    # 101
+print(tickets[-1])   # 104 (last item)
+print(tickets[0:2])  # [101, 103]
+print(len(tickets))  # 3</code></pre>
+            <h3>Tuples</h3>
+            <pre><code>coordinates = (40.18, 44.51)
+print(coordinates[0])
+# coordinates[0] = 50  # TypeError: immutable</code></pre>
+            <h3>Dictionaries: PHP associative arrays vs Python dict</h3>
+            <div class="row">
+                <div class="col-md-6"><strong>PHP</strong>
+                    <pre><code>$ticket = [
+    "id" =&gt; 101,
+    "status" =&gt; "open",
+    "priority" =&gt; "high"
+];</code></pre>
+                </div>
+                <div class="col-md-6"><strong>Python</strong>
+                    <pre><code>ticket = {
+    "id": 101,
+    "status": "open",
+    "priority": "high",
+}</code></pre>
+                </div>
+            </div>
+            <pre><code>print(ticket["status"])   # open
+ticket["status"] = "closed"
+print(ticket.get("assigned_to"))                # None
+print(ticket.get("assigned_to", "Unassigned"))  # Unassigned
+
+for key, value in ticket.items():
+    print(key, value)</code></pre>
+            <div class="note"><code>ticket["assigned_to"]</code> raises <code>KeyError</code> if the key is missing;
+                <code>ticket.get("assigned_to")</code> returns <code>None</code> by default. This distinction matters
+                when processing API responses.
+            </div>
+            <h3>Sets</h3>
+            <pre><code>statuses = ["open", "closed", "open", "pending"]
+unique_statuses = set(statuses)
+print(unique_statuses)  # Three unique statuses; order varies
+
+allowed_statuses = {"open", "closed", "pending"}
+print("open" in allowed_statuses)  # True</code></pre>
+            <p><strong>Practice:</strong> Create a list of three ticket dictionaries, change one ticket's status, and
+                find the set of unique statuses.</p>
+        </div>
+    </div>
+    <div class="qa-card" id="q4">
+        <div class="question-text"><span class="highlight-q">4. Comprehensions</span></div>
+        <div class="answer-content">
+            <p>A comprehension builds a new collection from an iterable, optionally filtering items. It can replace some
+                uses of PHP's <code>array_filter()</code> and <code>array_map()</code>, but readability comes first.</p>
+            <h3>Regular loop</h3>
+            <pre><code>numbers = [1, 2, 3, 4, 5]
+even_numbers = []
+for number in numbers:
+    if number % 2 == 0:
+        even_numbers.append(number)</code></pre>
+            <h3>List comprehension</h3>
+            <pre><code>even_numbers = [
+    number for number in numbers
+    if number % 2 == 0
+]
+print(even_numbers)  # [2, 4]</code></pre>
+            <p><strong>Pattern:</strong> <code>[expression for item in iterable if condition]</code></p>
+            <h3>Dictionary comprehension</h3>
+            <pre><code>tickets = [
+    {"id": 101, "status": "open"},
+    {"id": 102, "status": "closed"},
+]
+ticket_by_id = {
+    ticket["id"]: ticket
+    for ticket in tickets
+}
+print(ticket_by_id[101])</code></pre>
+            <p><strong>Practice:</strong> Build a list of squared numbers from 1 to 10, then keep only the squares of
+                even numbers.</p>
+        </div>
+    </div>
+    <div class="qa-card" id="q5">
+        <div class="question-text"><span class="highlight-q">5. Practical exercise — Support tickets</span></div>
+        <div class="answer-content">
+            <p>Create a file named <code>day1_tickets.py</code>. Each ticket should have an integer <code>id</code>,
+                string <code>title</code>, valid <code>status</code> (<code>open</code>, <code>closed</code>, <code>pending</code>)
+                and valid <code>priority</code> (<code>low</code>, <code>medium</code>, <code>high</code>).</p>
+            <h3>Starter code</h3>
+            <pre><code>tickets = [
+    {"id": 101, "title": "Login issue", "status": "open", "priority": "high"},
+    {"id": 102, "title": "Payment failed", "status": "closed", "priority": "high"},
+    {"id": 103, "title": "Email not received", "status": "pending", "priority": "medium"},
+    {"id": 104, "title": "API timeout", "status": "open", "priority": "high"},
+    {"id": 105, "title": "Update profile", "status": "closed", "priority": "low"},
+]
+
+# TODO:
+# 1. Print all ticket titles.
+# 2. Filter tickets with status "open".
+# 3. Count open tickets.
+# 4. Find tickets with both status "open" and priority "high".
+# 5. Test a status with no matches ("cancelled").
+# 6. Handle a ticket with a missing status.
+# 7. Reject a ticket whose status is an integer.</code></pre>
+            <h3>Hints</h3>
+            <pre><code>open_tickets = [
+    ticket for ticket in tickets
+    if ticket["status"] == "open"
+]
+
+status = ticket.get("status")  # Safely access a possibly missing key
+if not isinstance(status, str):
+    print("Invalid status")
+
+allowed_statuses = {"open", "closed", "pending"}
+if status not in allowed_statuses:
+    print("Unsupported status")</code></pre>
+            <div class="note"><strong>Edge cases:</strong> A no-match filter should return an empty list, not an error.
+                A missing status and a wrong-type status should be detected explicitly. A string such as
+                <code>"unknown"</code> is also invalid even though its type is correct.
+            </div>
+            <h3>Suggested checks</h3>
+            <ul class="task-list">
+                <li><label><input type="checkbox"> Print all ticket titles.</label></li>
+                <li><label><input type="checkbox"> Filter and count open tickets (expected: 2).</label></li>
+                <li><label><input type="checkbox"> Filter high-priority open tickets (expected: 2).</label></li>
+                <li><label><input type="checkbox"> Confirm no matches return <code>[]</code>.</label></li>
+                <li><label><input type="checkbox"> Detect a missing <code>status</code>.</label></li>
+                <li><label><input type="checkbox"> Reject an integer or unsupported status.</label></li>
+            </ul>
+            <h3>Self-check questions</h3>
+            <ol>
+                <li>Which Python type is closest to a PHP associative array?</li>
+                <li>What happens when <code>ticket["status"]</code> accesses a missing key?</li>
+                <li>What values does <code>range(3)</code> produce?</li>
+                <li>Which collection automatically eliminates duplicate elements?</li>
+                <li>What does <code>[x * 2 for x in [1, 2, 3]]</code> produce?</li>
+            </ol>
+            <details>
+                <summary><strong>Show answers</strong></summary>
+                <ol>
+                    <li>Dictionary</li>
+                    <li><code>KeyError</code></li>
+                    <li><code>0, 1, 2</code></li>
+                    <li>Set</li>
+                    <li><code>[2, 4, 6]</code></li>
+                </ol>
+            </details>
+            <h3>Official resources</h3>
+            <ul>
+                <li><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer">Python
+                    Tutorial</a></li>
+                <li><a href="https://docs.python.org/3/tutorial/introduction.html" target="_blank"
+                       rel="noopener noreferrer">Chapter 3 — An Informal Introduction to Python</a></li>
+                <li><a href="https://docs.python.org/3/tutorial/controlflow.html" target="_blank"
+                       rel="noopener noreferrer">Chapter 4 — More Control Flow Tools</a></li>
+                <li><a href="https://docs.python.org/3/tutorial/datastructures.html" target="_blank"
+                       rel="noopener noreferrer">Chapter 5 — Data Structures</a></li>
+            </ul>
+            <p><strong>Next step:</strong> Implement the exercise yourself and review correctness, Python conventions,
+                edge cases and readability.</p>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+<script>document.addEventListener('DOMContentLoaded', function () {
+    var menu = document.getElementById('menuList');
+    if (menu && !menu.children.length) {
+        document.querySelectorAll('.qa-card').forEach(function (card) {
+            var link = document.createElement('a');
+            link.href = '#' + card.id;
+            link.textContent = card.querySelector('.highlight-q').textContent;
+            menu.appendChild(link);
+        });
+    }
+});</script>
 </body>
 </html>

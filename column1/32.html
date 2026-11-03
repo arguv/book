@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Robots -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex, noodp, noydir">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <meta name="ia_archiver" content="noindex, nofollow">
+
+    <!-- Referrer & Framing -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
+
+    <!-- Empty social previews -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <title></title>
+
+    <!-- Bootstrap 4 + custom style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/temp.css">
+</head>
+<body>
+<!-- ========== FLOATING MENU (fixed position) ========== -->
+<div class="floating-menu" id="floatingMenu">
+    <div class="menu-list" id="menuList">
+        <!-- menu items are generated via JS -->
+    </div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="container" id="mainContent">
+
+    <div class="qa-card" id="q1">
+        <div class="question-text"><span class="highlight-q">Tell me about yourself.</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>I'm a Senior Backend Developer with over 11 years of experience, mainly working with PHP, Symfony, and Laravel. I've worked on high-traffic applications, distributed systems, APIs, databases, and production troubleshooting. I'm comfortable owning tasks from investigation and design through implementation, testing, and deployment. Recently, I've also been expanding my Python and AI engineering skills. I'm interested in this position because it combines scalable backend engineering with challenging security research problems.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q2">
+        <div class="question-text"><span class="highlight-q">You don't have professional Python experience. Why should we hire you?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>My main professional experience is in PHP, so I understand that Python is an area where I need to grow. However, I have strong experience with backend architecture, databases, APIs, distributed systems, and production reliability. These engineering principles are transferable between languages. I'm actively studying Python and building practical projects to become productive with it.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q3">
+        <div class="question-text"><span class="highlight-q">Why OX Security?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>I'm interested in OX Security because the company works on real technical challenges, including scalable data processing, software supply-chain security, and application risk prioritization. I also like that this role involves end-to-end ownership and collaboration with security researchers. I believe my backend experience could be useful while I continue developing my cybersecurity knowledge.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q4">
+        <div class="question-text"><span class="highlight-q">How would you design a large-scale data ingestion system?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>I would separate ingestion from processing using a queue. Independent workers would validate and transform data, then store it in a database. I would add retries, idempotency, rate limiting, monitoring, and horizontal scaling.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q5">
+        <div class="question-text"><span class="highlight-q">What happens if a worker processes the same message twice?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>I would make processing idempotent using a stable event or package-version identifier, database unique constraints, and upserts where appropriate.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q6">
+        <div class="question-text"><span class="highlight-q">How do you handle millions of database records?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>I would begin with query analysis and indexing, then consider batching, pagination, appropriate data retention, partitioning when justified, and monitoring query and storage performance.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q7">
+        <div class="question-text"><span class="highlight-q"></span></div>
+        <div class="answer-content">
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q8">
+        <div class="question-text"><span class="highlight-q">What is the difference between concurrency and parallelism?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Concurrency means managing multiple tasks with overlapping execution. Parallelism means executing tasks simultaneously, often across CPU cores. Asynchronous I/O is useful when many tasks spend time waiting for network responses.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q9">
+        <div class="question-text"><span class="highlight-q">How would you deal with an external API that starts returning errors?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Use timeouts, bounded retries with backoff, respect rate limits, avoid overwhelming the service, preserve job state, and monitor failures. For prolonged failures, consider circuit breaking or pausing ingestion.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q10">
+        <div class="question-text"><span class="highlight-q">What is a data pipeline?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>A data pipeline collects data from one or more sources, validates and transforms it, and stores or delivers it for further processing.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q11">
+        <div class="question-text"><span class="highlight-q">How would you improve a slow ingestion pipeline?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>First measure throughput, latency, error rates, worker utilization, and database performance. Find the bottleneck before changing concurrency, query patterns, batching, or resources.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q12">
+        <div class="question-text"><span class="highlight-q">What is software supply-chain security?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>It protects the components and processes used to build and deliver software, including third-party dependencies, package registries, build pipelines, and artifacts.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q13">
+        <div class="question-text"><span class="highlight-q">How would you take a research prototype to production?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>I would clarify its expected inputs and outputs, add validation, tests, reliable storage, error handling, logging, monitoring, and deployment automation. I would also review performance and security requirements with the researchers.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q14">
+        <div class="question-text"><span class="highlight-q">How do you use AI tools in development?</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>I use AI tools to accelerate implementation, investigation, and code review, but I review the generated code, verify assumptions, write tests, and remain responsible for the final solution.</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="../js/temp.js"></script>
+</body>
+</html>

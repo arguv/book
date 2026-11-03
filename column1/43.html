@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Robots -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex, noodp, noydir">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <meta name="ia_archiver" content="noindex, nofollow">
+
+    <!-- Referrer & Framing -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
+
+    <!-- Empty social previews -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <title></title>
+
+    <!-- Bootstrap 4 + custom style -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/temp.css">
+</head>
+<body>
+<!-- ========== FLOATING MENU (fixed position) ========== -->
+<div class="floating-menu" id="floatingMenu">
+    <div class="menu-list" id="menuList">
+        <!-- menu items are generated via JS -->
+    </div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="container" id="mainContent">
+
+    <div class="qa-card" id="q1">
+        <div class="question-text"><span class="highlight-q">Categories</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>General AI assistants</li>
+                <li>AI coding assistants</li>
+                <li>AI coding agents</li>
+                <li>AI search engines</li>
+                <li>AI models (LLMs)</li>
+                <li>AI agent frameworks</li>
+                <li>AI development platforms</li>
+                <li>Local AI tools</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q5">
+        <div class="question-text"><span class="highlight-q">AI assistants, coding tools, and models</span></div>
+        <div class="answer-content">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Provider</th>
+                            <th scope="col">Assistant</th>
+                            <th scope="col">Coding tool</th>
+                            <th scope="col">Models</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">OpenAI</th>
+                            <td>ChatGPT</td>
+                            <td>Codex</td>
+                            <td>GPT (GPT-6, GPT-5.6, GPT-5.5)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Anthropic</th>
+                            <td>Claude</td>
+                            <td>Claude Code</td>
+                            <td>Claude (Opus, Sonnet, Haiku)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Microsoft</th>
+                            <td>Microsoft Copilot</td>
+                            <td>GitHub Copilot</td>
+                            <td>Phi, MAI</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Google</th>
+                            <td>Gemini</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Meta</th>
+                            <td>Meta AI</td>
+                            <td>—</td>
+                            <td>Llama</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Anysphere</th>
+                            <td>—</td>
+                            <td>Cursor</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">DeepSeek</th>
+                            <td>DeepSeek</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q8">
+        <div class="question-text"><span class="highlight-q">Large Language Model (LLM)</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>The LLM itself is a deep learning model.</li>
+                <li>LLM describes a family of language-oriented AI models.</li>
+                <li>Multimodal describes a model's capability to process different data types.</li>
+                <li>LLM (Large Language Model) — text-only. Takes text in, produces text out. Examples: GPT-3, Llama 2, Mistral 7B.</li>
+                <li>Multimodal LLM (MLLM / VLM) — takes multiple modalities as input (text + images, sometimes audio/video) and typically outputs text. Examples: GPT-4o, Gemini, Claude 3.5 Sonnet, LLaVA, Qwen-VL.</li>
+                <li>By architecture:</li>
+                <li>Dense Transformers, Mixture-of-Experts (MoE)</li>
+                <li>State Space Models (SSM)</li>
+                <li>Within multimodal, common subtypes:</li>
+                <li>Vision-Language Models (VLM) — image + text → text (most common)</li>
+                <li>Audio-Language Models — speech/audio + text → text</li>
+                <li>Omni-modal — any combination of text/image/audio/video in and out (e.g., GPT-4o)</li>
+                <li>Video-Language Models — video + text → text</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q6">
+        <div class="question-text"><span class="highlight-q">LLM</span></div>
+        <div class="answer-content">
+            <ul>
+                <li><b>Capabilities:</b> Choose a model that can understand documents and answer questions.</li>
+                <li>Technical Specifications: Check whether its context window is large enough for the documents.</li>
+                <li>Inference Settings: Configure the response length and available reasoning settings.</li>
+
+                <li>Capabilities | What the LLM can do | Reasoning, coding, understanding images, generating text</li>
+                <li>Technical Specifications | The model's technical characteristics and limits | Context window, token limits, supported modalities</li>
+                <li>Inference Settings | How the model generates responses | Temperature, top-p, max output tokens, reasoning effort</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q7">
+        <div class="question-text"><span class="highlight-q">Capability</span></div>
+        <div class="answer-content">
+            <ul>
+                <li>Reasoning -	Solve complex logical or architectural problems</li>
+                <li>Coding - Generate and debug Go, Python, PHP</li>
+                <li>Vision - Understand screenshots, diagrams, photographs</li>
+                <li>Text generation - Write emails, reports, documentation</li>
+                <li>Language understanding - Translate and explain text</li>
+                <li>Summarization -	Analyze documents and extract information</li>
+                <li>Tool calling - Request web searches, calculations, API operations</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q9">
+        <div class="question-text"><span class="highlight-q">Language model terms</span></div>
+        <div class="answer-content">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Term</th>
+                            <th scope="col">Full name</th>
+                            <th scope="col">Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">LM</th>
+                            <td>Language Model</td>
+                            <td>General category of language models</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">SLM</th>
+                            <td>Small Language Model</td>
+                            <td>Smaller, efficient language models</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">LLM</th>
+                            <td>Large Language Model</td>
+                            <td>Large-scale language understanding and generation</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">VLM</th>
+                            <td>Vision-Language Model</td>
+                            <td>Understand images, text, and sometimes video</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ALM</th>
+                            <td>Audio Language Model</td>
+                            <td>Process audio and language; acronym is less standardized</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Video-LLM</th>
+                            <td>Video Language Model</td>
+                            <td>Understand and reason about video</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">MLLM</th>
+                            <td>Multimodal Large Language Model</td>
+                            <td>Process combinations of text, images, audio, etc.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Omni</th>
+                            <td>Omni-modal Model</td>
+                            <td>Unified processing across several modalities, potentially including text, audio, images and video</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">VLA</th>
+                            <td>Vision-Language-Action Model</td>
+                            <td>Understand visual instructions and generate actions for robots</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul>
+                <li>VLM and Omni terminology is documented by NVIDIA.</li>
+                <li>Important: These are overlapping categories, not a strict hierarchy.</li>
+                <li>SLM vs LLM describes model size.</li>
+                <li>VLM, ALM, MLLM, Omni describe supported modalities.</li>
+                <li>VLA describes vision-language models with action capabilities.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q10">
+        <div class="question-text"><span class="highlight-q">Tokenization</span></div>
+        <div class="answer-content">
+            <p>Splits text into units called tokens and maps each token to a numeric ID the model can process.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q11">
+        <div class="question-text"><span class="highlight-q">Character tokenizer</span></div>
+        <div class="answer-content">
+            <p>Treats each character as a token. It is simple to understand, though sequences become longer than with word or subword tokens.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q12">
+        <div class="question-text"><span class="highlight-q">Input: character</span></div>
+        <div class="answer-content">
+            <p>In a character-level model, the input is a sequence of character IDs that provides context for a prediction.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q13">
+        <div class="question-text"><span class="highlight-q">Target: next character</span></div>
+        <div class="answer-content">
+            <p>The expected answer for each input position is the character immediately after it in the original text.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q14">
+        <div class="question-text"><span class="highlight-q">Tensor shapes (block_size = 4)</span></div>
+        <div class="answer-content">
+            <p>A block contains four input tokens. A batch of these blocks has shape (batch_size, 4); its targets have the same shape.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q15">
+        <div class="question-text"><span class="highlight-q">PyTorch tensors</span></div>
+        <div class="answer-content">
+            <p>Multidimensional arrays that hold model inputs, parameters, and outputs. PyTorch uses them for automatic differentiation.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q16">
+        <div class="question-text"><span class="highlight-q">PyTorch’s CPU build</span></div>
+        <div class="answer-content">
+            <p>A PyTorch installation that runs calculations on the CPU without requiring a GPU.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q17">
+        <div class="question-text"><span class="highlight-q">Embeddings</span></div>
+        <div class="answer-content">
+            <p>Learned vectors that represent token IDs as numbers a model can work with.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q18">
+        <div class="question-text"><span class="highlight-q">Embedding layer</span></div>
+        <div class="answer-content">
+            <p>A lookup table of learned vectors. Given token IDs, it returns their corresponding embeddings.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q19">
+        <div class="question-text"><span class="highlight-q">embedding_dim = 6</span></div>
+        <div class="answer-content">
+            <p>Each token embedding has six numbers, so an embedding layer returns vectors of length 6.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q20">
+        <div class="question-text"><span class="highlight-q">nn.Embedding</span></div>
+        <div class="answer-content">
+            <p>The PyTorch layer that maps integer IDs to trainable embedding vectors.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q21">
+        <div class="question-text"><span class="highlight-q">Linear layer</span></div>
+        <div class="answer-content">
+            <p>A layer that applies a learned weighted sum and an optional bias to transform input features into output features.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q22">
+        <div class="question-text"><span class="highlight-q">Logits</span></div>
+        <div class="answer-content">
+            <p>Raw model scores for possible next tokens, before converting them to probabilities.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q23">
+        <div class="question-text"><span class="highlight-q">PyTorch and pytest</span></div>
+        <div class="answer-content">
+            <p>PyTorch builds and trains the model; pytest runs automated checks on the code.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q24">
+        <div class="question-text"><span class="highlight-q">Bigram model</span></div>
+        <div class="answer-content">
+            <p>A simple model that predicts the next token using only the current token.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q25">
+        <div class="question-text"><span class="highlight-q">Number of predictions</span></div>
+        <div class="answer-content">
+            <p>For next-token training, the model makes one prediction at each input position; a four-token block gives four predictions.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q26">
+        <div class="question-text"><span class="highlight-q">Predicted IDs</span></div>
+        <div class="answer-content">
+            <p>The numeric token IDs chosen from model scores, which a tokenizer can convert back to text.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q27">
+        <div class="question-text"><span class="highlight-q">Scores for one position</span></div>
+        <div class="answer-content">
+            <p>The logits for all possible next tokens at one input position; the vector has one score per vocabulary item.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q28">
+        <div class="question-text"><span class="highlight-q">Linear biases</span></div>
+        <div class="answer-content">
+            <p>Trainable values added to a linear layer’s weighted sums, usually one bias per output feature.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q29">
+        <div class="question-text"><span class="highlight-q">Linear weights</span></div>
+        <div class="answer-content">
+            <p>Trainable values that determine how strongly each input feature contributes to each output feature.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q30">
+        <div class="question-text"><span class="highlight-q">nn.Linear</span></div>
+        <div class="answer-content">
+            <p>The PyTorch module that implements a linear transformation with trainable weights and, by default, biases.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q31">
+        <div class="question-text"><span class="highlight-q">argmax</span></div>
+        <div class="answer-content">
+            <p>Returns the index of the largest value. Applied to logits, it selects the highest-scoring token ID.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q32">
+        <div class="question-text"><span class="highlight-q">Kaiming uniform</span></div>
+        <div class="answer-content">
+            <p>A weight initialization method that samples values from a range chosen to help signals flow through a network.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q33">
+        <div class="question-text"><span class="highlight-q">Cross-entropy loss</span></div>
+        <div class="answer-content">
+            <p>Measures how well predicted scores match the correct token IDs; lower loss means better predictions.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q34">
+        <div class="question-text"><span class="highlight-q">Greedy decoding</span></div>
+        <div class="answer-content">
+            <p>Generates text by choosing the highest-scoring next token at every step.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q35">
+        <div class="question-text"><span class="highlight-q">Softmax</span></div>
+        <div class="answer-content">
+            <p>Converts logits into probabilities that are nonnegative and sum to 1.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q36">
+        <div class="question-text"><span class="highlight-q">Inspection function</span></div>
+        <div class="answer-content">
+            <p>A small helper that prints or displays intermediate values, such as tensor shapes, scores, or predicted IDs, for debugging.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q37">
+        <div class="question-text"><span class="highlight-q">KV cache</span></div>
+        <div class="answer-content">
+            <p>Stores attention keys and values from earlier tokens so a transformer can reuse them while generating new tokens.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q38">
+        <div class="question-text"><span class="highlight-q">Feedforward</span></div>
+        <div class="answer-content">
+            <p>A neural-network block that transforms each token representation through linear layers and a nonlinear activation.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q39">
+        <div class="question-text"><span class="highlight-q">Dataset preparation</span></div>
+        <div class="answer-content">
+            <p>Cleans and tokenizes source text, then splits it into input and target sequences for training and evaluation.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q40">
+        <div class="question-text"><span class="highlight-q">Prediction</span></div>
+        <div class="answer-content">
+            <p>The model uses input tokens to produce scores for possible next tokens.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q41">
+        <div class="question-text"><span class="highlight-q">Training</span></div>
+        <div class="answer-content">
+            <p>Repeatedly compares predictions with targets and updates model weights to reduce the loss.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q42">
+        <div class="question-text"><span class="highlight-q">Generation</span></div>
+        <div class="answer-content">
+            <p>Produces new text one token at a time, feeding each chosen token back into the model.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q43">
+        <div class="question-text"><span class="highlight-q">Attention</span></div>
+        <div class="answer-content">
+            <p>Lets each token use relevant information from other tokens in its context. Causal attention restricts a token to earlier positions.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q44">
+        <div class="question-text"><span class="highlight-q">Transformer block</span></div>
+        <div class="answer-content">
+            <p>Combines attention and a feedforward network to refine token representations; GPT stacks multiple blocks.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q45">
+        <div class="question-text"><span class="highlight-q">Tiny GPT-style model</span></div>
+        <div class="answer-content">
+            <p>A small decoder-only transformer that uses token embeddings, causal attention, and an output layer to predict the next token.</p>
+        </div>
+    </div>
+
+    <div class="qa-card" id="q46">
+        <div class="question-text"><span class="highlight-q">Runtime inspection</span></div>
+        <div class="answer-content">
+            <p>Checks values while code runs, such as tensor shapes, loss, logits, and generated tokens, to understand behavior and find errors.</p>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="../js/temp.js"></script>
+</body>
+</html>

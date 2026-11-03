@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Robots -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex, noodp, noydir">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive">
+    <meta name="ia_archiver" content="noindex, nofollow">
+
+    <!-- Referrer & Framing -->
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
+
+    <!-- Empty social previews -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+		<title>Book</title>
+	
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/temp.css">
+	</head>
+	<body>
+
+	    <!-- ========== MAIN CONTENT ========== -->
+		<div class="container" id="mainContent">
+
+			<div class="qa-card" id="q1">
+				<div class="question-text">
+					<span class="highlight-q">Prompt Engineering</span>
+				</div>
+
+				<div class="answer-content">
+					<p>
+						Prompt Engineering is the process of writing clear,
+						structured instructions to an AI model to get accurate,
+						useful, and predictable results.
+					</p>
+					<image src="../images/prompt-engineering.svg" alt="Prompt Engineering" class="img-fluid">
+
+					<ul>
+						<li>
+							<strong>Role:</strong> Define who the AI should act as.
+							Example: Act as a Senior PHP Engineer.
+						</li>
+						<li>
+							<strong>Task:</strong> Clearly explain what the AI
+							should do. Example: Review my PHP code.
+						</li>
+						<li>
+							<strong>Context:</strong> Provide relevant background
+							information. Example: Symfony 7, PHP 8.3, PostgreSQL.
+						</li>
+						<li>
+							<strong>Constraints:</strong> Define rules and limitations.
+							Example: Do not change business logic.
+						</li>
+						<li>
+							<strong>Output Format:</strong> Specify how the AI
+							should respond. Example: JSON, table, or code.
+						</li>
+						<li>
+							<strong>Zero-shot Prompting:</strong> Ask the AI
+							to perform a task without examples.
+						</li>
+						<li>
+							<strong>One-shot / Few-shot Prompting:</strong>
+							Provide one or several examples to guide the AI.
+						</li>
+						<li>
+							<strong>Prompt Chaining:</strong> Divide a complex
+							task into smaller, connected steps.
+						</li>
+						<li>
+							<strong>Iterative Refinement:</strong> Improve the
+							prompt based on the AI's previous responses.
+						</li>
+						<li>
+							<strong>Key Takeaway:</strong> Good prompt engineering
+							means clearly defining the task, providing context,
+							setting constraints, and evaluating the result.
+						</li>
+					</ul>
+
+					<div class="qa-card" id="q2">
+						<div class="question-text"><span class="highlight-q">Practical example</span></div>
+						<div class="answer-content">
+							<pre>ROLE:
+You are a Senior Backend Engineer.
+
+TASK:
+Review the following REST API implementation.
+
+CONTEXT:
+The application uses PHP 8.3, Symfony 7,
+Doctrine ORM, and PostgreSQL.
+
+CONSTRAINTS:
+- Identify security and performance problems.
+- Do not change business logic.
+- Keep explanations short.
+
+OUTPUT FORMAT:
+Return a table with:
+Issue | Severity | Recommendation</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	    <script src="../js/temp.js"></script>
+</body>
+</html>

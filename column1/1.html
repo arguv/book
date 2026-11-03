@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<!-- Robots -->
+		<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, notranslate, noimageindex, noodp, noydir">
+		<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+		<meta name="bingbot" content="noindex, nofollow, noarchive">
+		<meta name="ia_archiver" content="noindex, nofollow">
+
+		<!-- Referrer & Framing -->
+		<meta name="referrer" content="no-referrer">
+		<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'">
+
+		<!-- Empty social previews -->
+		<meta property="og:title" content="">
+		<meta property="og:description" content="">
+		<meta property="og:image" content="">
 	    <title>Book</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -14,106 +27,6 @@
 
 	    <div class="container">
 	        <div class="row">
-				<div class="center">
-					<h1>OOP Object-Oriented Programming</h1>
-					<p>Abstraction, Polymorphism, Inheritance, Encapsulation</p>
-				</div>
-
-				<div>
-					<h2>Abstraction</h2>
-				</div>
-
-				<blockquote class="blockquote">
-					Abstraction means: Hiding the complex implementation details and exposing only what's essential to the outside world.<br>
-					Abstraction = hide how something is done, expose what it does.<br>
-					Abstraction is achieved mainly through abstract classes and interfaces.<br>
-					<hr>
-					<pre>
-abstract class Shape {
-    abstract public function area(): float;
-
-    public function describe() {
-        echo "This shape has an area of " . $this->area() . "\n";
-    }
-}
-
-class Circle extends Shape {
-    public function __construct(private float $r) {}
-
-    public function area(): float {
-        return M_PI * $this->r ** 2;
-    }
-}
-
-class Square extends Shape {
-    public function __construct(private float $side) {}
-
-    public function area(): float {
-        return $this->side ** 2;
-    }
-}
-
-$c = new Circle(2);
-$c->describe(); // This shape has an area of 12.566...
-					</pre>
-
-					<p>⚠️ <b>Abstract Classes</b></p>
-					<ul>
-						<li>✅ Can mix abstract methods (no body) with concrete methods (with body)</li>
-						<li>✅ Child classes must implement all abstract methods</li>
-						<li>✅ Can have properties, constructors, constants.</li>
-						<li>❌ Cannot be instantiated directly.</li>
-						<li>Abstract Class - "is-a" (Circle is a Shape)</li>
-					</ul>
-
-					<p>⚠️ <b>Interfaces</b></p>
-					<ul>
-						<li>✅ interface is pure abstraction — only method signatures, no implementation.</li>
-						<li>✅ A class can implement many interfaces.</li>
-						<li>✅ All methods are implicitly public and abstract</li>
-						<li>❌ No properties, no implementation (until PHP 8.0+...)</li>
-						<li>Interface - "can-do" (Stripe can act as a PaymentGateway)</li>
-					</ul>
-
-					<p>⚠️ <b>PHP Version Notes</b></p>
-					<ul>
-						<li>PHP 8.0+: Interfaces can have static methods and (since 8.3) constants with types.</li>
-						<li>Traits offer another form of code reuse, but they're not abstraction — they're implementation sharing.</li>
-						<li>Enums (PHP 8.1) and readonly properties (8.1/8.2) pair nicely with abstraction patterns.</li>
-					</ul>
-
-					<pre>
-interface PaymentGateway {
-    public function pay(float $amount): bool;
-    public function refund(string $transactionId): bool;
-}
-
-class StripeGateway implements PaymentGateway {
-    public function pay(float $amount): bool {
-        // Stripe-specific logic
-        return true;
-    }
-
-    public function refund(string $transactionId): bool {
-        // Stripe-specific logic
-        return true;
-    }
-}
-
-class PayPalGateway implements PaymentGateway {
-    public function pay(float $amount): bool {
-        // PayPal-specific logic
-        return true;
-    }
-
-    public function refund(string $transactionId): bool {
-        // PayPal-specific logic
-        return true;
-    }
-}
-					</pre>
-				</blockquote>
-
 				<div class="center">
 					<h1>The SOLID Principles</h1>
 					<p>SOLID is a acronym for five object-oriented design (OOD) principles that are intended to make software designs more understandable</p>
